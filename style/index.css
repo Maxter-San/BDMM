@@ -1,0 +1,258 @@
+/*Header*/
+.hero{
+    background-image: linear-gradient(-225deg, rgba(105, 234, 204, 0.60) 0%, rgba(234, 204, 248, 0.60) 48%, rgba(102, 84, 241, 0.60) 100%),  url("../resourses/header.png");
+    width: 100%;
+    height: 60em;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+    overflow: hidden;
+}
+
+.textos-hero{
+    height: 51em;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.textos-hero h1{
+    font-size: 6em;
+}
+
+.textos-hero p{
+    font-size: 2em;
+    margin-bottom: 2em;
+}
+
+.textos-hero a{
+    display: inline-block;
+    text-decoration: none;
+    padding: 1.2em 1.5em;
+    border-radius: 0.8em;
+    color: #fff;
+}
+
+.svg-hero{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+}
+
+/*Generales*/
+/*.contenedor,
+.wave-contenedor{
+    width: 90%;
+    max-width: 100em;
+    overflow: hidden;
+    margin: auto;
+    padding: 0 0 8em 0;
+}*/
+
+.contenedor{
+    padding: 8em 0;
+}
+
+.titulo{
+    font-weight: 300;
+    font-size: 3.5em;
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+.titulo.left{
+    text-align: left;
+}
+
+.titulo.right{
+    text-align: right;
+}
+
+/*Sections*/
+.website{
+    display: flex;
+    justify-content: space-between;
+}
+
+.website img{
+    width: 45%;
+    height: auto;
+}
+
+.website .contenedor-textos-main{
+    width: 45%;
+    height: auto;
+}
+
+.parrafo{
+    text-align: justify;
+    margin-bottom: 2em;
+    
+}
+
+.cta{
+    display: inline-block;
+    text-decoration: none;
+    padding: 1.2em 1.5em;
+    border-radius: 0.8em;
+    flex-wrap: wrap;
+}
+
+article>.cta{
+    border-radius: 0em;
+}
+
+.content-cards{
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.card{
+    width: 30%;
+    height: auto;
+    text-align: center;
+    box-shadow: 0 0 0.3em 0 rgba(0, 0, 0, 0.5);
+    transform: scale(1);
+    transition: transform 0.6s;
+}
+
+.card:hover{
+    box-shadow: 0 0 0.6em 0 rgba(0, 0, 0, 0.5);
+    transform: scale(1.03);
+    cursor: pointer;
+}
+
+.card i{
+    margin: 1em 0 1em 0;
+    color: #ffa500;
+    font-size: 5em;
+}
+.card p{
+    font-weight: 30em;
+    font-size: 1.5em;
+    margin-bottom: 1em;
+    margin-left: 1em;
+    margin-right: 1em;
+    text-align: justify;
+}
+
+/*Info*/
+.info{
+    background: #ffa500;
+    color: #fff;
+}
+
+.last-section img{
+    width: 45%;
+    height: auto;
+}
+
+.last-section .contenedor-textos-main{
+    width: 45%;
+    height: auto;
+}
+
+/*Info2*/
+.last-section{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-bottom: 4em;
+}
+
+/*Globales*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    font-family: 'Raleway', sans-serif;
+}
+
+/*Responsive*/
+@media screen and (max-width:800px) {
+    .textos-hero h1{
+        font-size: 5em;
+    }
+
+    .titulo{
+        font-size: 3.5em;
+    }
+
+    .titulo.titulo.left{
+        text-align: center;
+    }
+
+    .info p{
+        text-align: center;
+    }
+
+    .parrafo{
+        font-size: 1.5em;
+    }
+
+    .website{
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .website img{
+        width: 100%;
+    }
+
+    .website .contenedor-textos-main{
+        width: 100%;
+    }
+
+
+    .card{
+        width: 90%;
+    }
+
+    .card p{
+        font-weight: 25em;
+        font-size: 1.5em;
+    }
+
+    a.btn{
+        font-size: 1.5em;
+    }
+
+    .contenedor-textos-main{       
+        text-align: center;
+    }
+
+    .last-section .contenedor-textos-main{
+        width: 100%;
+        height: auto;
+        margin-bottom: 2em;
+    }
+}
+
+@media screen and (max-width:400px) {
+    .titulo,
+    .textos-hero h1{
+        font-size: 2.5em;
+    }
+
+    .textos-hero p{
+        font-size: 2em;
+        text-align: center;
+    }
+}

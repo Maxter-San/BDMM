@@ -238,9 +238,13 @@ body{
         text-align: center;
     }
 
-    .last-section .contenedor-textos-main{
+    .last-section img{
         width: 100%;
         height: auto;
+    }
+
+    .last-section .contenedor-textos-main{
+        width: 100%;
         margin-bottom: 2em;
     }
 }

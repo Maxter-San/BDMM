@@ -22,7 +22,8 @@
         <div class="textos-hero">
             <h1>Bienvenidos a Maxter shop</h1>
             <p>Se parte de la comunidad</p>
-            <a href="#contacto" class="btn btn-primary" role="button" data-bs-toggle="button">Registrarme</a>
+            <a href="#hrefComunidad" class="btn btn-warning" role="button">Conoce más</a>
+            <a href="#hrefCompras" class="link-dark">Saltar introducción</a>
         </div>
 
         <div class="svg-hero" style="height: 150px; overflow: hidden;" >
@@ -33,71 +34,86 @@
     </header>
     
     <div class="container-fluid container">
-
-        <div class="contenedor last-section">
+        <div class="contenedor last-section" id="hrefComunidad">
             <div class="contenedor-textos-main">
                 <h2 class="titulo left">Comunidad</h2>
                 <p class="parrafo">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam sed rerum quam possimus odio quibusdam, repellendus mollitia error cupiditate ratione, maiores voluptatibus cum vitae adipisci. Aut aperiam odio porro sint?</p>
-                <a href="#" class="btn btn-primary cta" role="button" data-bs-toggle="button">Registrarme</a>
+                <a href="#hrefInfo" class="btn btn-warning cta" role="button">Siguiente</a>
             </div>
             <img src="./resourses/comunidad.jpg" alt="comunidad">
         </div>
     </div>
 
-    <section class="info">
+    <section class="info" id="hrefInfo">
         <div class="contenedor container-fluid container">
-            <h2 class="titulo left">Compra venta</h2>
+            <h2 class="titulo left">Información</h2>
             <p class="parrafo">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <a href="#hrefUsuarios" class="btn btn-outline-light cta" role="button">Aceptar</a>
         </div>
     </section>
 
     <div class="container-fluid container">
-        <section class="cards contenedor">
+        <section class="cards contenedor" id="hrefUsuarios">
             <h2 class="titulo">Usuarios</h2>
             <div class="content-cards">
                 <article class="card">
                     <i class="bi bi-person-badge"></i>
                     <h3>Comprador</h3>
                     <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quibusdam provident doloribus ipsa vitae, tenetur esse? Quisquam nisi libero, repellendus atque hic dolorem quaerat sequi quo a modi aut aperiam veniam!</p>
-                    <a href="#" class="btn btn-warning cta" role="button" data-bs-toggle="button">Registrarme</a>
+                    <a href="#hrefComprador" class="btn btn-warning cta" role="button">Me interesa</a>
                 </article>
 
                 <article class="card">
                     <i class="bi bi-shop"></i>
                     <h3>Vendedor</h3>
                     <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quibusdam provident doloribus ipsa vitae, tenetur esse? Quisquam nisi libero, repellendus atque hic dolorem quaerat sequi quo a modi aut aperiam veniam!</p>
-                    <a href="#" class="btn btn-warning cta" role="button" data-bs-toggle="button">Registrarme</a>
+                    <a href="#hrefvendedor" class="btn btn-warning cta" role="button">Me interesa</a>
                 </article>
                 
                 <article class="card">
                     <i class="bi bi-tools"></i>
-                    <h3>Vendedor</h3>
+                    <h3>Administrador</h3>
                     <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quibusdam provident doloribus ipsa vitae, tenetur esse? Quisquam nisi libero, repellendus atque hic dolorem quaerat sequi quo a modi aut aperiam veniam!</p>
                 </article>
             </div>
         </section>
 
-        <section id="contacto"></section>
-
-        </div>
-
-    <section class="info-last">
-        <div class="contenedor last-section container-fluid container">
+        <div class="contenedor last-section" id="hrefComprador">
             <div class="contenedor-textos-main">
-                <h2 class="titulo left">Información</h2>
+                <h2 class="titulo left">Compradores</h2>
                 <p class="parrafo">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam sed rerum quam possimus odio quibusdam, repellendus mollitia error cupiditate ratione, maiores voluptatibus cum vitae adipisci. Aut aperiam odio porro sint?</p>
-                <a href="#" class="btn btn-primary cta" role="button" data-bs-toggle="button">Registrarme</a>
+                <a href="#hrefCompras" class="btn btn-warning cta" role="button">Registrarme</a>
             </div>
-            <img src="./resourses/comunidad.jpg" alt="comunidad">
+            <img src="./resourses/comprador.jpg" alt="comunidad">
         </div>
 
-        <div class="svg-wave" style="height: 150px; overflow: hidden;" >
-            <svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">
-                <path d="M0.00,49.98 C149.99,150.00 349.20,-49.98 500.00,49.98 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill: rgb(33, 37, 41);"></path>
-            </svg>
+        <div class="contenedor last-section" id="hrefvendedor">
+            <div class="contenedor-textos-main">
+                <h2 class="titulo left">Vendedores</h2>
+                <p class="parrafo">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam sed rerum quam possimus odio quibusdam, repellendus mollitia error cupiditate ratione, maiores voluptatibus cum vitae adipisci. Aut aperiam odio porro sint?</p>
+                <a href="#hrefCompras" class="btn btn-warning cta" role="button">Registrarme</a>
+            </div>
+            <img src="./resourses/ventas.jpg" alt="comunidad">
         </div>
-    </section>
-    
+
+        <div class="contenedor last-section" id="hrefCompras">
+            <div class="contenedor-textos-main">
+                <h2 class="titulo left">Comienza a comprar en linea</h2>
+                <p class="parrafo">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam sed rerum quam possimus odio quibusdam, repellendus mollitia error cupiditate ratione, maiores voluptatibus cum vitae adipisci. Aut aperiam odio porro sint?</p>
+                
+                <a href="./signUp.php" class="btn btn-warning cta me-5" role="button">Registrarme</a>
+                <a href="./signUp.php" class="btn btn-outline-warning cta" role="button">Iniciar sesión</a>
+            </div>
+            <img src="./resourses/compras.jpg" alt="compras">
+        </div>
+    </div>
+
+
+    <div class="svg-wave" style="height: 150px; overflow: hidden;" >
+        <svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">
+            <path d="M0.00,49.98 C149.99,150.00 349.20,-49.98 500.00,49.98 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill: rgb(33, 37, 41);"></path>
+        </svg>
+    </div> 
 
 <?php
         include_once('assets/footer.php');

@@ -21,85 +21,89 @@
     <?php
         include_once('assets/header.php');
     ?>
-
+   
     <div class="container mt-5 mb-5">
-        <legend>Información personal</legend>
-        <div class="row">
-            <div class="col-md">
-                <label class="form-label">Nombre</label>
-                <input class="form-control" id="formName" placeholder="Escribe tu nombre(s)...">
+        <form method="POST" action="./main.php">
+            <legend>Información personal</legend>
+            <div class="row">
+                <div class="col-md form-group">
+                    <label class="form-label">Nombre</label>
+                    <input class="form-control" id="formName" placeholder="Escribe tu nombre(s)..." required>
+                </div>
+
+                <div class="col-md form-group">
+                    <label class="form-label">Apellido</label>
+                    <input class="form-control" id="formLastName" placeholder="Escribe tu apellido(s)..." required>
+                </div>
             </div>
 
-            <div class="col-md">
-                <label class="form-label">Apellido</label>
-                <input class="form-control" id="formLastName" placeholder="Escribe tu apellido(s)...">
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md">
-                <label class="form-label">Fecha de nacimiento</label>
-                <input class="form-control" type="date" id="formBirthDate" name="trip-start" max="2018-12-31">
-            </div>
-                
-            <div class="col-md">
-                <label class="form-label">Sexo</label>
-                <select class="form-select" id="formGender">
-                    <option selected>Selecciona tu sexo</option>
-                    <option value="1">Mujer</option>
-                    <option value="2">Hombre</option>
-                    <option value="3">Si</option>
-                </select>
-            </div>
-        </div>      
+            <div class="row">
+                <div class="col-md form-group">
+                    <label class="form-label">Fecha de nacimiento</label>
+                    <input class="form-control" type="date" id="formBirthDate" name="trip-start" required>
+                </div>
 
-        <legend class="mt-5">Información de usuario</legend>
-        <div class="row">
-            <div class="col-md">
-                <label class="form-label">Nombre de usuario</label>
-                <input class="form-control" id="formUserName" placeholder="Crea tu nombre de usuario...">
-            </div>
-            
-            <div class="col-md">
-                <label class="form-label">Correo electrónico</label>
-                <input type="email" class="form-control" id="formEmail" placeholder="nombre@ejemplo.com">
-            </div>                
-        </div>
+                <div class="col-md form-group">
+                    <label class="form-label">Sexo</label>
+                    <select class="form-select" id="formGender" required>
+                        <option selected value="">Selecciona tu sexo</option>
+                        <option value="1">Hombre</option>
+                        <option value="2">Mujer</option>                     
+                        <option value="3">Si</option>
+                    </select>
+                </div>
+            </div>      
 
-        <div class="row">
-            <div class="col-md">
-                <label class="form-label">Imagen de perfil</label>
-                <input class="form-control" type="file" id="formFile">
-            </div>
-            
-            <div class="col-md">
-                <label class="form-label">Tipo de usuario</label>
-                <select class="form-select" id="formRole">
-                    <option selected>Selecciona tu rol de usuario</option>
-                    <option value="1">Comprador</option>
-                    <option value="2">Vendedor</option>
-                </select>
-            </div>               
-        </div>
+            <legend class="mt-5">Información de usuario</legend>
+            <div class="row">
+                <div class="col-md form-group">
+                    <label class="form-label">Nombre de usuario</label>
+                    <input class="form-control" id="formUserName" placeholder="Crea tu nombre de usuario..." required>
+                </div>
 
-        <div class="row">
-            <div class="col-md">
-                <label class="form-label">Contraseña</label>
-                <input class="form-control" type="password" id="formPassword" placeholder="Crea una contraseña...">
+                <div class="col-md form-group">
+                    <label class="form-label">Correo electrónico</label>
+                    <input type="email" class="form-control" id="formEmail" placeholder="nombre@ejemplo.com" required>
+                </div>                
             </div>
-            
-            <div class="col-md">
-                <label class="form-label">Confirmar contraseña</label>
-                <input class="form-control" type="password" id="formPasswordConfirm" placeholder="Confirma la contraseña...">
-            </div>
-        </div>
 
-        <div class="row mt-5">
-            <div class="d-grid gap-2">
-                <a onclick="validateUser()" role="button" class="btn btn-outline-warning">Enviar</a>
+            <div class="row">
+                <div class="col-md form-group">
+                    <label class="form-label">Imagen de perfil</label>
+                    <input class="form-control" type="file" id="formFile" required>
+                </div>
+
+                <div class="col-md form-group">
+                    <label class="form-label">Tipo de usuario</label>
+                    <select class="form-select" id="formRole" required>
+                        <option selected value="">Selecciona tu rol de usuario</option>
+                        <option value="1">Comprador</option>
+                        <option value="2">Vendedor</option>
+                    </select>
+                </div>               
             </div>
-        </div>
+
+            <div class="row">
+                <div class="col-md form-group">
+                    <label class="form-label">Contraseña</label>
+                    <input class="form-control" type="password" id="formPassword" placeholder="Crea una contraseña..." required>
+                </div>
+
+                <div class="col-md form-group">
+                    <label class="form-label">Confirmar contraseña</label>
+                    <input class="form-control" type="password" id="formPasswordConfirm" placeholder="Confirma la contraseña..." required>
+                </div>
+            </div>
+
+            <div class="row mt-5">
+                <div class="d-grid gap-2">
+                    <button onclick="validateInfo()" class="btn btn-outline-warning" type="submit">Enviar</button>
+                    <!--onclick="validateInfo()"-->
+                </div>
+            </div>
+        </form>
     </div>
-
+    
     <?php
         include_once('assets/footer.php');
     ?>

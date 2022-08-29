@@ -1,0 +1,19 @@
+.row{
+    padding-top: 1em;
+}
+
+.btn-outline-warning:hover{
+    color: #fff;
+}
+
+@media screen and (max-width:800px) {
+    legend{
+        font-size: 2em;
+    }
+    .form-label{
+        font-size: 1.5em;
+    }
+    .form-control{
+        font-size: 1.2em;
+    }
+}

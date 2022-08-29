@@ -17,7 +17,8 @@
     
     <link rel='stylesheet' type='text/css' media='screen' href='./style/index.css'>
 </head>
-<body>                  <!-- LANDING PAGE -->
+
+<body class="d-flex flex-column min-vh-100">                  <!-- LANDING PAGE -->
     <header class="hero">
         <div class="textos-hero">
             <h1>Bienvenidos a Maxter shop</h1>
@@ -107,7 +108,6 @@
             <img src="./resourses/compras.jpg" alt="compras">
         </div>
     </div>
-
 
     <div class="svg-wave" style="height: 150px; overflow: hidden;" >
         <svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">

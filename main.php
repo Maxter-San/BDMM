@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100">
     <?php
         include_once('assets/header.php');
     ?>

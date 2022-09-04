@@ -1,0 +1,1 @@
+<img src="./resourses/comprador.jpg" alt="...">

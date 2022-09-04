@@ -5,20 +5,220 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Maxter shop</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='style/main.css'>
-    <script src='scripts/main.js'></script>
+    <script src='./scripts/main.js'></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-    
+    <link rel='stylesheet' type='text/css' media='screen' href='./style/main.css'>
+
 </head>
 <body class="d-flex flex-column min-vh-100">
     <?php
         include_once('assets/header.php');
     ?>
 
+    <div id="carouselExampleDark" class="carousel slide carousel-dark slide" data-bs-ride="true">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="./resourses/carousel01.jpg" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="./resourses/carousel01.jpg" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="./resourses/carousel01.jpg" class="d-block w-100" alt="...">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
     <div class="container mt-5 mb-5">
     
+    <h2>Tus últimos productos vistos</h2>
+    <div class="section">
+        <?php
+            $productName = 'producto';
+            $productPrice = '100';
+            $productImg = './resourses/comprador.jpg';
+            $productId = '1';
+            include('assets/itemCard.php');
+        ?>
+
+        <?php
+            $productName = 'producto 2';
+            $productPrice = '120';
+            $productImg = './resourses/comprador.jpg';
+            $productId = '2';
+            include('assets/itemCard.php');
+        ?>
+
+        <?php
+            $productName = 'producto 3';
+            $productPrice = '140';
+            $productImg = './resourses/comprador.jpg';
+            $productId = '3';
+            include('assets/itemCard.php');
+        ?>
+
+        <?php
+            $productName = 'producto 4';
+            $productPrice = '160';
+            $productImg = './resourses/comprador.jpg';
+            $productId = '4';
+            include('assets/itemCard.php');
+        ?>
+
+        <?php
+            $productName = 'producto 5';
+            $productPrice = '180';
+            $productImg = './resourses/comprador.jpg';
+            $productId = '4';
+            include('assets/itemCard.php');
+        ?>
+    </div>
+
+    <h2>Productos populares</h2>
+    <div class="section">
+        <?php
+            $productName = 'producto';
+            $productPrice = '100';
+            $productImg = './resourses/comprador.jpg';
+            $productId = '1';
+            include('assets/itemCard.php');
+        ?>
+
+        <?php
+            $productName = 'producto 2';
+            $productPrice = '120';
+            $productImg = './resourses/comprador.jpg';
+            $productId = '2';
+            include('assets/itemCard.php');
+        ?>
+
+        <?php
+            $productName = 'producto 3';
+            $productPrice = '140';
+            $productImg = './resourses/comprador.jpg';
+            $productId = '3';
+            include('assets/itemCard.php');
+        ?>
+
+        <?php
+            $productName = 'producto 4';
+            $productPrice = '160';
+            $productImg = './resourses/comprador.jpg';
+            $productId = '4';
+            include('assets/itemCard.php');
+        ?>
+
+        <?php
+            $productName = 'producto 5';
+            $productPrice = '180';
+            $productImg = './resourses/comprador.jpg';
+            $productId = '4';
+            include('assets/itemCard.php');
+        ?>
+    </div>
+
+    <h2>Más comprados</h2>
+    <div class="section">
+        <?php
+            $productName = 'producto';
+            $productPrice = '100';
+            $productImg = './resourses/comprador.jpg';
+            $productId = '1';
+            include('assets/itemCard.php');
+        ?>
+
+        <?php
+            $productName = 'producto 2';
+            $productPrice = '120';
+            $productImg = './resourses/comprador.jpg';
+            $productId = '2';
+            include('assets/itemCard.php');
+        ?>
+
+        <?php
+            $productName = 'producto 3';
+            $productPrice = '140';
+            $productImg = './resourses/comprador.jpg';
+            $productId = '3';
+            include('assets/itemCard.php');
+        ?>
+
+        <?php
+            $productName = 'producto 4';
+            $productPrice = '160';
+            $productImg = './resourses/comprador.jpg';
+            $productId = '4';
+            include('assets/itemCard.php');
+        ?>
+
+        <?php
+            $productName = 'producto 5';
+            $productPrice = '180';
+            $productImg = './resourses/comprador.jpg';
+            $productId = '4';
+            include('assets/itemCard.php');
+        ?>
+    </div>
+
+    <h2>Más recomendados</h2>
+    <div class="section">
+        <?php
+            $productName = 'producto';
+            $productPrice = '100';
+            $productImg = './resourses/comprador.jpg';
+            $productId = '1';
+            include('assets/itemCard.php');
+        ?>
+
+        <?php
+            $productName = 'producto 2';
+            $productPrice = '120';
+            $productImg = './resourses/comprador.jpg';
+            $productId = '2';
+            include('assets/itemCard.php');
+        ?>
+
+        <?php
+            $productName = 'producto 3';
+            $productPrice = '140';
+            $productImg = './resourses/comprador.jpg';
+            $productId = '3';
+            include('assets/itemCard.php');
+        ?>
+
+        <?php
+            $productName = 'producto 4';
+            $productPrice = '160';
+            $productImg = './resourses/comprador.jpg';
+            $productId = '4';
+            include('assets/itemCard.php');
+        ?>
+
+        <?php
+            $productName = 'producto 5';
+            $productPrice = '180';
+            $productImg = './resourses/comprador.jpg';
+            $productId = '4';
+            include('assets/itemCard.php');
+        ?>
+    </div>
+
+
     </div>
 
     <?php

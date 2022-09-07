@@ -1,0 +1,29 @@
+/*body{
+    background-color: rgb(230, 230, 230);
+}
+
+.compact{
+    background-color: rgb(255, 255, 255);
+    border-radius: 0.5em;
+}
+*/
+
+.menuContainer{
+    padding: 1em;
+    padding-top: 2em; 
+    margin: 0.5em;
+    box-shadow: 0 0 0.3em 0 rgba(0, 0, 0, 0.5);
+    border-radius: 0.5em;
+}
+
+.name{
+    font-weight: bold;
+}
+
+.price{
+    font-weight: lighter;
+}
+
+.existence{
+    font-weight: normal;
+}

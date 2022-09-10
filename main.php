@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <link rel='stylesheet' type='text/css' media='screen' href='./style/main.css'>
 
+    <link rel='stylesheet' type='text/css' media='screen' href='./style/sectionBar.css'>
+
 </head>
 <body class="d-flex flex-column min-vh-100">
     <?php
@@ -47,176 +49,24 @@
     <div class="container mt-5 mb-5">
     
     <h2>Tus últimos productos vistos</h2>
-    <div class="section">
-        <?php
-            $productName = 'producto';
-            $productPrice = '100';
-            $productImg = './resourses/comprador.jpg';
-            $productId = '1';
-            include('assets/itemCard.php');
-        ?>
-
-        <?php
-            $productName = 'producto 2';
-            $productPrice = '120';
-            $productImg = './resourses/comprador.jpg';
-            $productId = '2';
-            include('assets/itemCard.php');
-        ?>
-
-        <?php
-            $productName = 'producto 3';
-            $productPrice = '140';
-            $productImg = './resourses/comprador.jpg';
-            $productId = '3';
-            include('assets/itemCard.php');
-        ?>
-
-        <?php
-            $productName = 'producto 4';
-            $productPrice = '160';
-            $productImg = './resourses/comprador.jpg';
-            $productId = '4';
-            include('assets/itemCard.php');
-        ?>
-
-        <?php
-            $productName = 'producto 5';
-            $productPrice = '180';
-            $productImg = './resourses/comprador.jpg';
-            $productId = '4';
-            include('assets/itemCard.php');
-        ?>
-    </div>
+    <?php
+        include('assets/sectionBar.php');
+    ?>
 
     <h2>Productos populares</h2>
-    <div class="section">
-        <?php
-            $productName = 'producto';
-            $productPrice = '100';
-            $productImg = './resourses/comprador.jpg';
-            $productId = '1';
-            include('assets/itemCard.php');
-        ?>
-
-        <?php
-            $productName = 'producto 2';
-            $productPrice = '120';
-            $productImg = './resourses/comprador.jpg';
-            $productId = '2';
-            include('assets/itemCard.php');
-        ?>
-
-        <?php
-            $productName = 'producto 3';
-            $productPrice = '140';
-            $productImg = './resourses/comprador.jpg';
-            $productId = '3';
-            include('assets/itemCard.php');
-        ?>
-
-        <?php
-            $productName = 'producto 4';
-            $productPrice = '160';
-            $productImg = './resourses/comprador.jpg';
-            $productId = '4';
-            include('assets/itemCard.php');
-        ?>
-
-        <?php
-            $productName = 'producto 5';
-            $productPrice = '180';
-            $productImg = './resourses/comprador.jpg';
-            $productId = '4';
-            include('assets/itemCard.php');
-        ?>
-    </div>
+    <?php
+        include('assets/sectionBar.php');
+    ?>
 
     <h2>Más comprados</h2>
-    <div class="section">
-        <?php
-            $productName = 'producto';
-            $productPrice = '100';
-            $productImg = './resourses/comprador.jpg';
-            $productId = '1';
-            include('assets/itemCard.php');
-        ?>
-
-        <?php
-            $productName = 'producto 2';
-            $productPrice = '120';
-            $productImg = './resourses/comprador.jpg';
-            $productId = '2';
-            include('assets/itemCard.php');
-        ?>
-
-        <?php
-            $productName = 'producto 3';
-            $productPrice = '140';
-            $productImg = './resourses/comprador.jpg';
-            $productId = '3';
-            include('assets/itemCard.php');
-        ?>
-
-        <?php
-            $productName = 'producto 4';
-            $productPrice = '160';
-            $productImg = './resourses/comprador.jpg';
-            $productId = '4';
-            include('assets/itemCard.php');
-        ?>
-
-        <?php
-            $productName = 'producto 5';
-            $productPrice = '180';
-            $productImg = './resourses/comprador.jpg';
-            $productId = '4';
-            include('assets/itemCard.php');
-        ?>
-    </div>
+    <?php
+        include('assets/sectionBar.php');
+    ?>
 
     <h2>Más recomendados</h2>
-    <div class="section">
-        <?php
-            $productName = 'producto';
-            $productPrice = '100';
-            $productImg = './resourses/comprador.jpg';
-            $productId = '1';
-            include('assets/itemCard.php');
-        ?>
-
-        <?php
-            $productName = 'producto 2';
-            $productPrice = '120';
-            $productImg = './resourses/comprador.jpg';
-            $productId = '2';
-            include('assets/itemCard.php');
-        ?>
-
-        <?php
-            $productName = 'producto 3';
-            $productPrice = '140';
-            $productImg = './resourses/comprador.jpg';
-            $productId = '3';
-            include('assets/itemCard.php');
-        ?>
-
-        <?php
-            $productName = 'producto 4';
-            $productPrice = '160';
-            $productImg = './resourses/comprador.jpg';
-            $productId = '4';
-            include('assets/itemCard.php');
-        ?>
-
-        <?php
-            $productName = 'producto 5';
-            $productPrice = '180';
-            $productImg = './resourses/comprador.jpg';
-            $productId = '4';
-            include('assets/itemCard.php');
-        ?>
-    </div>
+    <?php
+        include('assets/sectionBar.php');
+    ?>
 
 
     </div>

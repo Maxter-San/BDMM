@@ -13,6 +13,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <link rel='stylesheet' type='text/css' media='screen' href='./style/product.css'>
+
+    <link rel='stylesheet' type='text/css' media='screen' href='./style/sectionBar.css'>
     
 </head>
 <body class="d-flex flex-column min-vh-100">
@@ -61,22 +63,6 @@
                 </div>
 
                 <br>
-
-                <div class="accordion" id="accordionExample">
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="headingThree">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                Descripción
-                            </button>
-                        </h2>
-                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                            <div class="accordion-body">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem a facere, possimus blanditiis pariatur debitis quaerat sequi voluptatum exercitationem deserunt fuga ratione porro consectetur odio officiis praesentium commodi dolore labore.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
             </div>
 
         </div>
@@ -88,45 +74,69 @@
         <br>
 
         <div class="row">
-                
+
             <div class="col-md">
-                <h2>Comentarios</h2>
-
-                <?php
-                    $commentID = '1';
-                    $commentUserName = 'usuario123';
-                    $commentScore = '3.5';
-                    $commentDescription = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis cum obcaecati in reiciendis ea alias fuga, officiis harum nobis illum voluptate aliquam repellendus nostrum a aperiam perspiciatis, distinctio quasi cupiditate.';
-                    include('assets/comments.php');
-                ?>
-
-                <?php
-                    $commentID = '2';
-                    $commentUserName = 'Maxter';
-                    $commentScore = '5';
-                    $commentDescription = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis cum obcaecati in reiciendis ea alias fuga, officiis harum nobis illum voluptate aliquam repellendus nostrum a aperiam perspiciatis, distinctio quasi cupiditate.';
-                    include('assets/comments.php');
-                ?>
-
-                <?php
-                    $commentID = '3';
-                    $commentUserName = 'ejemplo';
-                    $commentScore = '0';
-                    $commentDescription = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis cum obcaecati in reiciendis ea alias fuga, officiis harum nobis illum voluptate aliquam repellendus nostrum a aperiam perspiciatis, distinctio quasi cupiditate.';
-                    include('assets/comments.php');
-                ?>
-
+                <h3 class="existence">Descripción</h3>
+                <h3 class="price">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nesciunt vitae nulla veritatis possimus reprehenderit dolorem eius voluptatum ipsa, placeat doloremque provident, dicta eos accusantium distinctio ex, cum pariatur? Adipisci, velit!</h3>
+                <h3 class="price">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nesciunt vitae nulla veritatis possimus reprehenderit dolorem eius voluptatum ipsa, placeat doloremque provident, dicta eos accusantium distinctio ex, cum pariatur? Adipisci, velit!</h3>
             </div>
 
             <div class="col-md-5">
-                
-            </div>
+                <div class="accordion" id="accordionExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                <h4 class="existence">Comentarios</h4>
+                            </button>
+                        </h2>
+                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                            <?php
+                                $commentID = '1';
+                                $commentUserName = 'usuario123';
+                                $commentScore = '3.5';
+                                $commentDescription = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis cum obcaecati in reiciendis ea alias fuga, officiis harum nobis illum voluptate aliquam repellendus nostrum a aperiam perspiciatis, distinctio quasi cupiditate.';
+                                include('assets/comments.php');
+                            ?>
 
+                            <?php
+                                $commentID = '2';
+                                $commentUserName = 'Maxter';
+                                $commentScore = '5';
+                                $commentDescription = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis cum obcaecati in reiciendis ea alias fuga, officiis harum nobis illum voluptate aliquam repellendus nostrum a aperiam perspiciatis, distinctio quasi cupiditate.';
+                                include('assets/comments.php');
+                            ?>
+
+                            <?php
+                                $commentID = '3';
+                                $commentUserName = 'ejemplo';
+                                $commentScore = '0';
+                                $commentDescription = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis cum obcaecati in reiciendis ea alias fuga, officiis harum nobis illum voluptate aliquam repellendus nostrum a aperiam perspiciatis, distinctio quasi cupiditate.';
+                                include('assets/comments.php');
+                            ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+
+        <br>
+
+        <hr>
+
+        <br>
 
         <div class="row">
             <div class="col-md">
-                
+                <h2>Más productos del vendedor</h2>
+                <?php
+                    include('assets/sectionBar.php');
+                ?>
+                <h2>Productos similares</h2>
+                <?php
+                    include('assets/sectionBar.php');
+                ?>
             </div>
         </div>
     </div>

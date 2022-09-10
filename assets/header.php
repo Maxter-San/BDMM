@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid container">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="./main.php">
             <img src="https://s3.amazonaws.com/colorslive/png/519184-69YeM8_DOT6DaDOz.png" alt="" width="30" height="24" class="d-inline-block align-text-top">
               Tiendita
         </a>
@@ -11,7 +11,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="/index.php"><i class="bi bi-list-ul"></i> Categorías</a>
+                    <a class="nav-link" href="./main.php"><i class="bi bi-list-ul"></i> Categorías</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">

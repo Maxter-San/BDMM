@@ -22,8 +22,19 @@
 
 .price{
     font-weight: lighter;
+    text-align: justify;
 }
 
 .existence{
     font-weight: normal;
+}
+
+.col-md{
+    padding-right: 2em;
+}
+
+@media screen and (max-width:800px) {
+    .col-md{
+        padding-right: 0;
+    }
 }

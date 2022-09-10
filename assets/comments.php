@@ -8,6 +8,6 @@
                 setStars(5, <?php echo $commentScore; ?>, 'cardComment<?php echo $commentID; ?>');
             </script>
         </h5>
-        <p class="card-text"><?php echo $commentDescription; ?></p>
+        <p class="card-text" style="text-align: justify;"><?php echo $commentDescription; ?></p>
     </div>
 </div>

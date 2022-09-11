@@ -22,7 +22,7 @@
     <div class="container mt-5 mb-5">
         <div class="row">           
             <div class="col-md">
-                <h3>Mis compras:</h3>
+                <legend>Mis compras</legend>
             </div>
         </div>
 

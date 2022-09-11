@@ -13,6 +13,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     
+    <link rel='stylesheet' type='text/css' media='screen' href='./style/sectionBar.css'>
+
 </head>
 <body class="d-flex flex-column min-vh-100" style="margin-top: 3.5em;">
     <?php
@@ -20,7 +22,15 @@
     ?>
 
     <div class="container mt-5 mb-5">
-        
+        <legend>Mi carrito de compras</legend>
+        <?php 
+            include('assets/sectionCartBar.php');
+        ?>
+
+        <?php 
+            include('assets/shoppingCardSubtotal.php');
+        ?>
+
     </div>
 
     <?php

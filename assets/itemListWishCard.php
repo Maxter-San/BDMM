@@ -4,7 +4,7 @@
         <div class="card-body">
             <h5 class="card-title"><?php echo $listWishName; ?></h5>
             <p class="card-text">Productos: <?php echo $listWishItems; ?></p>
-            <a href="./wishList.php" class="btn btn-warning">Ver más</a>
+            <a href="./wishList.php" class="btn btn-warning">Ver lista de deseos</a>
             <!--<?php echo $listWishId; ?> -->
         </div>
     </div>

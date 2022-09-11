@@ -1,37 +1,37 @@
 <div class="sectionBar">
     <?php
         $productName = 'producto';
-        $productPrice = '100';
         $productImg = './resourses/comprador.jpg';
         $productId = '1';
-        include('assets/itemCard.php');
+        $productScore = '1';
+        include('assets/itemCardVariant.php');
     ?>
     <?php
         $productName = 'producto 2';
-        $productPrice = '120';
         $productImg = './resourses/comprador.jpg';
         $productId = '2';
-        include('assets/itemCard.php');
+        $productScore = '2';
+        include('assets/itemCardVariant.php');
     ?>
     <?php
         $productName = 'producto 3';
-        $productPrice = '140';
         $productImg = './resourses/comprador.jpg';
         $productId = '3';
-        include('assets/itemCard.php');
+        $productScore = '3';
+        include('assets/itemCardVariant.php');
     ?>
     <?php
         $productName = 'producto 4';
-        $productPrice = '160';
         $productImg = './resourses/comprador.jpg';
         $productId = '4';
-        include('assets/itemCard.php');
+        $productScore = '4';
+        include('assets/itemCardVariant.php');
     ?>
     <?php
         $productName = 'producto 5';
-        $productPrice = '180';
         $productImg = './resourses/comprador.jpg';
-        $productId = '4';
-        include('assets/itemCard.php');
+        $productId = '5';
+        $productScore = '5';
+        include('assets/itemCardVariant.php');
     ?>
 </div>

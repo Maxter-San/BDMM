@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container-fluid container">
         <a class="navbar-brand" href="./main.php">
             <img src="https://s3.amazonaws.com/colorslive/png/519184-69YeM8_DOT6DaDOz.png" alt="" width="30" height="24" class="d-inline-block align-text-top">
@@ -32,7 +32,7 @@
         </div>
 
         <?php
-            $_GET['logged'] = '0';
+            $_GET['logged'] = '1';
             include_once('assets/headerSettings.php');
         ?> 
 

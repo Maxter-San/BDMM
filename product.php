@@ -17,7 +17,7 @@
     <link rel='stylesheet' type='text/css' media='screen' href='./style/sectionBar.css'>
     
 </head>
-<body class="d-flex flex-column min-vh-100">
+<body class="d-flex flex-column min-vh-100" style="margin-top: 3.5em;">
     <?php
         include_once('assets/header.php');
     ?>
@@ -32,21 +32,21 @@
             </div>
 
             <div class="col-md-5 menuContainer" id="menuContainer">
-                <h2 class="name">Nombre</h2>
-
-                <br>
+                <h3 class="name">Nombre</h3>
 
                 <script>setStars(100, 70, 'menuContainer');</script>
 
-                <h2 class="price">$ 123</h2>
+                <br><br>
+
+                <h3 class="price">$ 123</h3>
 
                 <br>
 
-                <h3 class="existence">Categoría: <span class="badge rounded-pill text-bg-warning">algo</span></h3>
+                <h4 class="existence">Categoría: <span class="badge rounded-pill text-bg-warning">algo</span></h4>
     
                 <br>
 
-                <h3 class="existence">En existencia: 1</h3>
+                <h4 class="existence">En existencia: 1</h4>
 
                 <br>
 
@@ -84,11 +84,11 @@
             <div class="col-md-5">
                 <div class="accordion" id="accordionExample">
                     <div class="accordion-item">
-                        <h2 class="accordion-header" id="headingThree">
+                        <h4 class="accordion-header" id="headingThree">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                                 <h4 class="existence">Comentarios</h4>
                             </button>
-                        </h2>
+                        </h4>
                         <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
                             <div class="accordion-body">
                             <?php

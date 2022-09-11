@@ -1,0 +1,31 @@
+.sectionListWishBar {
+    flex: 1;
+    display: flex;
+    overflow: auto;
+}
+
+.cardSectionListWishBar{
+    width: 18rem;
+    margin: 0.5em;
+}
+
+/* width */
+.cardSectionListWishBar::-webkit-scrollbar {
+    width: 10px;
+    /*display: none;*/
+}
+  
+  /* Track */
+.cardSectionListWishBar::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+  
+  /* Handle */
+.cardSectionListWishBar::-webkit-scrollbar-thumb {
+    background: #888;
+}
+  
+  /* Handle on hover */
+.cardSectionListWishBar::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}

@@ -1,6 +1,6 @@
-<button type="submit" class="btn btn-outline-light me-3"><i class="bi bi-bag-heart"></i> Mis listas</button>
+<a type="button" class="btn btn-outline-light me-3" href="./wishList.php"><i class="bi bi-bag-heart"></i> Mis listas</a>
 
-<button type="submit" class="btn btn-outline-light me-3"><i class="bi bi-cart"></i> Carrito</button>
+<a type="button" class="btn btn-outline-light me-3"><i class="bi bi-cart"></i> Carrito</a>
 
 <div class="dropdown text-end">
     <a href="#" class="d-block link-light text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">

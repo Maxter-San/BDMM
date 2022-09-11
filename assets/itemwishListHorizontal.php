@@ -1,4 +1,4 @@
-<div class="card mb-3">
+<div class="card mb-3" id="list<?php echo $listWishId;?>">
 
     <div class="row g-0">
         <div class="col-md-2">

@@ -41,6 +41,7 @@
 
         <div class="row">
             <?php
+                $listWishId = '1';
                 $wishListName = 'Lista 01';
                 $wishListDescription = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi voluptatum soluta voluptatibus molestias illum ea eaque quidem, quis at quisquam dolor nobis, rem facere illo ullam ab, nemo pariatur sint.';
                 $wishListNumProducts = '5';
@@ -48,6 +49,7 @@
             ?>
 
             <?php
+                $listWishId = '2';
                 $wishListName = 'Lista 02';
                 $wishListDescription = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi voluptatum soluta voluptatibus molestias illum ea eaque quidem, quis at quisquam dolor nobis, rem facere illo ullam ab, nemo pariatur sint.';
                 $wishListNumProducts = '10';

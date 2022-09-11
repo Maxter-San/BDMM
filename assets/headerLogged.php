@@ -8,7 +8,7 @@
     </a>
     <ul class="dropdown-menu text-small">
         <li><a class="dropdown-item" href="./profile.php">Ver perfil</a></li>
-        <li><a class="dropdown-item" href="#">Mis compras</a></li>
+        <li><a class="dropdown-item" href="./wishList.php">Mis compras</a></li>
         <li><a class="dropdown-item" href="#">Configuración</a></li>
         <li><hr class="dropdown-divider"></li>
         <li><a class="dropdown-item" href="#">Cerrar sesión</a></li>

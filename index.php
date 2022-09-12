@@ -103,7 +103,7 @@
                 <p class="parrafo">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam sed rerum quam possimus odio quibusdam, repellendus mollitia error cupiditate ratione, maiores voluptatibus cum vitae adipisci. Aut aperiam odio porro sint?</p>
                 
                 <a href="./signUp.php" class="btn btn-warning cta me-5" role="button">Registrarme</a>
-                <a href="./signUp.php" class="btn btn-outline-warning cta me-5" role="button">Iniciar sesión</a>
+                <a href="./logIn.php" class="btn btn-outline-warning cta me-5" role="button">Iniciar sesión</a>
                 <a href="./main.php" class="btn btn-outline-warning cta" role="button">Omitir</a>
             </div>
             <img src="./resourses/compras.jpg" alt="compras">

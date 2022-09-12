@@ -11,7 +11,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="./main.php"><i class="bi bi-list-ul"></i> Categorías</a>
+                    <a class="nav-link" href="./categories.php"><i class="bi bi-list-ul"></i> Categorías</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">

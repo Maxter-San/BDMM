@@ -17,7 +17,7 @@
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     <i class="bi bi-people-fill"></i> Comunidad
                     </a>
-                <ul class="dropdown-menu">
+                <ul class="dropdown-menu dropdown-menu-dark">
                     <li><a class="dropdown-item" href="./searchFilterComunity.php">Administradores</a></li>    
                     <li><a class="dropdown-item" href="./searchFilterComunity.php">Compradores</a></li>
                     <li><a class="dropdown-item" href="./searchFilterComunity.php">Vendedores</a></li>              

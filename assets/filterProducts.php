@@ -1,11 +1,11 @@
-<div class="card cardLogin">
+<div class="card">
     <div class="card-body">
         <div class="row">
 
             <div class="col">
                 <div class="mb-3">
                     <label for="formControlSearch" class="form-label">Busqueda</label>
-                    <input type="email" class="form-control" id="formControlSearch" placeholder="producto...">
+                    <input type="email" class="form-control" id="formControlSearch" placeholder="Producto...">
                 </div>
             </div>
 

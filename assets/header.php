@@ -18,9 +18,9 @@
                     <i class="bi bi-people-fill"></i> Comunidad
                     </a>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Administradores</a></li>    
-                    <li><a class="dropdown-item" href="#">Compradores</a></li>
-                    <li><a class="dropdown-item" href="#">Vendedores</a></li>              
+                    <li><a class="dropdown-item" href="./searchFilterComunity.php">Administradores</a></li>    
+                    <li><a class="dropdown-item" href="./searchFilterComunity.php">Compradores</a></li>
+                    <li><a class="dropdown-item" href="./searchFilterComunity.php">Vendedores</a></li>              
                 </ul>
             </li>
             </ul>

@@ -141,6 +141,19 @@
                     </select>
                 </div>               
             </div>
+            <div class="row">
+                <div class="col-md form-group">
+                    <label class="form-label">Imagen de portada</label>
+                    <input class="form-control" type="file" id="formFrontPage">
+                </div>
+
+                <div class="col-md form-group">
+                    <div class="col-md form-group">
+                        <label class="form-label">Descripción</label>
+                        <input class="form-control" id="formDescription" placeholder="Tu descripción de usuario (opcional)">
+                    </div>
+                </div>
+            </div>
 
             <div class="row">
                 <div class="col">

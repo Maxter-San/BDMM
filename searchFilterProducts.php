@@ -20,9 +20,16 @@
     ?>
 
     <div class="container mt-5 mb-5">
-        <legend>Categorías</legend>
+        <legend>Resultados de busqueda</legend>
+
+        <?php
+            include_once('assets/filterProducts.php');
+        ?>
+
+        <br>
+
         <?php 
-            include('assets/sectionBarCategories.php');
+            include('assets/sectionBar.php');
         ?>
     </div>
 

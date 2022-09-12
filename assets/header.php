@@ -27,7 +27,7 @@
 
             <form class="d-flex ms-5 col-md-6" role="search">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-light" type="submit"><i class="bi bi-search"></i></button>
+                <a class="btn btn-outline-light" type="submit" href="./searchFilterProducts.php"><i class="bi bi-search"></i></a>
             </form> 
         </div>
 

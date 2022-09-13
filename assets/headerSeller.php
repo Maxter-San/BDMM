@@ -1,6 +1,6 @@
 <a type="button" class="btn btn-outline-light me-3" href="#"><i class="bi bi-shop"></i> Mercancía</a>
 
-<a type="button" class="btn btn-outline-light me-3" href="#"><i class="bi bi-cart-plus"></i> Vender</a>
+<a type="button" class="btn btn-outline-light me-3" href="./market.php"><i class="bi bi-cart-plus"></i> Vender</a>
 
 <div class="dropdown text-end">
     <a href="#" class="d-block link-light text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">

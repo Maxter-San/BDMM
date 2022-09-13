@@ -1,4 +1,4 @@
-<a type="button" class="btn btn-outline-light me-3" href="#"><i class="bi bi-shop"></i> Mercancía</a>
+<a type="button" class="btn btn-outline-light me-3" href="./stock.php"><i class="bi bi-shop"></i> Mercancía</a>
 
 <a type="button" class="btn btn-outline-light me-3" href="./market.php"><i class="bi bi-cart-plus"></i> Vender</a>
 

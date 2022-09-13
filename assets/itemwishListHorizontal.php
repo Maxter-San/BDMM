@@ -1,6 +1,11 @@
 <div class="card mb-3" id="list<?php echo $listWishId;?>">
 
     <div class="row g-0">
+        <div class="modal-header">
+            <h5 class="modal-title"></h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" data-bs-toggle="modal" data-bs-target="#staticBackdrop"></button>
+        </div>
+
         <div class="col-md-2">
             <img src="./resourses/comprador.jpg" class="img-fluid rounded-start" alt="...">
         </div>

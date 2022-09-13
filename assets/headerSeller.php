@@ -9,7 +9,7 @@
     <ul class="dropdown-menu dropdown-menu-dark text-small">
         <li><a class="dropdown-item" href="./profile.php">Ver perfil</a></li>
         <li><a class="dropdown-item" href="#">Mis ventas</a></li>
-        <li><a class="dropdown-item" href="#">Solicitudes de cotización</a></li>
+        <li><a class="dropdown-item" href="./quotationSeller.php">Solicitudes de cotización</a></li>
         <li><a class="dropdown-item" href="./settings.php">Configuración</a></li>
         <li><hr class="dropdown-divider"></li>
         <li><a class="dropdown-item" href="#">Cerrar sesión</a></li>

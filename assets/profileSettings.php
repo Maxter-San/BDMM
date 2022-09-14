@@ -7,5 +7,8 @@
     }
     else if($_GET['userType'] == '3'){
         include_once('assets/profileAdmin.php');
-  }
+    }
+    else if($_GET['userType'] == '4'){
+        include_once('assets/profileSuperAdmin.php');
+    }
 ?>

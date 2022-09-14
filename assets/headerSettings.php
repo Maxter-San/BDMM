@@ -11,4 +11,7 @@
   else if($_GET['logged'] == '3'){
     include_once('assets/headerAdmin.php');
   }
+  else if($_GET['logged'] == '4'){
+    include_once('assets/headerSuperAdmin.php');
+  }
 ?>

@@ -32,7 +32,7 @@
         </div>
 
         <?php
-            $_GET['logged'] = '2';
+            $_GET['logged'] = '4';
             include_once('assets/headerSettings.php');
         ?> 
 

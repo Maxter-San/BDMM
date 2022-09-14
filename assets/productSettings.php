@@ -1,5 +1,5 @@
 <?php
-    if($_GET['userType'] == '1'){
+    if($_GET['userType'] == '0'){
         include_once('assets/productDefault.php');
     }
     else if($_GET['userType'] == '1'){

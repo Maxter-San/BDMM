@@ -67,25 +67,25 @@
 <div class="row">
     <div class="sectionImgBar">
         <div class="column">
-            <img class="miniatureImg" src="./resourses/comprador.jpg" alt="Lights" onclick="myFunction(this);">
+            <img class="miniatureImg" src="./resourses/dummy/maxter.jpg" alt="Lights" onclick="myFunction(this);">
         </div>
         <div class="column">
-            <img class="miniatureImg" src="./resourses/compras.jpg" alt="Snow" onclick="myFunction(this);">
+            <img class="miniatureImg" src="./resourses/dummy/shiba1.jpg" alt="Snow" onclick="myFunction(this);">
         </div>
         <div class="column">
-            <img class="miniatureImg" src="./resourses/comunidad.jpg" alt="Mountains" onclick="myFunction(this);">
+            <img class="miniatureImg" src="./resourses/dummy/shiba2.jpg" alt="Mountains" onclick="myFunction(this);">
         </div>
         <div class="column">
-            <img class="miniatureImg" src="./resourses/comprador.jpg" alt="Nature" onclick="myFunction(this);">
+            <img class="miniatureImg" src="./resourses/dummy/shiba3.jpg" alt="Nature" onclick="myFunction(this);">
         </div>
         <div class="column">
-            <img class="miniatureImg" src="./resourses/comprador.jpg" alt="Nature" onclick="myFunction(this);">
+            <img class="miniatureImg" src="./resourses/dummy/shiba4.jpg" alt="Nature" onclick="myFunction(this);">
         </div>
         <div class="column">
-            <img class="miniatureImg" src="./resourses/comprador.jpg" alt="Nature" onclick="myFunction(this);">
+            <img class="miniatureImg" src="./resourses/dummy/shiba5.jpg" alt="Nature" onclick="myFunction(this);">
         </div>
         <div class="column">
-            <img class="miniatureImg" src="./resourses/comprador.jpg" alt="Nature" onclick="myFunction(this);">
+            <img class="miniatureImg" src="./resourses/dummy/shiba6.jpg" alt="Nature" onclick="myFunction(this);">
         </div>
     </div>
 </div>

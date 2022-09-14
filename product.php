@@ -35,7 +35,7 @@
             </div>
 
             <div class="col-md-5 menuContainer" id="menuContainer">
-                <h3 class="name">Nombre</h3>
+                <h3 class="name">Shiba inu</h3>
 
                 <script>setStars(100, 70, 'menuContainer');</script>
 
@@ -45,7 +45,7 @@
 
                 <br>
 
-                <h4 class="existence">Categoría: <span class="badge rounded-pill text-bg-warning">algo</span></h4>
+                <h4 class="existence">Categoría: <span class="badge rounded-pill text-bg-warning">Mascotas</span></h4>
     
                 <br>
 
@@ -83,8 +83,9 @@
 
             <div class="col-md">
                 <h3 class="existence">Descripción</h3>
-                <h3 class="price">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nesciunt vitae nulla veritatis possimus reprehenderit dolorem eius voluptatum ipsa, placeat doloremque provident, dicta eos accusantium distinctio ex, cum pariatur? Adipisci, velit!</h3>
-                <h3 class="price">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nesciunt vitae nulla veritatis possimus reprehenderit dolorem eius voluptatum ipsa, placeat doloremque provident, dicta eos accusantium distinctio ex, cum pariatur? Adipisci, velit!</h3>
+                <h3 class="price">El shiba inu es una raza muy antigua, aunque pese a su antigüedad no está clasificada por la FCI dentro del grupo "perros primitivos", sino como "perros spitzs". Sus orígenes surgen en el Asia Meridional, registrándose los primeros indicios de la llegada de este perro al Japón sobre el año 2000 a. C. y eran descendientes de perros salvajes del Sur de China.
+
+Como la mayoría de los perros japoneses, fue utilizado en sus orígenes para la caza en las montañas muy accidentadas y pobladas del centro del país. También se usaba en bosques donde habitaba el faisán de montaña (el yamadori) y más presas de pluma e incluso pequeños mamíferos. Se dice que cazaba también zorros y corzos. El hábitat del shiba eran las áreas montañosas de la vertiente del mar del Japón.</h3>
             </div>
 
             <div class="col-md-5">
@@ -99,25 +100,25 @@
                             <div class="accordion-body">
                             <?php
                                 $commentID = '1';
-                                $commentUserName = 'usuario123';
+                                $commentUserName = 'Charbel';
                                 $commentScore = '3.5';
-                                $commentDescription = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis cum obcaecati in reiciendis ea alias fuga, officiis harum nobis illum voluptate aliquam repellendus nostrum a aperiam perspiciatis, distinctio quasi cupiditate.';
+                                $commentDescription = 'Se ve medio raro pero igual me gusta.';
                                 include('assets/comments.php');
                             ?>
 
                             <?php
                                 $commentID = '2';
-                                $commentUserName = 'Maxter';
+                                $commentUserName = 'Maxter2';
                                 $commentScore = '5';
-                                $commentDescription = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis cum obcaecati in reiciendis ea alias fuga, officiis harum nobis illum voluptate aliquam repellendus nostrum a aperiam perspiciatis, distinctio quasi cupiditate.';
+                                $commentDescription = 'Me gustó mucho';
                                 include('assets/comments.php');
                             ?>
 
                             <?php
                                 $commentID = '3';
-                                $commentUserName = 'ejemplo';
+                                $commentUserName = 'Valeria';
                                 $commentScore = '0';
-                                $commentDescription = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis cum obcaecati in reiciendis ea alias fuga, officiis harum nobis illum voluptate aliquam repellendus nostrum a aperiam perspiciatis, distinctio quasi cupiditate.';
+                                $commentDescription = 'Resulte alergica al perro :(';
                                 include('assets/comments.php');
                             ?>
                             </div>

@@ -24,17 +24,41 @@
     </div>
     <ul class="list-group list-group-flush">
         <?php
-            $shoppingCardItemName = 'Maruchan';
-            $shoppingCardItemQuantity = '10';
-            $shoppingCardItemPrice = '10';
+            $shoppingCardItemName = 'Libreta';
+            $shoppingCardItemQuantity = '1';
+            $shoppingCardItemPrice = '50';
             $subtotal += $shoppingCardItemQuantity * $shoppingCardItemPrice;
             include('assets/shoppingCardSubtotalItem.php');
         ?>
 
         <?php
-            $shoppingCardItemName = 'Ejemplo';
+            $shoppingCardItemName = 'Monitor';
+            $shoppingCardItemQuantity = '2';
+            $shoppingCardItemPrice = '1200';
+            $subtotal += $shoppingCardItemQuantity * $shoppingCardItemPrice;
+            include('assets/shoppingCardSubtotalItem.php');
+        ?>
+
+        <?php
+            $shoppingCardItemName = 'Pato de juguete';
+            $shoppingCardItemQuantity = '3';
+            $shoppingCardItemPrice = '100';
+            $subtotal += $shoppingCardItemQuantity * $shoppingCardItemPrice;
+            include('assets/shoppingCardSubtotalItem.php');
+        ?>
+
+        <?php
+            $shoppingCardItemName = 'Refrigerador';
+            $shoppingCardItemQuantity = '4';
+            $shoppingCardItemPrice = '16000';
+            $subtotal += $shoppingCardItemQuantity * $shoppingCardItemPrice;
+            include('assets/shoppingCardSubtotalItem.php');
+        ?>
+
+        <?php
+            $shoppingCardItemName = 'Teclado';
             $shoppingCardItemQuantity = '5';
-            $shoppingCardItemPrice = '20';
+            $shoppingCardItemPrice = '500';
             $subtotal += $shoppingCardItemQuantity * $shoppingCardItemPrice;
             include('assets/shoppingCardSubtotalItem.php');
         ?>

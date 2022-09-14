@@ -69,16 +69,12 @@
               </li>
             </ul>
             <div class="card-body">
-                <h4>Mis listas:</h4>
-                <?php
-                    include('assets/sectionListWishBar.php');
-                ?>
 
-                <hr>
-                <h4>Mis compras:</h4>
                 <?php
-                    include('assets/sectionBarVariant.php');
-                ?>
+                    $_GET['userType'] = '1';
+                    include_once('assets/profileSettings.php');
+                ?> 
+
             </div>
         </div>
 

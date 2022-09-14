@@ -8,4 +8,7 @@
   else if($_GET['logged'] == '2'){
     include_once('assets/headerSeller.php');
   }
+  else if($_GET['logged'] == '3'){
+    include_once('assets/headerAdmin.php');
+  }
 ?>

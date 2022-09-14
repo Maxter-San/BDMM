@@ -40,7 +40,7 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">¡Solicitud de cotización borrada con exita!</h5>
+                <h5 class="modal-title" id="exampleModalLabel">¡Solicitud de cotización borrada con exito!</h5>
             </div>
             <div class="modal-body">
                 Has borrado la solicitud de cotización para <?php echo $quotationClientQuantity; ?> <?php echo $quotationClientProduct ?>(s)

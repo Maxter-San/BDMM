@@ -6,7 +6,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" data-bs-toggle="modal" data-bs-target="#staticBackdrop<?php echo $quotationClientId;?>"></button>
         </div>
         <div class="col-md-2">
-            <img src="./resourses/comprador.jpg" class="img-fluid rounded-start" alt="...">
+            <img src="<?php echo $quotationClienPhoto; ?>" class="img-fluid rounded-start" alt="...">
         </div>
         <div class="col-md-10">
             <div class="card-body">

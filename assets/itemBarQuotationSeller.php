@@ -2,9 +2,9 @@
 
     <div class="row g-0">
         <div class="col-md-2">
-            <img src="./resourses/comprador.jpg" class="img-fluid rounded-start" alt="...">
+            <img src="<?php echo $quotationSellerPhoto; ?>" class="img-fluid rounded-start" alt="...">
         </div>
-
+        
         <div class="col-md-10">
             <div class="card-body">
                 <h5 class="card-title"><?php echo $quotationSellerProduct ?></h5>

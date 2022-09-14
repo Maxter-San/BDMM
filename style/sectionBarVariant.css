@@ -8,3 +8,8 @@
     width: 18rem;
     margin: 0.5em;
 }
+
+.card-img-top{
+    min-height: 10em;
+    max-height: 10em;
+}

@@ -1,35 +1,35 @@
 <div class="sectionBar">
     <?php
-        $productName = 'producto';
-        $productImg = './resourses/comprador.jpg';
+        $productName = 'Libreta';
+        $productImg = './resourses/dummy/libreta.jpg';
         $productId = '1';
         $productStock = '1';
         include('assets/itemCardStock.php');
     ?>
     <?php
-        $productName = 'producto 2';
-        $productImg = './resourses/comprador.jpg';
+        $productName = 'Monitor';
+        $productImg = './resourses/dummy/monitor.jpg';
         $productId = '2';
         $productStock = '2';
         include('assets/itemCardStock.php');
     ?>
     <?php
-        $productName = 'producto 3';
-        $productImg = './resourses/comprador.jpg';
+        $productName = 'Pato de juguete';
+        $productImg = './resourses/dummy/pato.jpg';
         $productId = '3';
         $productStock = '3';
         include('assets/itemCardStock.php');
     ?>
     <?php
-        $productName = 'producto 4';
-        $productImg = './resourses/comprador.jpg';
+        $productName = 'Refrigerador';
+        $productImg = './resourses/dummy/refrigerador.jpg';
         $productId = '4';
         $productStock = '4';
         include('assets/itemCardStock.php');
     ?>
     <?php
-        $productName = 'producto 5';
-        $productImg = './resourses/comprador.jpg';
+        $productName = 'Teclado';
+        $productImg = './resourses/dummy/teclado.jpg';
         $productId = '5';
         $productStock = '5';
         include('assets/itemCardStock.php');

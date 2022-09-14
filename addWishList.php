@@ -26,19 +26,19 @@
         <div class="card">
             <div class="card-body">
                 <form method="POST" action="#" onsubmit="clearForm();" id="myForm">
-                    <h3 style="font-weight: lighter;">Dar de alta una categoría</h3>
+                    <h3 style="font-weight: lighter;">Dar de alta una lista de deseos</h3>
 
                     <div class="row">
                         <div class="col">
                             <div class="col-md form-group">
-                                <label class="form-label">Nombre de la categoría</label>
+                                <label class="form-label">Nombre de la lista</label>
                                 <input class="form-control" id="formCategoryName" placeholder="Escribe el nombre del producto..." required>
                             </div>
                         </div>
 
                         <div class="col">
                             <div class="col-md form-group">
-                                <label class="form-label">Foto de la categoría</label>
+                                <label class="form-label">Foto de la lista</label>
                                 <input class="form-control" type="file" id="formFilePhoto">
                             </div>
                             
@@ -46,7 +46,7 @@
                     </div>
 
                     <div class="col-md form-group">
-                        <label class="form-label">Descripción de la categoría</label>
+                        <label class="form-label">Descripción de la lista</label>
                         <textarea class="form-control" id="formCategoryDescription" placeholder="Escribe la descripción del producto..." rows="1" required></textarea>
                     </div>
 
@@ -64,13 +64,7 @@
             </div>
         </div>
 
-        <div id="snackbar">Producto agregado</div>
-
-        <br>
-
-        <?php 
-            include_once('assets/sectionBarAddCategory.php');
-        ?>
+        <div id="snackbar">Lista agregada</div>
 
     </div>
 

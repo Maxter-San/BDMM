@@ -6,7 +6,7 @@
         </div>
 
         <div class="col-md-2">
-            <img src="./resourses/comprador.jpg" class="img-fluid rounded-start" alt="...">
+            <img src="<?php echo $productImg; ?>" class="img-fluid rounded-start" alt="...">
         </div>
 
         <div class="col-md-10">

@@ -1,37 +1,37 @@
 <div class="sectionBar">
     <?php
-        $productName = 'producto';
-        $productPrice = '100';
-        $productImg = './resourses/comprador.jpg';
+        $productName = 'Libreta';
+        $productPrice = '50';
+        $productImg = './resourses/dummy/libreta.jpg';
         $productId = '1';
         include('assets/itemWishListProduct.php');
     ?>
     <?php
-        $productName = 'producto 2';
-        $productPrice = '120';
-        $productImg = './resourses/comprador.jpg';
+        $productName = 'Monitor';
+        $productPrice = '1200';
+        $productImg = './resourses/dummy/monitor.jpg';
         $productId = '2';
         include('assets/itemWishListProduct.php');
     ?>
     <?php
-        $productName = 'producto 3';
-        $productPrice = '140';
-        $productImg = './resourses/comprador.jpg';
+        $productName = 'Pato de juguete';
+        $productPrice = '100';
+        $productImg = './resourses/dummy/pato.jpg';
         $productId = '3';
         include('assets/itemWishListProduct.php');
     ?>
     <?php
-        $productName = 'producto 4';
-        $productPrice = '160';
-        $productImg = './resourses/comprador.jpg';
+        $productName = 'Refrigerador';
+        $productPrice = '16000';
+        $productImg = './resourses/dummy/refrigerador.jpg';
         $productId = '4';
         include('assets/itemWishListProduct.php');
     ?>
     <?php
-        $productName = 'producto 5';
-        $productPrice = '180';
-        $productImg = './resourses/comprador.jpg';
-        $productId = '4';
+        $productName = 'Teclado';
+        $productPrice = '500';
+        $productImg = './resourses/dummy/teclado.jpg';
+        $productId = '5';
         include('assets/itemWishListProduct.php');
     ?>
 </div>

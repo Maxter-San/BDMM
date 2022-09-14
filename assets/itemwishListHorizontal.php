@@ -7,12 +7,12 @@
         </div>
 
         <div class="col-md-2">
-            <img src="./resourses/comprador.jpg" class="img-fluid rounded-start" alt="...">
+            <img src="<?php echo $listWishImg;?>" class="img-fluid rounded-start" alt="...">
         </div>
 
         <div class="col-md-10">
             <div class="card-body">
-                <h5 class="card-title"><?php echo $wishListName; ?></h5>
+                <h5 class="card-title"><?php echo $listWishName; ?></h5>
                 <p class="card-text"><?php echo $wishListDescription; ?></p>
                 <p class="card-text"><small class="text-muted">Productos: <?php echo $wishListNumProducts; ?></small></p>
             </div>

@@ -1,26 +1,26 @@
 <?php 
     $quotationSellerId = '1';
-    $quotationSellerClient = 'nombreCliente';
-    $quotationSellerProduct = 'producto 01';
+    $quotationSellerClient = 'Isabel';
+    $quotationSellerProduct = 'Libreta';
     $quotationSellerQuantity = '10';
-    
+    $quotationSellerPhoto = './resourses/dummy/libreta.jpg';
     include('assets/itemBarQuotationSeller.php');
 ?>
 
 <?php 
     $quotationSellerId = '2';
-    $quotationSellerClient = 'Maxter';
-    $quotationSellerProduct = 'shiba inu';
+    $quotationSellerClient = 'Maxter2';
+    $quotationSellerProduct = 'Pato de juguete';
     $quotationSellerQuantity = '1';
-    
+    $quotationSellerPhoto = './resourses/dummy/pato.jpg';
     include('assets/itemBarQuotationSeller.php');
 ?>
 
 <?php 
     $quotationSellerId = '3';
-    $quotationSellerClient = 'ejemplo';
-    $quotationSellerProduct = 'productito';
+    $quotationSellerClient = 'Charbel';
+    $quotationSellerProduct = 'Refrigerador';
     $quotationSellerQuantity = '40';
-    
+    $quotationSellerPhoto = './resourses/dummy/refrigerador.jpg';
     include('assets/itemBarQuotationSeller.php');
 ?>

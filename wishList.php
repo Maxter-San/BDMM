@@ -35,25 +35,23 @@
     <div class="container mt-5 mb-5">
         <div class="row">           
             <div class="col-md">
-                <legend>Listas de deseo:</legend>
+            <div class="row">
+                <div class="col">
+                    <legend>Listas de deseo:</legend>
+                </div>
+
+                <div class="col text-center">
+                    <a type="button" class="btn btn-warning" href="./addWishList.php">Nueva lista de deseos</a>
+                </div>
+            </div>    
+           
+                
             </div>
         </div>
 
         <div class="row">
-            <?php
-                $listWishId = '1';
-                $wishListName = 'Lista 01';
-                $wishListDescription = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi voluptatum soluta voluptatibus molestias illum ea eaque quidem, quis at quisquam dolor nobis, rem facere illo ullam ab, nemo pariatur sint.';
-                $wishListNumProducts = '5';
-                include('assets/itemwishListHorizontal.php');
-            ?>
-
-            <?php
-                $listWishId = '2';
-                $wishListName = 'Lista 02';
-                $wishListDescription = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi voluptatum soluta voluptatibus molestias illum ea eaque quidem, quis at quisquam dolor nobis, rem facere illo ullam ab, nemo pariatur sint.';
-                $wishListNumProducts = '10';
-                include('assets/itemwishListHorizontal.php');
+            <?php 
+                include_once("assets/sectionWishListHorizontal.php");
             ?>
         </div> 
 

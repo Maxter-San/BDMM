@@ -6,9 +6,17 @@
     margin-bottom: 5em;
 }
 
+.card-img-top{
+    min-height: 10em;
+    max-height: 10em;
+}
+
 .cardSectionBar{
     width: 18rem;
     margin: 0.5em;
+    
+    min-height: 19em;
+    max-height: 19em;
 
     box-shadow: 0 0 0.3em 0 rgba(0, 0, 0, 0.5);
     transform: scale(1);

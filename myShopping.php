@@ -28,6 +28,14 @@
 
         <div class="row">
             <?php 
+                include_once('assets/filterRecords.php');
+            ?>
+        </div>
+
+        <br>
+
+        <div class="row">
+            <?php 
                 $shoppingCardId = "1";
                 $shoppingCardDate = date("d") . "/" . date("m") . "/" . date("Y");
 

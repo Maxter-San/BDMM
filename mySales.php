@@ -20,11 +20,15 @@
     ?>
 
     <div class="container mt-5 mb-5">
-        <div class="row">           
-            <div class="col-md">
-                <legend>Mis ventas</legend>
-            </div>
+        <legend>Mis ventas</legend>
+
+        <div class="row">
+            <?php 
+                include_once('assets/filterRecords.php');
+            ?>
         </div>
+
+        <br>
 
         <div class="row">
             <?php 

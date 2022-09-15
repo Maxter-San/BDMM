@@ -45,9 +45,20 @@
                         </div>
                     </div>
 
-                    <div class="col-md form-group">
-                        <label class="form-label">Descripción de la lista</label>
-                        <textarea class="form-control" id="formCategoryDescription" placeholder="Escribe la descripción del producto..." rows="1" required></textarea>
+                    <div class="row">
+                        <div class="col form-group">
+                            <label class="form-label">Descripción de la lista</label>
+                            <textarea class="form-control" id="formCategoryDescription" placeholder="Escribe la descripción del producto..." rows="1" required></textarea>
+                        </div>
+
+                        <div class="col-md form-group">
+                            <label class="form-label">Tipo de lista</label>
+                            <select class="form-select" id="formGender" required>
+                                <option selected value=""></option>
+                                <option value="1">Privada</option>
+                                <option value="2">Pública</option>
+                            </select>
+                        </div>
                     </div>
 
                     <br>

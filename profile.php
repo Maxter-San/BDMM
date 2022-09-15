@@ -24,7 +24,7 @@
     ?>
 
     <header class="hero">
-        <img src="./resourses/carousel01.jpg" alt="profile image" class="card_header-profile" />
+        <img src="https://s3.amazonaws.com/colorslive/png/519184-69YeM8_DOT6DaDOz.png" alt="profile image" class="card_header-profile" />
     </header>
 
 

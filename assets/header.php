@@ -2,7 +2,7 @@
     <div class="container-fluid container">
         <a class="navbar-brand" href="./main.php">
             <img src="https://s3.amazonaws.com/colorslive/png/519184-69YeM8_DOT6DaDOz.png" alt="" width="30" height="24" class="d-inline-block align-text-top">
-              Tiendita
+              Maxter shop
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -32,7 +32,7 @@
         </div>
 
         <?php
-            $_GET['logged'] = '1';
+            $_GET['logged'] = '4';
             include_once('assets/headerSettings.php');
         ?> 
 

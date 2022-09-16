@@ -20,7 +20,7 @@
     ?>
 
     <div class="container mt-5 mb-5">
-        <legend>Resultados de busqueda</legend>
+        <legend>Encuentra a nuestra comunidad</legend>
 
         <?php
             include_once('assets/filterComunity.php');

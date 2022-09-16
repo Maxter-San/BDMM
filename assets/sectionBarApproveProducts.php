@@ -23,7 +23,7 @@
     ?>
     <?php
         $productName = 'Pato de juguete';
-        $productSeller = 'Vendedor';
+        $productSeller = 'Maxter';
         $productPrice = '100';
         $productStock = '30';
         $productImg = './resourses/dummy/pato.jpg';

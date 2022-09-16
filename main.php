@@ -68,7 +68,6 @@
         include('assets/sectionBar.php');
     ?>
 
-
     </div>
 
     <?php

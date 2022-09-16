@@ -106,7 +106,6 @@
 
                 </div>
                 
-
                 <div class="col-md form-group">
                     <label class="form-label">Número de tarjeta</label>
                     <input class="form-control" id="formDebitCard" placeholder="Escribe los 16 dígitos de tu tarjeta..." disabled>

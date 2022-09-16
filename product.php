@@ -28,7 +28,7 @@
     <div class="container mt-5 mb-5 compact">
         <div class="row">
 
-            <div class="col-md-6">
+            <div class="col-md">
                 <?php
                     include_once('assets/tabGallery.php');
                 ?>

@@ -22,13 +22,12 @@
                 //$_SESSION["userId"] = $rows['userId'];
                 //$_SESSION["userName"]=$rows['userName'];
                 //$_SESSION["userType"]=$rows['userType'];
-
                 
             }
             else{
-                header("Location: login.php?invalidLogin=true");
-                exit();
+                header("Location: login.php?invalidLogin=true"."&p_user=".$_POST['user']."&p_password=".$_POST['password']."&p_userType=".$_POST['userType']); 
             }
+            exit();
         }
     }
 

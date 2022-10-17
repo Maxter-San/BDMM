@@ -35,22 +35,34 @@
                 <form method="POST" action="<?php echo $_SERVER['PHP_SELF'] ?>" id="myForm">
                     <div class="mb-3">
                         <label for="formControlUserName" class="form-label">Usuario</label>
-                        <input class="form-control" id="formControlUserName" placeholder="Nombre de usuario..." name="user">
+                        <input class="form-control" id="formControlUserName" placeholder="Nombre de usuario..." name="user"
+                            value="<?php if(isset($_GET['p_user'])){echo($_GET['p_user']);}?>"
+                        >
                     </div>
 
                     <div class="mb-3">
                         <label for="formControlPassword" class="form-label">Contraseña</label>
-                        <input type="password" class="form-control" id="formControlPassword" placeholder="Tu contraseña..." name="password">
+                        <input type="password" class="form-control" id="formControlPassword" placeholder="Tu contraseña..." name="password"
+                            value="<?php if(isset($_GET['p_password'])){echo($_GET['p_password']);}?>"
+                        >
                     </div>
 
                     <div class="mb-3">
                         <label for="formControlTypeUser" class="form-label">Tipo de usuario</label>
                         <select class="form-select" aria-label="Default select example" id="formControlTypeUser" name="userType">
-                            <option selected></option>
-                            <option value="Comprador">Comprador</option>
-                            <option value="Vendedor">Vendedor</option>
-                            <option value="Admin">Administrador</option>
-                            <option value="SuperAdmin">SuperAdmin</option>
+                            <option></option>
+                            <option value="Comprador"
+                                <?php if(isset($_GET['p_userType'])){if($_GET['p_userType'] == "Comprador"){echo("selected");}}?>
+                            >Comprador</option>
+                            <option value="Vendedor"
+                                <?php if(isset($_GET['p_userType'])){if($_GET['p_userType'] == "Vendedor"){echo("selected");}}?>
+                            >Vendedor</option>
+                            <option value="Admin"
+                                <?php if(isset($_GET['p_userType'])){if($_GET['p_userType'] == "Admin"){echo("selected");}}?>
+                            >Administrador</option>
+                            <option value="SuperAdmin"
+                                <?php if(isset($_GET['p_userType'])){if($_GET['p_userType'] == "SuperAdmin"){echo("selected");}}?>
+                            >SuperAdmin</option>
                         </select>
                     </div>
 
@@ -69,7 +81,8 @@
 
                 <?php 
                     if (isset($_GET['invalidLogin'])){
-                        echo '<label style="color : red;">Usuario y/o contraseña incorrectos</label>';
+                        echo '<label style="color : red;">Credenciales incorrectas</label>';
+
                     };
                 ?>
                 

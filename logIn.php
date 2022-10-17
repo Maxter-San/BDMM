@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+
+
 <html>
 <head>
     <meta charset='utf-8'>
@@ -20,30 +22,35 @@
         include_once('assets/header.php');
     ?>
 
+    <?php
+        include_once('apis/loginApi.php');
+    ?>
+
     <div class="container mt-5 mb-5">
         
         <div class="card cardLogin" style="width: 20em;">
             <div class="card-body">
                 <legend>Inicia sesión</legend>
 
-                <form method="POST" action="./main.php">
+                <form method="POST" action="<?php echo $_SERVER['PHP_SELF'] ?>" id="myForm">
                     <div class="mb-3">
                         <label for="formControlUserName" class="form-label">Usuario</label>
-                        <input class="form-control" id="formControlUserName" placeholder="Nombre de usuario...">
+                        <input class="form-control" id="formControlUserName" placeholder="Nombre de usuario..." name="user">
                     </div>
 
                     <div class="mb-3">
                         <label for="formControlPassword" class="form-label">Contraseña</label>
-                        <input type="password" class="form-control" id="formControlPassword" placeholder="Tu contraseña...">
+                        <input type="password" class="form-control" id="formControlPassword" placeholder="Tu contraseña..." name="password">
                     </div>
 
                     <div class="mb-3">
                         <label for="formControlTypeUser" class="form-label">Tipo de usuario</label>
-                        <select class="form-select" aria-label="Default select example" id="formControlTypeUser">
+                        <select class="form-select" aria-label="Default select example" id="formControlTypeUser" name="userType">
                             <option selected></option>
-                            <option value="1">Comprador</option>
-                            <option value="2">Vendedor</option>
-                            <option value="3">Administrador</option>
+                            <option value="Comprador">Comprador</option>
+                            <option value="Vendedor">Vendedor</option>
+                            <option value="Admin">Administrador</option>
+                            <option value="SuperAdmin">SuperAdmin</option>
                         </select>
                     </div>
 
@@ -55,10 +62,16 @@
                     </div>
 
                     <div class="d-grid gap-2">
-                        <button type="submit" class="btn btn-outline-warning" onclick="validateInfo();">Iniciar sesión</button>
+                        <button type="submit" class="btn btn-outline-warning" onclick="validateInfo();" name="submitButton">Iniciar sesión</button>
                     </div>
 
                 </form>
+
+                <?php 
+                    if (isset($_GET['invalidLogin'])){
+                        echo '<label style="color : red;">Usuario y/o contraseña incorrectos</label>';
+                    };
+                ?>
                 
                 <br>
                 <a href="./signUp.php" class="link-secondary">¿No tienes cuenta? Crea un usuario</a>

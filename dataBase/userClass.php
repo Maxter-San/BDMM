@@ -40,16 +40,27 @@
             $userType
         ){
             if($userType == 'Comprador'){
-                $sql = "CALL userProcedure(null, null, $userName, $password, $email, $profilePhoto, null, null, $name, $lastName, $birthDay, $gender, null, null, null, null, null, null, null, null, null, null, 'insertClient')";
+                $query = $this->connect()->query('CALL userProcedure(null, null, "'.$userName.'", "'.$password.'", "'.$email.'", "'.$profilePhoto.'", null, null, "'.$name.'", "'.$lastName.'", "'.$birthDay.'", "'.$gender.'", null, null, null, null, null, null, null, null, null, null, "insertClient")');
 
-                if ($this->conn->query($sql) === TRUE) {
-                    echo "New record created successfully";
-                } else {
-                    echo "Error: " . $sql . "<br>" . $this->conn->error;
-                }
-
-                $this->conn->close();
+                return $query;
             }
+        }
+
+        function findRepeatUser(
+            $userName
+        ){
+            $query = $this->connect()->query('CALL userProcedure(null, null, "'.$userName.'", null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, "selectRepeatUser")');
+            
+            return $query;
+        }
+
+        function findRepeatEmail(
+            $email,
+            $userType
+        ){
+            $query = $this->connect()->query('CALL userProcedure(null, null, null, null, "'.$email.'", null, null, "'.$userType.'", null, null, null, null, null, null, null, null, null, null, null, null, null, null, "selectRepeatEmail")');
+            
+            return $query;
         }
 
         function getLogin(

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 
-
 <html>
 <head>
     <meta charset='utf-8'>
@@ -32,7 +31,7 @@
             <div class="card-body">
                 <legend>Inicia sesión</legend>
 
-                <form method="POST" action="<?php echo $_SERVER['PHP_SELF'] ?>" id="myForm">
+                <form method="POST" action="<?php echo $_SERVER['PHP_SELF'] ?>">
                     <div class="mb-3">
                         <label for="formControlUserName" class="form-label">Usuario</label>
                         <input class="form-control" id="formControlUserName" placeholder="Nombre de usuario..." name="user"

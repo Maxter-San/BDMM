@@ -19,35 +19,48 @@
     <?php
         include_once('assets/header.php');
     ?>
+
+    <?php
+        include_once('apis/signUpApi.php');
+    ?>
    
     <div class="container mt-5 mb-5">
-        <form method="POST" action="./main.php">
+        <form method="POST" action="<?php echo $_SERVER['PHP_SELF'] ?>">
             <legend>Información personal</legend>
             <div class="row">
                 <div class="col-md form-group">
                     <label class="form-label">Nombre</label>
-                    <input class="form-control" id="formName" placeholder="Escribe tu nombre(s)..." required>
+                    <input class="form-control" id="formName" placeholder="Escribe tu nombre(s)..." required name="name"
+                        value="<?php if(isset($_GET['p_name'])){echo($_GET['p_name']);}?>"
+                    >
                 </div>
 
                 <div class="col-md form-group">
                     <label class="form-label">Apellido</label>
-                    <input class="form-control" id="formLastName" placeholder="Escribe tu apellido(s)..." required>
+                    <input class="form-control" id="formLastName" placeholder="Escribe tu apellido(s)..." required name="lastName"
+                        value="<?php if(isset($_GET['p_lastName'])){echo($_GET['p_lastName']);}?>"
+                    >
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-md form-group">
                     <label class="form-label">Fecha de nacimiento</label>
-                    <input class="form-control" type="date" id="formBirthDate" name="trip-start" required>
+                    <input class="form-control" type="date" id="formBirthDate" required name="birthDay"
+                        value="<?php if(isset($_GET['p_birthDay'])){echo($_GET['p_birthDay']);}?>"
+                    >
                 </div>
 
                 <div class="col-md form-group">
                     <label class="form-label">Sexo</label>
-                    <select class="form-select" id="formGender" required>
-                        <option selected value="">Selecciona tu sexo</option>
-                        <option value="1">Hombre</option>
-                        <option value="2">Mujer</option>                     
-                        <option value="3">Si</option>
+                    <select class="form-select" id="formGender" required name="gender">
+                        <option value="">Selecciona tu sexo</option>
+                        <option value="Hombre"
+                            <?php if(isset($_GET['p_gender'])){if($_GET['p_gender'] == "Hombre"){echo("selected");}}?>
+                        >Hombre</option>
+                        <option value="Mujer"
+                            <?php if(isset($_GET['p_gender'])){if($_GET['p_gender'] == "Mujer"){echo("selected");}}?>
+                        >Mujer</option>
                     </select>
                 </div>
             </div>      
@@ -56,27 +69,48 @@
             <div class="row">
                 <div class="col-md form-group">
                     <label class="form-label">Nombre de usuario</label>
-                    <input class="form-control" id="formUserName" placeholder="Crea tu nombre de usuario..." required>
+                    <input class="form-control" id="formUserName" placeholder="Crea tu nombre de usuario..." required name="userName"
+                        value="<?php if(isset($_GET['p_userName'])){echo($_GET['p_userName']);}?>"
+                    >
+                    <?php 
+                    if (isset($_GET['repeatUsername'])){
+                        echo '<label style="color : red;">Nombre de usuario no disponible</label>';
+                    };
+                    ?>
                 </div>
 
                 <div class="col-md form-group">
                     <label class="form-label">Correo electrónico</label>
-                    <input type="email" class="form-control" id="formEmail" placeholder="nombre@ejemplo.com" required>
-                </div>                
+                    <input type="email" class="form-control" id="formEmail" placeholder="nombre@ejemplo.com" required name="email"
+                        value="<?php if(isset($_GET['p_email'])){echo($_GET['p_email']);}?>"
+                    >
+                    <?php 
+                    if (isset($_GET['repeatEmail'])){
+                        echo '<label style="color : red;">Correo electrónico en uso</label>';
+
+                    };
+                    ?>
+                </div>
             </div>
 
             <div class="row">
                 <div class="col-md form-group">
                     <label class="form-label">Imagen de perfil</label>
-                    <input class="form-control" type="file" id="formFile" required>
+                    <input class="form-control" type="file" id="formFile" required name="profilePhoto"
+                        value="<?php if(isset($_GET['p_profilePhoto'])){echo($_GET['p_profilePhoto']);}?>"
+                    >
                 </div>
 
                 <div class="col-md form-group">
                     <label class="form-label">Tipo de usuario</label>
-                    <select class="form-select" id="formRole" required>
-                        <option selected value="">Selecciona tu rol de usuario</option>
-                        <option value="1">Comprador</option>
-                        <option value="2">Vendedor</option>
+                    <select class="form-select" id="formRole" required name="userType">
+                        <option value="">Selecciona tu rol de usuario</option>
+                        <option value="Comprador"
+                            <?php if(isset($_GET['p_userType'])){if($_GET['p_userType'] == "Comprador"){echo("selected");}}?>
+                        >Comprador</option>
+                        <option value="Vendedor"
+                            <?php if(isset($_GET['p_userType'])){if($_GET['p_userType'] == "Vendedor"){echo("selected");}}?>
+                        >Vendedor</option>
                     </select>
                 </div>               
             </div>
@@ -84,18 +118,22 @@
             <div class="row">
                 <div class="col-md form-group">
                     <label class="form-label">Contraseña</label>
-                    <input class="form-control" type="password" id="formPassword" placeholder="Crea una contraseña..." required>
+                    <input class="form-control" type="password" id="formPassword" placeholder="Crea una contraseña..." required name="password"
+                        value="<?php if(isset($_GET['p_password'])){echo($_GET['p_password']);}?>"
+                    >
                 </div>
 
                 <div class="col-md form-group">
                     <label class="form-label">Confirmar contraseña</label>
-                    <input class="form-control" type="password" id="formPasswordConfirm" placeholder="Confirma la contraseña..." required>
+                    <input class="form-control" type="password" id="formPasswordConfirm" placeholder="Confirma la contraseña..." required name="passwordConfirmation"
+                        value="<?php if(isset($_GET['p_passwordConfirmation'])){echo($_GET['p_passwordConfirmation']);}?>"
+                    >
                 </div>
             </div>
 
             <div class="row mt-5">
                 <div class="d-grid gap-2">
-                    <button onclick="validateInfo()" class="btn btn-outline-warning" type="submit">Enviar</button>
+                    <button class="btn btn-outline-warning" onclick="validateInfo()" type="submit" name="submitButton">Enviar</button>
                     <!--onclick="validateInfo()"-->
                 </div>
             </div>

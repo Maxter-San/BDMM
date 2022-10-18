@@ -40,21 +40,20 @@
             $userType
         ){
             if($userType == 'Comprador'){
-                $query = $this->connect()->query('CALL userProcedure(null, null, "'.$userName.'", "'.$password.'", "'.$email.'", "'.$profilePhoto.'", null, null, "'.$name.'", "'.$lastName.'", "'.$birthDay.'", "'.$gender.'", null, null, null, null, null, null, null, null, null, null, "insertClient")');
+                $query = $this->connect()->query('CALL userProcedure(null, null, "'.$userName.'", "'.$password.'", "'.$email.'", "'.$profilePhoto.'", null, null, null, "'.$name.'", "'.$lastName.'", "'.$birthDay.'", "'.$gender.'", null, null, null, null, null, null, null, null, null, null, "insertClient")');
 
                 return $query;
             }else if($userType == 'Vendedor'){
-                $query = $this->connect()->query('CALL userProcedure(null, null, "'.$userName.'", "'.$password.'", "'.$email.'", "'.$profilePhoto.'", null, null, "'.$name.'", "'.$lastName.'", "'.$birthDay.'", "'.$gender.'", null, null, null, null, null, null, null, null, null, null, "insertSeller")');
+                $query = $this->connect()->query('CALL userProcedure(null, null, "'.$userName.'", "'.$password.'", "'.$email.'", "'.$profilePhoto.'", null, null, null, "'.$name.'", "'.$lastName.'", "'.$birthDay.'", "'.$gender.'", null, null, null, null, null, null, null, null, null, null, "insertSeller")');
 
-                return $query;
-            
+                return $query;            
             }
         }
 
         function findRepeatUser(
             $userName
         ){
-            $query = $this->connect()->query('CALL userProcedure(null, null, "'.$userName.'", null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, "selectRepeatUser")');
+            $query = $this->connect()->query('CALL userProcedure(null, null, "'.$userName.'", null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, "selectRepeatUser")');
             
             return $query;
         }
@@ -63,7 +62,7 @@
             $email,
             $userType
         ){
-            $query = $this->connect()->query('CALL userProcedure(null, null, null, null, "'.$email.'", null, null, "'.$userType.'", null, null, null, null, null, null, null, null, null, null, null, null, null, null, "selectRepeatEmail")');
+            $query = $this->connect()->query('CALL userProcedure(null, null, null, null, "'.$email.'", null, null, null, "'.$userType.'", null, null, null, null, null, null, null, null, null, null, null, null, null, null, "selectRepeatEmail")');
             
             return $query;
         }
@@ -73,7 +72,16 @@
             $password,
             $userType
         ){
-            $query = $this->connect()->query('CALL userProcedure(null, null, "'.$userName.'", "'.$password.'", null, null, null, "'.$userType.'", null, null, null, null, null, null, null, null, null, null, null, null, null, null, "'."getUserLogin".'")');
+            $query = $this->connect()->query('CALL userProcedure(null, null, "'.$userName.'", "'.$password.'", null, null, null, null, "'.$userType.'", null, null, null, null, null, null, null, null, null, null, null, null, null, null, "'."getUserLogin".'")');
+
+            return $query;
+
+        }
+
+        function getProfileUserById(
+            $userId
+        ){
+            $query = $this->connect()->query('CALL userProcedure("'.$userId.'", null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, "'."selectUserProfileById".'")');
 
             return $query;
 

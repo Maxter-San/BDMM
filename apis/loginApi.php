@@ -17,6 +17,7 @@
                     $_SESSION["s_userId"]=$r['userId'];
                     $_SESSION["s_userName"]=$r['userName'];
                     $_SESSION["s_userType"]=$r['userType'];
+                    $_SESSION["s_profilePhoto"]=$r['profilePhoto'];
                 }
                 //echo json_encode($rows);
 

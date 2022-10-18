@@ -1,3 +1,4 @@
+<?php session_start();?>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container-fluid container">
         <a class="navbar-brand" href="./main.php">
@@ -32,7 +33,15 @@
         </div>
 
         <?php
-            $_GET['logged'] = '4';
+            if(isset($_SESSION["s_userType"])){
+                if($_SESSION["s_userType"] != ''){
+                    $_GET['logged'] = $_SESSION["s_userType"];
+                }else{
+                    $_GET['logged'] = 'notLogged';
+                }
+            }else{
+                $_GET['logged'] = 'notLogged';
+            }
             include_once('assets/headerSettings.php');
         ?> 
 

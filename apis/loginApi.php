@@ -7,21 +7,26 @@
 
             $res = $userClass->getLogin($_POST['user'], $_POST['password'], $_POST['userType']);
 
-            $rows = array();
-            while($r = mysqli_fetch_assoc($res)) {
-                $rows[] = $r;
-            }
-            //echo json_encode($rows);
-
             if(mysqli_num_rows($res) > 0){
-                
-                header("Location: main.php");
 
-                //session_start();
+                session_start();
+
+                //$rows = array();
+                while($r = mysqli_fetch_assoc($res)) {
+                    //$rows[] = $r;
+                    $_SESSION["s_userId"]=$r['userId'];
+                    $_SESSION["s_userName"]=$r['userName'];
+                    $_SESSION["s_userType"]=$r['userType'];
+                }
+                //echo json_encode($rows);
+
+                
                 //
                 //$_SESSION["userId"] = $rows['userId'];
                 //$_SESSION["userName"]=$rows['userName'];
                 //$_SESSION["userType"]=$rows['userType'];
+
+                header("Location: main.php");
                 
             }
             else{

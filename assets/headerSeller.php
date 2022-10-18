@@ -7,11 +7,16 @@
         <img src="https://s3.amazonaws.com/colorslive/png/519184-69YeM8_DOT6DaDOz.png" alt="mdo" width="32" height="32" class="rounded-circle">
     </a>
     <ul class="dropdown-menu dropdown-menu-dark text-small">
+        <li><h5 class="dropdown-header"><?php echo $_SESSION["s_userName"]; ?></h5></li>
+        <li><hr class="dropdown-divider"></li>
         <li><a class="dropdown-item" href="./profile.php">Ver perfil</a></li>
         <li><a class="dropdown-item" href="./mySales.php">Mis ventas</a></li>
         <li><a class="dropdown-item" href="./quotationSeller.php">Solicitudes de cotización</a></li>
         <li><a class="dropdown-item" href="./settings.php">Configuración</a></li>
         <li><hr class="dropdown-divider"></li>
-        <li><a class="dropdown-item" href="#">Cerrar sesión</a></li>
+        
+        <form method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
+            <li><input class="dropdown-item" type="submit" name="logOutButton" value="Cerrar sesión"></input></li>
+        </form>
     </ul>
 </div>

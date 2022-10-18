@@ -18,11 +18,11 @@
 
 <body class="d-flex flex-column min-vh-100" style="margin-top: 3.5em;">
     <?php
-        include_once('assets/header.php');
-    ?>
+        include_once('apis/loginApi.php');
+    ?>    
 
     <?php
-        include_once('apis/loginApi.php');
+        include_once('assets/header.php');
     ?>
 
     <div class="container mt-5 mb-5">

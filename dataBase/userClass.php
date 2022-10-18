@@ -43,6 +43,11 @@
                 $query = $this->connect()->query('CALL userProcedure(null, null, "'.$userName.'", "'.$password.'", "'.$email.'", "'.$profilePhoto.'", null, null, "'.$name.'", "'.$lastName.'", "'.$birthDay.'", "'.$gender.'", null, null, null, null, null, null, null, null, null, null, "insertClient")');
 
                 return $query;
+            }else if($userType == 'Vendedor'){
+                $query = $this->connect()->query('CALL userProcedure(null, null, "'.$userName.'", "'.$password.'", "'.$email.'", "'.$profilePhoto.'", null, null, "'.$name.'", "'.$lastName.'", "'.$birthDay.'", "'.$gender.'", null, null, null, null, null, null, null, null, null, null, "insertSeller")');
+
+                return $query;
+            
             }
         }
 

@@ -94,8 +94,18 @@
                 </div>
             </div>
 
+            <?php 
+                if(isset($rows[0]['userType'])){
+                    if($rows[0]['userType'] == 'Comprador' || $rows[0]['userType'] == 'Vendedor'){
+            ?>
             <legend class="mt-5">Métodos de pago</legend>
+            
             <div class="row">
+                <?php 
+                    if(isset($rows[0]['userType'])){
+                        if($rows[0]['userType'] == 'Comprador'){
+                ?>
+
                 <div class="col-md form-group">
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" value="isDebitCard" id="flexCheckDebitCard" onclick="formCardDisable();" <?php if(isset($rows[0]['isDebitCard'])){if($rows[0]['isDebitCard'] == true){echo("checked");}}?> name="isDebitCard">
@@ -120,11 +130,21 @@
 
                 </div>
                 
+                <?php 
+                        }
+                    }
+                ?>
+                
                 <div class="col-md form-group">
                     <label class="form-label">Número de tarjeta</label>
                     <input class="form-control" id="formDebitCard" placeholder="Escribe los 16 dígitos de tu tarjeta..." <?php if(isset($rows[0]['isDebitCard'])){if($rows[0]['isDebitCard'] == false){echo("disabled");}}?> value="<?php if(isset($rows[0]['debitCard'])){echo $rows[0]['debitCard'];} ?>" name="debitCard">
                 </div>
             </div>
+
+            <?php 
+                    }
+                }
+            ?>
 
             <legend class="mt-5">Información de usuario</legend>
             <div class="row">

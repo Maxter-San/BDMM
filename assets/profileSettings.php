@@ -1,14 +1,14 @@
 <?php
-    if($_GET['userType'] == '1'){
+    if($_GET['userType'] == 'Comprador'){
         include_once('assets/profileClient.php');
     }
-    else if($_GET['userType'] == '2'){
+    else if($_GET['userType'] == 'Vendedor'){
         include_once('assets/profileSeller.php');
     }
-    else if($_GET['userType'] == '3'){
+    else if($_GET['userType'] == 'Admin'){
         include_once('assets/profileAdmin.php');
     }
-    else if($_GET['userType'] == '4'){
+    else if($_GET['userType'] == 'SuperAdmin'){
         include_once('assets/profileSuperAdmin.php');
     }
 ?>

@@ -123,7 +123,12 @@
             <div class="card-body">
 
                 <?php
-                    $_GET['userType'] = '1';
+                    
+                    if(isset($rows[0]['userType'])){
+                        $_GET['userType'] =  $rows[0]['userType'];
+                    } else{
+                        $_GET['userType'] =  'notFound';
+                    };
                     include_once('assets/profileSettings.php');
                 ?> 
 

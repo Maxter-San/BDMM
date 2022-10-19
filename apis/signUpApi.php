@@ -41,8 +41,13 @@
                                               $_POST['birthDay'], 
                                               $_POST['gender'], 
                                               $_POST['userType']
-                                            );
+                );
 
+                $res = $userClass->getLogin($_POST['user'], $_POST['password'], $_POST['userType']);
+
+                session_start();
+
+                //$rows = array();
                 while($r = mysqli_fetch_assoc($res)) {
                     //$rows[] = $r;
                     $_SESSION["s_userId"]=$r['userId'];

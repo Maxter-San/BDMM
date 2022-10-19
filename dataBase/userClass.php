@@ -86,6 +86,31 @@
             return $query;
 
         }
+
+        function updateUser(
+            $userId,
+            $userName,
+            $password,
+            $profilePhoto,
+            $coverPhoto,
+            $description,
+            $name,
+            $lastName,
+            $birthDay,
+            $gender,
+            $address,
+            $postalCode,
+            $city,
+            $state,
+            $debitCard,
+            $isDebitCard,
+            $isPaypal,
+            $isOxxo
+        ){
+            $query = $this->connect()->query('CALL userProcedure("'.$userId.'", null, "'.$userName.'", "'.$password.'", null, "'.$profilePhoto.'", "'.$coverPhoto.'", "'.$description.'", null, "'.$name.'", "'.$lastName.'", "'.$birthDay.'", "'.$gender.'", "'.$address.'", "'.$postalCode.'", "'.$city.'", "'.$state.'", "'.$debitCard.'", "'.$isDebitCard.'", "'.$isPaypal.'", "'.$isOxxo.'", null, null, "updatUserData")');
+
+                return $query;
+        }
     }
 
 ?>

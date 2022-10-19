@@ -31,7 +31,7 @@ function validateName(value) {
     //  return "Todo nombre propio debe iniciar con una mayúscula\n";
     //}
   
-    return '';
+    return "";
 }
 
 function validateFirstName(value) {
@@ -67,7 +67,7 @@ function validateFirstName(value) {
     //  return "Todo nombre propio debe iniciar con una mayúscula\n";
     //}
   
-    return '';
+    return "";
 }
 
 function validateBirthdate(value){
@@ -77,7 +77,7 @@ function validateBirthdate(value){
         return "Selecciona una fecha correcta";
     }
 
-    return '';
+    return "";
 }
 
 function validateStreetNum(value) {
@@ -113,7 +113,7 @@ function validateStreetNum(value) {
     //  return "Todo nombre propio debe iniciar con una mayúscula\n";
     //}
   
-    return '';
+    return "";
 }
 
 function validatePostCode(value){
@@ -292,6 +292,7 @@ function validateInfo(){
     let varEmail = document.getElementById('formEmail');
     let varImg = document.getElementById('formFile');
     let varRole = document.getElementById('formRole');
+    let varformFrontPage = document.getElementById('formFrontPage');
     let varPassword = document.getElementById('formPassword');
     let varPasswordConfirm = document.getElementById('formPasswordConfirm');
 
@@ -318,6 +319,10 @@ function validateInfo(){
     if(varImg.value != ""){
         varImg.setCustomValidity(validateImg(varImg.value)); 
     }
+
+    if(varformFrontPage.value != ""){
+        varformFrontPage.setCustomValidity(validateImg(varformFrontPage.value)); 
+    }
     
     varEmail.setCustomValidity(validateMail(varEmail.value));
     varRole.setCustomValidity(validateChecFormSelected(varRole.value));
@@ -326,10 +331,7 @@ function validateInfo(){
     if(varFlexSwitchCheckPassword.checked == true){
         varPasswordConfirm.setCustomValidity(validatePasswordConfirmation(varPassword.value, varPasswordConfirm.value));
         varActualPassword.setCustomValidity(validatePassword(varActualPassword.value));
-        varActualPassword.setCustomValidity(validatePassword(varActualPassword.value, varPassword.value));
     }
-
-    return false;
     
     //strName.value = "asdf";
 }
@@ -384,7 +386,7 @@ function setDummyInfo(){
     var dateDummy = new Date();
     dateDummy.setFullYear(2000,03-1,09);
     varBirthdate.valueAsDate = dateDummy;
-    varGender.value = 2;
+    varGender.value = 'Mujer';
 
     varStreetNum.value = "calle 1234";
     varPostalCode.value = "12345";
@@ -399,11 +401,11 @@ function setDummyInfo(){
 
     varUsername.value = "MaxterSan";
     varEmail.value = "correo@hotmail.com";
-    varRole.value = 2;
+    varRole.value = 'Comprador';
 }
 
-document.addEventListener('DOMContentLoaded', (event) => {
-    document.getElementById("myForm").addEventListener("submit", function(e) {
-        e.preventDefault() // Cancel the default action
-    });
-});
+//document.addEventListener('DOMContentLoaded', (event) => {
+//    document.getElementById("myForm").addEventListener("submit", function(e) {
+//        e.preventDefault() // Cancel the default action
+//    });
+//});

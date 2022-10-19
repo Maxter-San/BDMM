@@ -51,8 +51,6 @@
     <h2>Tus últimos productos vistos</h2>
     <?php
         include('assets/sectionBar.php');
-
-        echo "var: ".$_SESSION["s_userId"];
     ?>
 
     <h2>Productos populares</h2>

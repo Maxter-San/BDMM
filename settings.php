@@ -18,23 +18,29 @@
 
 </head>
 
-<body class="d-flex flex-column min-vh-100" style="margin-top: 3.5em;" onload="setDummyInfo();">
+<body class="d-flex flex-column min-vh-100" style="margin-top: 3.5em;">
     <?php
+        include_once('apis/settingsApi.php');
+
         include_once('assets/header.php');
+
+        $var = new settingsApi();
+
+        $rows = $var->getUserData();
     ?>
 
     <div class="container mt-5 mb-5">
-    <form method="POST" action="#" onsubmit="myFunction();" id="myForm">
+    <form method="POST" action="<?php echo $_SERVER['PHP_SELF'] ?>" onsubmit="myFunction();" id="myForm">
             <legend>Información personal</legend>
             <div class="row">
                 <div class="col-md form-group">
                     <label class="form-label">Nombre</label>
-                    <input class="form-control" id="formName" placeholder="Escribe tu nombre(s)..." required>
+                    <input class="form-control" id="formName" placeholder="Escribe tu nombre(s)..." required value="<?php if(isset($rows[0]['name'])){echo $rows[0]['name'];} ?>">
                 </div>
 
                 <div class="col-md form-group">
                     <label class="form-label">Apellido</label>
-                    <input class="form-control" id="formLastName" placeholder="Escribe tu apellido(s)..." required>
+                    <input class="form-control" id="formLastName" placeholder="Escribe tu apellido(s)..." required value="<?php if(isset($rows[0]['lastName'])){echo $rows[0]['lastName'];} ?>">
                 </div>
             </div>
 
@@ -47,10 +53,9 @@
                 <div class="col-md form-group">
                     <label class="form-label">Sexo</label>
                     <select class="form-select" id="formGender" required>
-                        <option selected value="">Selecciona tu sexo</option>
-                        <option value="1">Hombre</option>
-                        <option value="2">Mujer</option>                     
-                        <option value="3">Si</option>
+                        <option value="">Selecciona tu sexo</option>
+                        <option value="Hombre">Hombre</option>
+                        <option value="Mujer">Mujer</option>
                     </select>
                 </div>
             </div>
@@ -59,24 +64,24 @@
             <div class="row">
                 <div class="col-md form-group">
                     <label class="form-label">Calle y número</label>
-                    <input class="form-control" id="formStreetNum" placeholder="Escribe la calle..." required>
+                    <input class="form-control" id="formStreetNum" placeholder="Escribe la calle..." required value="<?php if(isset($rows[0]['address'])){echo $rows[0]['address'];} ?>">
                 </div>
 
                 <div class="col-md form-group">
                     <label class="form-label">Código postal</label>
-                    <input class="form-control" id="formPostalCode" placeholder="Escribe el código postal..." required>
+                    <input class="form-control" id="formPostalCode" placeholder="Escribe el código postal..." required value="<?php if(isset($rows[0]['postalCode'])){echo $rows[0]['postalCode'];} ?>">
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-md form-group">
                     <label class="form-label">Ciudad</label>
-                    <input class="form-control" id="formCity" placeholder="Escribe la ciudad..." required>
+                    <input class="form-control" id="formCity" placeholder="Escribe la ciudad..." required value="<?php if(isset($rows[0]['city'])){echo $rows[0]['city'];} ?>">
                 </div>
 
                 <div class="col-md form-group">
                     <label class="form-label">Estado</label>
-                    <input class="form-control" id="formState" placeholder="Escribe el estado..." required>
+                    <input class="form-control" id="formState" placeholder="Escribe el estado..." required value="<?php if(isset($rows[0]['state'])){echo $rows[0]['state'];} ?>">
                 </div>
             </div>
 
@@ -108,7 +113,7 @@
                 
                 <div class="col-md form-group">
                     <label class="form-label">Número de tarjeta</label>
-                    <input class="form-control" id="formDebitCard" placeholder="Escribe los 16 dígitos de tu tarjeta..." disabled>
+                    <input class="form-control" id="formDebitCard" placeholder="Escribe los 16 dígitos de tu tarjeta..." disabled value="<?php if(isset($rows[0]['debitCard'])){echo $rows[0]['debitCard'];} ?>">
                 </div>
             </div>
 
@@ -116,12 +121,12 @@
             <div class="row">
                 <div class="col-md form-group">
                     <label class="form-label">Nombre de usuario</label>
-                    <input class="form-control" id="formUserName" placeholder="Crea tu nombre de usuario..." required>
+                    <input class="form-control" id="formUserName" placeholder="Escribe tu nombre de usuario..." required value="<?php if(isset($rows[0]['userName'])){echo $rows[0]['userName'];} ?>">
                 </div>
 
                 <div class="col-md form-group">
                     <label class="form-label">Correo electrónico</label>
-                    <input type="email" class="form-control" id="formEmail" placeholder="nombre@ejemplo.com" disabled>
+                    <input type="email" class="form-control" id="formEmail" placeholder="nombre@ejemplo.com" disabled value="<?php if(isset($rows[0]['email'])){echo $rows[0]['email'];} ?>">
                 </div>                
             </div>
 
@@ -134,9 +139,9 @@
                 <div class="col-md form-group">
                     <label class="form-label">Tipo de usuario</label>
                     <select class="form-select" id="formRole" disabled>
-                        <option selected value="">Selecciona tu rol de usuario</option>
-                        <option value="1">Comprador</option>
-                        <option value="2">Vendedor</option>
+                        <option value="">Selecciona tu rol de usuario</option>
+                        <option value="Comprador">Comprador</option>
+                        <option value="Vendedor">Vendedor</option>
                     </select>
                 </div>               
             </div>
@@ -149,7 +154,7 @@
                 <div class="col-md form-group">
                     <div class="col-md form-group">
                         <label class="form-label">Descripción</label>
-                        <input class="form-control" id="formDescription" placeholder="Tu descripción de usuario (opcional)">
+                        <input class="form-control" id="formDescription" placeholder="Tu descripción de usuario (opcional)" value="<?php if(isset($rows[0]['description'])){echo $rows[0]['description'];} ?>">
                     </div>
                 </div>
             </div>

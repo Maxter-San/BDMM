@@ -21,16 +21,35 @@
             };
 
             if($validations == ''){
+
+                $archivo = $_FILES["profilePhoto"]["tmp_name"]; 
+                $tamanio = $_FILES["profilePhoto"]["size"];
+                $tipo    = $_FILES["profilePhoto"]["type"];
+                $nombre  = $_FILES["profilePhoto"]["name"];
+
+                $fp = fopen($archivo, "rb");
+                $contenido = fread($fp, $tamanio);
+                $contenido = addslashes($contenido);
+                fclose($fp); 
+
                 $res = $userClass->insertUser($_POST['userName'], 
                                               $_POST['password'], 
                                               $_POST['email'], 
-                                              $_POST['profilePhoto'], 
+                                              $contenido,
                                               $_POST['name'], 
                                               $_POST['lastName'], 
                                               $_POST['birthDay'], 
                                               $_POST['gender'], 
                                               $_POST['userType']
                                             );
+
+                while($r = mysqli_fetch_assoc($res)) {
+                    //$rows[] = $r;
+                    $_SESSION["s_userId"]=$r['userId'];
+                    $_SESSION["s_userName"]=$r['userName'];
+                    $_SESSION["s_userType"]=$r['userType'];
+                    $_SESSION["s_profilePhoto"]=$r['profilePhoto'];
+                }
 
                 header("Location: main.php");
             }

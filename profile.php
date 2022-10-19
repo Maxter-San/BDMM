@@ -31,9 +31,17 @@
     ?>
 
     <header class="hero" 
-        style='background-image: url("./resourses/dummy/<?php if(isset($rows[0]['coverPhoto'])){echo $rows[0]['coverPhoto'];}else{echo 'coverPhoto.jpg';} ?>");'
+        style='background-image: url("<?php if(isset($rows[0]['coverPhoto'])){echo 'data:image;base64,'.base64_encode($rows[0]["coverPhoto"]);}else{echo './resourses/dummy/coverPhoto.jpg';} ?>");'
     >
-        <img src="./resourses/dummy/<?php if(isset($rows[0]['profilePhoto'])){echo $rows[0]['profilePhoto'];} ?>" alt="profile image" class="card_header-profile" />
+        <img src="
+            <?php 
+                if(isset($rows[0]['profilePhoto'])){
+                    echo 'data:image;base64,'.base64_encode($rows[0]["profilePhoto"]);
+                }
+            ?>" 
+
+        alt="profile image" class="card_header-profile" />
+
     </header>
 
 
@@ -41,8 +49,13 @@
         <div class="card">
             <div class="card-body">
                 <div class="row">
-                    <div class="col">
+                    <div class="col text-center">
                         <h3 class="card-title"><?php if(isset($rows[0]['userName'])){echo $rows[0]['userName'];} ?></h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <h4 class="userData"><?php if(isset($rows[0]['name']) && isset($rows[0]['lastName'])){echo $rows[0]['name'].' '.$rows[0]['lastName'];} ?></h4>
                     </div>
 
                     <div class="col">

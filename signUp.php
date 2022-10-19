@@ -25,7 +25,7 @@
     ?>
    
     <div class="container mt-5 mb-5">
-        <form method="POST" action="<?php echo $_SERVER['PHP_SELF'] ?>">
+        <form method="POST" enctype="multipart/form-data" action="<?php echo $_SERVER['PHP_SELF'] ?>">
             <legend>Información personal</legend>
             <div class="row">
                 <div class="col-md form-group">
@@ -97,7 +97,6 @@
                 <div class="col-md form-group">
                     <label class="form-label">Imagen de perfil</label>
                     <input class="form-control" type="file" id="formFile" required name="profilePhoto"
-                        value="<?php if(isset($_GET['p_profilePhoto'])){echo($_GET['p_profilePhoto']);}?>"
                     >
                 </div>
 

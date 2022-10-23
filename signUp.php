@@ -17,11 +17,11 @@
 
 <body class="d-flex flex-column min-vh-100" style="margin-top: 3.5em;">
     <?php
-        include_once('assets/header.php');
-    ?>
+        session_start();
 
-    <?php
         include_once('apis/signUpApi.php');
+        
+        include_once('assets/header.php');
     ?>
    
     <div class="container mt-5 mb-5">
@@ -30,14 +30,14 @@
             <div class="row">
                 <div class="col-md form-group">
                     <label class="form-label">Nombre</label>
-                    <input class="form-control" id="formName" placeholder="Escribe tu nombre(s)..." required name="name"
+                    <input class="form-control" id="formName" maxlength="50" placeholder="Escribe tu nombre(s)..." required name="name"
                         value="<?php if(isset($_GET['p_name'])){echo($_GET['p_name']);}?>"
                     >
                 </div>
 
                 <div class="col-md form-group">
                     <label class="form-label">Apellido</label>
-                    <input class="form-control" id="formLastName" placeholder="Escribe tu apellido(s)..." required name="lastName"
+                    <input class="form-control" id="formLastName" maxlength="50" placeholder="Escribe tu apellido(s)..." required name="lastName"
                         value="<?php if(isset($_GET['p_lastName'])){echo($_GET['p_lastName']);}?>"
                     >
                 </div>
@@ -69,7 +69,7 @@
             <div class="row">
                 <div class="col-md form-group">
                     <label class="form-label">Nombre de usuario</label>
-                    <input class="form-control" id="formUserName" placeholder="Crea tu nombre de usuario..." required name="userName"
+                    <input class="form-control" id="formUserName" maxlength="50" placeholder="Crea tu nombre de usuario..." required name="userName"
                         value="<?php if(isset($_GET['p_userName'])){echo($_GET['p_userName']);}?>"
                     >
                     <?php 
@@ -81,7 +81,7 @@
 
                 <div class="col-md form-group">
                     <label class="form-label">Correo electrónico</label>
-                    <input type="email" class="form-control" id="formEmail" placeholder="nombre@ejemplo.com" required name="email"
+                    <input type="email" class="form-control" id="formEmail" maxlength="50" placeholder="nombre@ejemplo.com" required name="email"
                         value="<?php if(isset($_GET['p_email'])){echo($_GET['p_email']);}?>"
                     >
                     <?php 
@@ -117,14 +117,14 @@
             <div class="row">
                 <div class="col-md form-group">
                     <label class="form-label">Contraseña</label>
-                    <input class="form-control" type="password" id="formPassword" placeholder="Crea una contraseña..." required name="password"
+                    <input class="form-control" type="password" id="formPassword" maxlength="50" placeholder="Crea una contraseña..." required name="password"
                         value="<?php if(isset($_GET['p_password'])){echo($_GET['p_password']);}?>"
                     >
                 </div>
 
                 <div class="col-md form-group">
                     <label class="form-label">Confirmar contraseña</label>
-                    <input class="form-control" type="password" id="formPasswordConfirm" placeholder="Confirma la contraseña..." required name="passwordConfirmation"
+                    <input class="form-control" type="password" id="formPasswordConfirm" maxlength="50" placeholder="Confirma la contraseña..." required name="passwordConfirmation"
                         value="<?php if(isset($_GET['p_passwordConfirmation'])){echo($_GET['p_passwordConfirmation']);}?>"
                     >
                 </div>

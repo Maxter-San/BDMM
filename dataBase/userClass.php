@@ -62,6 +62,15 @@
             return $query;
         }
 
+        function findAnotherRepeatUser(
+            $userId,
+            $userName
+        ){
+            $query = $this->connect()->query('CALL userProcedure("'.$userId.'", null, "'.$userName.'", null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, "selectAnotherRepeatUserByID")');
+            
+            return $query;
+        }
+
         function findRepeatEmail(
             $email,
             $userType

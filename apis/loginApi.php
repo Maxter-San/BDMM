@@ -9,8 +9,6 @@
 
             if(mysqli_num_rows($res) > 0){
 
-                session_start();
-
                 //$rows = array();
                 while($r = mysqli_fetch_assoc($res)) {
                     //$rows[] = $r;

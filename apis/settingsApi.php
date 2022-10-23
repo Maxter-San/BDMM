@@ -25,10 +25,23 @@
 
         function setUserData(){
             $userClass = new userClass();
+            $validations = '';
+            $validUser = '';
 
-            $res = $userClass->getLogin($_SESSION["s_userName"], $_POST['password'], $_SESSION["s_userType"]);
+            $validPassword = $userClass->getLogin($_SESSION["s_userName"], $_POST['password'], $_SESSION["s_userType"]);
 
-            if(mysqli_num_rows($res) > 0){
+            if(mysqli_num_rows($validPassword) == 0){
+                $validations = $validations."&invalidPassword=true";
+            }
+            
+            $validUser = $userClass->findAnotherRepeatUser($_SESSION["s_userId"], $_POST['userName']);
+        
+            if(mysqli_num_rows($validUser) > 0){
+                $validations = $validations."&repeatUsername=true";
+            };
+
+
+            if($validations == ''){
                 //$profilePhotoBlob = $rows[0]['profilePhoto'];
                 //if($_FILES["profilePhoto"]["size"] > 0){
                     $archivo = $_FILES["profilePhoto"]["tmp_name"]; 
@@ -70,7 +83,7 @@
                     $isOxxoCheck = 1;
                 }
 
-                $numCard = 123;
+                $numCard = '';
                 if(isset($_POST['debitCard'])){
                     $numCard = $_POST['debitCard'];
                 }
@@ -85,10 +98,15 @@
                     $postalCodeClient = $_POST['postalCode'];
                 }
 
+                $password = $_POST['password'];
+                if(isset($_POST['newPassword'])){
+                    $password = $_POST['newPassword'];
+                }
+
                 $res = $userClass->updateUser(
                     $_SESSION["s_userId"],
                     $_POST['userName'],
-                    $_POST['password'],
+                    $password,
                     $profilePhotoBlob,
                     $coverPhotoBlob,
                     $_POST['description'],
@@ -113,13 +131,15 @@
                     //$rows[] = $r;
                     $_SESSION["s_userName"]=$r['userName'];
                     $_SESSION["s_profilePhoto"]=$r['profilePhoto'];
-                }   
+                }
 
+                header("Location: settings.php?successful=true");
             }
             else{
-                //echo '<script>';
-                //echo 'document.getElementById("content").innerHTML = "Contraseña incorrecta";';
-                //echo '</script>';
+                header("Location: settings.php?".
+                        $validations.
+                       "&p_name=".$_POST['name']
+                    ); 
             }
             
         }
@@ -129,4 +149,7 @@
         $var = new settingsApi(); 
         $var->setUserData();
     };
+
+    $varSet = new settingsApi(); 
+        $rows = $varSet->getUserData();
 ?>

@@ -18,10 +18,10 @@
 
 <body class="d-flex flex-column min-vh-100" style="margin-top: 3.5em;">
     <?php
-        include_once('apis/loginApi.php');
-    ?>    
+        session_start();
 
-    <?php
+        include_once('apis/loginApi.php');
+
         include_once('assets/header.php');
     ?>
 

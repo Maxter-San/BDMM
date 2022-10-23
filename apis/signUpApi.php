@@ -45,8 +45,6 @@
 
                 $res = $userClass->getLogin($_POST['userName'], $_POST['password'], $_POST['userType']);
 
-                session_start();
-
                 //$rows = array();
                 while($r = mysqli_fetch_assoc($res)) {
                     //$rows[] = $r;
@@ -55,6 +53,7 @@
                     $_SESSION["s_userType"]=$r['userType'];
                     $_SESSION["s_profilePhoto"]=$r['profilePhoto'];
                 }
+
 
                 header("Location: main.php");
             }
@@ -73,7 +72,7 @@
                     "&p_userType=".$_POST['userType']
                 );
             }
-
+            
             exit();
         }
 

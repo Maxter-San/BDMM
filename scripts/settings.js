@@ -209,6 +209,9 @@ function validateMail(value){
 }
 
 function validateImg(value){
+    if(value == ""){
+    return 'Selecciona una foto';
+    }
     idxDot = value.lastIndexOf(".") + 1,
     extFile = value.substr(idxDot, value.length).toLowerCase();
     if (extFile=="jpg" || extFile=="jpeg" || extFile=="png"){
@@ -274,7 +277,7 @@ function validateDuplicatePassword(actualPassword, newPassword){
     return '';
 }
 
-function validateInfo(){
+function validateInfo(userType){
     let varName = document.getElementById('formName');
     let varLastname = document.getElementById('formLastName');
     let varBirthdate = document.getElementById('formBirthDate');
@@ -305,24 +308,24 @@ function validateInfo(){
     varBirthdate.setCustomValidity(validateBirthdate(varBirthdate.value));
     varGender.setCustomValidity(validateChecFormSelected(varGender.value));
 
-    varStreetNum.setCustomValidity(validateStreetNum(varStreetNum.value));
-    varPostalCode.setCustomValidity(validatePostCode(varPostalCode.value));
-    varCity.setCustomValidity(validateName(varCity.value));
-    varState.setCustomValidity(validateName(varState.value));
+    if(userType == 'Comprador' || userType == 'Vendedor'){
+        if(userType == 'Comprador'){
+            varStreetNum.setCustomValidity(validateStreetNum(varStreetNum.value));
+            varPostalCode.setCustomValidity(validatePostCode(varPostalCode.value));
+        }
+        varCity.setCustomValidity(validateName(varCity.value));
+        varState.setCustomValidity(validateName(varState.value));
 
-    if(varflexCheckDebitCard.checked == true){
-        varDebitCard.setCustomValidity(validateDebitCard(varDebitCard.value));
+        if(varflexCheckDebitCard.checked == true){
+            varDebitCard.setCustomValidity(validateDebitCard(varDebitCard.value));
+        }
     }
 
-    varUsername.setCustomValidity(validateUsername(varUsername.value));
+    varUsername.setCustomValidity(validateName(varUsername.value));
     
-    if(varImg.value != ""){
-        varImg.setCustomValidity(validateImg(varImg.value)); 
-    }
+    varImg.setCustomValidity(validateImg(varImg.value)); 
 
-    if(varformFrontPage.value != ""){
-        varformFrontPage.setCustomValidity(validateImg(varformFrontPage.value)); 
-    }
+    varformFrontPage.setCustomValidity(validateImg(varformFrontPage.value)); 
     
     varEmail.setCustomValidity(validateMail(varEmail.value));
     varRole.setCustomValidity(validateChecFormSelected(varRole.value));

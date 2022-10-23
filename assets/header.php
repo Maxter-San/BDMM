@@ -1,4 +1,8 @@
-<?php session_start();?>
+<?php 
+    if(session_status() != 2)
+    session_start();
+
+?>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container-fluid container">
         <a class="navbar-brand" href="./main.php">

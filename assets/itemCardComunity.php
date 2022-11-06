@@ -4,8 +4,7 @@
         <div class="card-body">
             <h5 class="card-title"><?php echo $userName; ?></h5>
             <p class="card-text">Tipo: <?php echo $userType; ?></p>
-            <a href="./profile.php" class="btn btn-warning">Ver perfil</a>
-            <!--<?php echo $userId; ?> -->
+            <a href="<?php echo "./profile.php?p_userId=".$userId; ?>" class="btn btn-warning">Ver perfil</a>
         </div>
     </div>
 </div>

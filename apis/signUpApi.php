@@ -117,7 +117,7 @@
                                               $_POST['userType']
                 );
 
-                header("Location: addAdmin.php");
+                header("Location: addAdmin.php?successful=true");
             }
             else{
             header("Location: addAdmin.php?invalidSignUp=true".

@@ -11,6 +11,10 @@
                 $index = $_SESSION["s_userId"];
             }
 
+            if(isset($_GET["p_userId"])){
+                $index = $_GET["p_userId"];
+            }
+
             $res = $userClass->getProfileUserById($index);
 
             $rows = array();

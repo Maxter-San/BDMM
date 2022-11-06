@@ -124,6 +124,34 @@
 
                 return $query;
         }
+
+
+        function getComunity(
+            $userName,
+            $userType,
+            $orderBy
+        ){
+            $order = 'searchResultUserByCreationDateDesc';
+            if($orderBy == 'newer'){
+                $order = 'searchResultUserByCreationDateDesc';
+            }else if($orderBy == 'older'){
+                $order = 'searchResultUserByCreationDateAsc';
+            }else if($orderBy == 'asc'){
+                $order = 'searchResultUserByAZ';
+            }else if($orderBy == 'desc'){
+                $order = 'searchResultUserByZA';
+            }
+
+            if($userType != null){
+                $query = $this->connect()->query('CALL userProcedure(null, null, null, null, null, null, null, null, "'.$userType.'", null, null, null, null, null, null, null, null, null, null, null, null, null, "'.$userName.'", "'.$order.'")');
+            }
+            else{
+                $query = $this->connect()->query('CALL userProcedure(null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, "'.$userName.'", "'.$order.'")');
+            }
+
+            return $query;
+
+        }
     }
 
 ?>

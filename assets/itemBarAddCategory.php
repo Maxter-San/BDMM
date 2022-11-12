@@ -1,4 +1,4 @@
-<div class="card mb-3" id="list<?php echo $categoryId;?>">
+<div class="card mb-3" id="list<?php echo $categoryId;?>" <?php echo 'onclick="sendCategoryId('.$categoryId.', '."'".$categoryName."'".', '."'".$categoryDescription."'".');"'; ?> style="cursor: pointer;">
 
     <div class="row g-0">
         <div class="modal-header">
@@ -11,7 +11,7 @@
         <div class="col-md-10">
             <div class="card-body">
                 <h5 class="card-title"><?php echo $categoryName ?></h5>
-                <p class="card-text">Categoría creada el <?php echo date("d") . "/" . date("m") . "/" . date("Y"); ?></p>
+                <p class="card-text">Categoría creada el <?php echo date('d-m-Y', strtotime($categoryCreationDate)); ?></p>
                 <p class="card-text"><small class="text-muted">Descripción: <?php echo $categoryDescription; ?></small></p>
                     <!-- <?php echo $categoryId; ?> -->
             </div>
@@ -30,23 +30,11 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#exampleModal<?php echo $categoryId;?>">Aceptar</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="modal fade" id="exampleModal<?php echo $categoryId;?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">¡Categoría borrada con exito!</h5>
-            </div>
-            <div class="modal-body">
-                Has borrado la categoría de <?php echo $categoryName; ?>
-            </div>
-            <div class="modal-footer">
-                <a class="btn btn-success" type="button" data-bs-dismiss="modal">Aceptar</a>
+                <form method="POST" action="<?php echo $_SERVER['PHP_SELF'] ?>" id="myForm">
+                    <input class="form-control" id="formCategoryName" placeholder="ID" name="name" hidden value="<?php echo $categoryName;?>">
+                    <input class="form-control" id="formCategoryId" placeholder="ID" name="categoryId" hidden value="<?php echo $categoryId;?>">
+                    <button type="submit" name="submitButtonDelete" class="btn btn-primary" data-bs-dismiss="modal" data-bs-toggle="modal">Aceptar</button>
+                </form>
             </div>
         </div>
     </div>

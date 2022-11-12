@@ -34,19 +34,100 @@ function validateInfo(){
     varformCategoryDescription.setCustomValidity(validateInput(varformCategoryDescription.value));
 }
 
-document.addEventListener('DOMContentLoaded', (event) => {
-    document.getElementById("myForm").addEventListener("submit", function(e) {
-        e.preventDefault() // Cancel the default action
-    });
-});
+function formAddCategory(){
+    document.getElementById('validationText').textContent = "";
+    clearForm();
+    enableForm();
+    disableButtons();
+}
+
+function formModifyCategory(){
+    if(verifySelection()){
+        enableForm();
+        disableButtons();
+    }
+}
+
+function cancelForm(){
+    clearForm();
+    disableForm();
+    enableButtons();
+}
+
+function sendCategoryId(categoryId, categoryName, categoryDescription){
+    let varformCategoryId = document.getElementById('formCategoryId');
+    let varformCategoryName = document.getElementById('formCategoryName');
+    let varformCategoryDescription = document.getElementById('formCategoryDescription');
+
+    varformCategoryId.value = categoryId;
+    varformCategoryName.value = categoryName;
+    varformCategoryDescription.value = categoryDescription;
+}
+
+function verifySelection(){
+    let varformCategoryId = document.getElementById('formCategoryId');
+
+    if(varformCategoryId.value == ''){
+        document.getElementById('validationText').textContent = "Selecciona una categoría";
+        return false;
+    }else{
+        document.getElementById('validationText').textContent = "";
+        return true;
+    }
+}
+
+function enableForm(){
+    let varformCategoryName = document.getElementById('formCategoryName');
+    let varformFilePhoto = document.getElementById('formFilePhoto');
+    let varformCategoryDescription = document.getElementById('formCategoryDescription');
+    let varButtonSubmit = document.getElementById('buttonSubmit');
+    let varButtonCancel = document.getElementById('buttonCancel');
+
+    varformCategoryName.disabled = false;
+    varformFilePhoto.disabled = false;
+    varformCategoryDescription.disabled = false;
+    varButtonSubmit.disabled = false;
+    varButtonCancel.disabled = false;
+}
+
+function disableForm(){
+    let varformCategoryName = document.getElementById('formCategoryName');
+    let varformFilePhoto = document.getElementById('formFilePhoto');
+    let varformCategoryDescription = document.getElementById('formCategoryDescription');
+    let varButtonSubmit = document.getElementById('buttonSubmit');
+    let varButtonCancel = document.getElementById('buttonCancel');
+    
+    varformCategoryName.disabled = true;
+    varformFilePhoto.disabled = true;
+    varformCategoryDescription.disabled = true;
+    varButtonSubmit.disabled = true;
+    varButtonCancel.disabled = true;
+}
+
+function enableButtons(){
+    let varButtonAddCategory = document.getElementById('buttonAddCategory');
+    let varButtonModifyCategory = document.getElementById('buttonModifyCategory');
+
+    varButtonAddCategory.disabled = false;
+    varButtonModifyCategory.disabled = false;
+}
+
+function disableButtons(){
+    let varButtonAddCategory = document.getElementById('buttonAddCategory');
+    let varButtonModifyCategory = document.getElementById('buttonModifyCategory');
+
+    varButtonAddCategory.disabled = true;
+    varButtonModifyCategory.disabled = true;
+}
 
 function clearForm(){
     let varformCategoryName = document.getElementById('formCategoryName');
     let varformFilePhoto = document.getElementById('formFilePhoto');
     let varformCategoryDescription = document.getElementById('formCategoryDescription');
+    let varformCategoryId = document.getElementById('formCategoryId');
 
     varformCategoryName.value = '';
     varformFilePhoto.value = '';
     varformCategoryDescription.value = '';
-    myFunction();
+    varformCategoryId.value = '';
 }

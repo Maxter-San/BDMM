@@ -91,6 +91,20 @@
             
             return $rows;
         }
+
+        function getAllCategories(){
+            $categoryClass = new categoryClass();
+            $res = $categoryClass->getAllCategories();
+
+            $rows = array();
+            while($r = mysqli_fetch_assoc($res)) {
+                $rows[] = $r;
+            }
+            //echo json_encode($rows);
+            //echo $rows[0]['userId'];
+            
+            return $rows;   
+        }
     }
 
     if(isset($_POST['submitButton'])){
@@ -110,7 +124,7 @@
 
     };
 
-    $var = new categorypApi();
-
-    $rows = $var->getCreatedCategories();
+    //$var = new categorypApi();
+//
+    //$rows = $var->getCreatedCategories();
 ?>

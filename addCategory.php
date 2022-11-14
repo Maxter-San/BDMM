@@ -24,6 +24,9 @@
     <?php
         session_start();
         include_once('apis/categoryApi.php');
+        $var = new categorypApi();
+
+        $rows = $var->getCreatedCategories();
 
         include_once('assets/header.php');
     ?>

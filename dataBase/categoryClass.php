@@ -53,6 +53,13 @@
             return $query;
         }
 
+        function getAllCategories()
+        {
+            $query = $this->connect()->query('CALL categoryProcedure(null, null, null, null, null, null, "selectAllCategories")');
+            //$this->connect()->close();
+            return $query;
+        }
+
     }
 
 ?>

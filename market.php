@@ -31,7 +31,7 @@
 
         include_once('apis/productApi.php');
         $prod = new productApi();
-        $enEspera = $prod->selectProductsByStatus('En espera');
+        $enEspera = $prod->selectProductsByStatusBySellerId('En espera');
 
         include_once('assets/header.php');
     ?>

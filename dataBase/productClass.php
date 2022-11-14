@@ -70,12 +70,43 @@
             
         }
 
-        function selectProductsByStatus(
+        function updateStatusProduct(
+            $p_productId,
+            $p_adminId,
+            $p_status
+        ){
+            $query = $this->connect()->query('CALL productProcedure('.$p_productId.', null, null, null, null, null, null, "'.$p_status.'", null, null, null, null, null, '.$p_adminId.', null, null, null, null, null, null, null, null, "updateStatusProduct")');
+            return $query;
+        }
+
+        function selectProductsByStatusBySellerId(
             $p_sellerId,
             $p_status
         ){
             $query = $this->connect()->query('CALL productProcedure(null, null, null, null, null, null, null, "'.$p_status.'", null, null, null, null, '.$p_sellerId.', null, null, null, null, null, null, null, null, null, "selectProductWithStatusBySellerId")');
             return $query;
         }
+
+        function selectAllProductsByStatus(
+            $p_status
+        ){
+            $query = $this->connect()->query('CALL productProcedure(null, null, null, null, null, null, null, "'.$p_status.'", null, null, null, null, null, null, null, null, null, null, null, null, null, null, "selectAllProductsWithStatus")');
+            return $query;
+        }
+
+        function selectPhotosByProductId(
+            $p_productId
+        ){
+            $query = $this->connect()->query('CALL productProcedure('.$p_productId.', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, "SelectPhotosByProductId")');
+            return $query;
+        }
+
+        function selectCategoriesByProductId(
+            $p_productId
+        ){
+            $query = $this->connect()->query('CALL productProcedure('.$p_productId.', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, "SelectCategoriesByProductId")');
+            return $query;
+        }
+
     }
 ?>

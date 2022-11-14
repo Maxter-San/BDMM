@@ -75,7 +75,7 @@
             exit();
         }
 
-        function selectProductsByStatus($status){
+        function selectProductsByStatusBySellerId($status){
             $productClass = new productClass();
             $userClass = new userClass();
 
@@ -86,7 +86,7 @@
             }
             $sellerInfo = $sellerRows[0]['sellerId'];
 
-            $res = $productClass->selectProductsByStatus($sellerInfo, 
+            $res = $productClass->selectProductsByStatusBySellerId($sellerInfo, 
                                                          $status);
 
             $rows = array();
@@ -96,6 +96,77 @@
             
             return $rows;   
         }
+
+        function selectAllProductsByStatus($status){
+            $productClass = new productClass();
+
+            $res = $productClass->selectAllProductsByStatus($status);
+
+            $rows = array();
+            while($r = mysqli_fetch_assoc($res)) {
+                $rows[] = $r;
+            }
+            
+            return $rows;
+        }
+
+        function selectProductImages($productId){
+            $productClass = new productClass();
+
+            $res = $productClass->selectPhotosByProductId($productId);
+
+            $rows = array();
+            while($r = mysqli_fetch_assoc($res)) {
+                $rows[] = $r;
+            }
+            
+            return $rows;
+        }
+
+        function selectCategoriesByProductId($productId){
+            $productClass = new productClass();
+
+            $res = $productClass->selectCategoriesByProductId($productId);
+
+            $rows = array();
+            while($r = mysqli_fetch_assoc($res)) {
+                $rows[] = $r;
+            }
+            
+            return $rows;
+        }
+
+        function aproveProduct(){
+            $productClass = new productClass();
+            $userClass = new userClass();
+
+            $search = $userClass->getProfileUserById($_SESSION['s_userId']);
+            $rows = array();
+            while($r = mysqli_fetch_assoc($search)) {
+                $rows[] = $r;
+            }
+            $adminInfo = $rows[0]['adminId'];
+
+            $productClass->updateStatusProduct($_POST['productId'] ,$adminInfo, 'Aceptado');
+
+            header("Location: approveProducts.php?successful=acept");
+        }
+
+        function rejectProduct(){
+            $productClass = new productClass();
+            $userClass = new userClass();
+
+            $search = $userClass->getProfileUserById($_SESSION['s_userId']);
+            $rows = array();
+            while($r = mysqli_fetch_assoc($search)) {
+                $rows[] = $r;
+            }
+            $adminInfo = $rows[0]['adminId'];
+
+            $productClass->updateStatusProduct($_POST['productId'] ,$adminInfo, 'Rechazado');
+
+            header("Location: approveProducts.php?successful=reject");
+        }
     }
 
     if(isset($_POST['submitProduct'])){
@@ -104,3 +175,15 @@
         $var->addProduct();
 
     };
+
+    if(isset($_POST['submitAprove'])){
+        $var = new productApi();
+
+        $var->aproveProduct();
+    }
+
+    if(isset($_POST['submitReject'])){
+        $var = new productApi();
+
+        $var->rejectProduct();
+    }

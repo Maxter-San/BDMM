@@ -6,7 +6,56 @@
         </div>
 
         <div class="col-md-2">
-            <img src="<?php echo $productImg; ?>" class="img-fluid rounded-start" alt="...">
+            <div id="carouselExampleDark<?php echo $productId?>" class="carousel slide carousel-dark" data-bs-ride="true">
+
+                <div class="carousel-indicators">
+                    <?php 
+                         $api = new productApi();
+                         $images = $api->selectProductImages($productId);
+
+                         for($j = 0;$j < count($images);$j++){
+                            if($j == 0){
+                                echo '<button type="button" data-bs-target="#carouselExampleDark'.$productId.'" data-bs-slide-to="'.$j.'" class="active" aria-current="true" aria-label="Slide '.($j + 1).'"></button>';
+                            }
+                            else{
+                                echo '<button type="button" data-bs-target="#carouselExampleDark'.$productId.'" data-bs-slide-to="'.$j.'" aria-label="Slide '.($j + 1).'"></button>';
+                            }
+                         }
+                    ?>
+                </div>
+                
+                <div class="carousel-inner">
+                    <?php 
+                         $api = new productApi();
+                         $images = $api->selectProductImages($productId);
+
+                         for($j = 0;$j < count($images);$j++){
+                            if($j == 0){
+                                echo '<div class="carousel-item active">
+                                      <img src="data:image;base64,'.base64_encode($images[$j]['photo']).'" class="d-block w-100" alt="...">
+                                      </div>';
+                            }
+                            else{
+                                echo '<div class="carousel-item">
+                                      <img src="data:image;base64,'.base64_encode($images[$j]['photo']).'" class="d-block w-100" alt="...">
+                                      </div>';
+                            }
+                         }
+
+                    ?>
+                </div>
+
+
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark<?php echo $productId?>" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark<?php echo $productId?>" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+
         </div>
 
         <div class="col-md-10">
@@ -32,8 +81,19 @@
                     </div>
 
                     <div class="col">
-                        <h5 class="card-title">Categoría</h5>
-                        <p class="card-text"><?php echo $productCategory; ?></p>
+                        <h5 class="card-title">Categorías</h5>
+                        <p class="card-text">
+                            <ul>
+                            <?php 
+                                $api = new productApi();
+                                $categories = $api->selectCategoriesByProductId($productId);
+
+                                for($j = 0;$j < count($categories);$j++){
+                                            echo '<li>'.$categories[$j]['name'].'</li>';
+                                }
+                            ?>
+                            </ul>
+                        </p>
                     </div>
                 </div>
 
@@ -41,8 +101,11 @@
                 <h5 class="card-title">Descripción</h5>
                 <p class="card-text"><?php echo $productDescription; ?></p>
                 <p class="card-text" style="text-align: justify;"><small class="text-muted">Productos: <?php echo $productStock; ?></small></p>
-
-                <a class="btn btn-success" onclick="myFunction();">Aprobar</a>
+                
+                <form method="POST" action="<?php echo $_SERVER['PHP_SELF'] ?>" id="myForm">
+                    <input value="<?php echo $productId?>" name="productId" hidden>
+                    <button type="submit" class="btn btn-success" name="submitAprove">Aprobar</button>
+                </form>
             </div>
         </div>
     </div>
@@ -59,23 +122,12 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#exampleModal<?php echo $productId;?>">Aceptar</button>
-            </div>
-        </div>
-    </div>
-</div>
 
-<div class="modal fade" id="exampleModal<?php echo $productId;?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">¡Solicitud de producto borrada con exito!</h5>
-            </div>
-            <div class="modal-body">
-                Has borrado la solicitud del producto <?php echo $productName; ?> del vendedor <?php echo $productSeller ?>
-            </div>
-            <div class="modal-footer">
-                <a class="btn btn-success" type="button" data-bs-dismiss="modal">Aceptar</a>
+                <form method="POST" action="<?php echo $_SERVER['PHP_SELF'] ?>" id="myForm">
+                    <input class="form-control" id="formProductId" placeholder="ID" name="productId" hidden value="<?php echo $productId;?>">
+
+                    <button type="submit" name="submitReject" class="btn btn-primary" data-bs-dismiss="modal" data-bs-toggle="modal">Aceptar</button>
+                </form>
             </div>
         </div>
     </div>

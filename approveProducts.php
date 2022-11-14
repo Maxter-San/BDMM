@@ -18,8 +18,14 @@
     
 </head>
 
-<body class="d-flex flex-column min-vh-100" style="margin-top: 3.5em;">
+<body class="d-flex flex-column min-vh-100" style="margin-top: 3.5em;" onload="<?php if(isset($_GET['successful'])){echo 'myFunction();';}?>">
     <?php
+        session_start();
+
+        include_once('apis/productApi.php');
+        $prod = new productApi();
+        $prods = $prod->selectAllProductsByStatus('En espera');
+
         include_once('assets/header.php');
     ?>
 
@@ -29,6 +35,17 @@
             include_once('assets/sectionBarApproveProducts.php');
         ?>
     </div>
+
+    <?php 
+        if(isset($_GET['successful'])){
+            if($_GET['successful'] == 'acept'){
+                echo '<div id="snackbar">Producto aceptado</div>';
+
+            }else if($_GET['successful'] == 'reject'){
+                echo '<div id="snackbar">Producto rechazado</div>';
+            }
+        }
+    ?>
 
     <div id="snackbar">¡Producto aprobado!</div>  
 

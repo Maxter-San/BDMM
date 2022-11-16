@@ -87,6 +87,13 @@
             return $query;
         }
 
+        function selectAprovedProductsByAdminId(
+            $p_adminId
+        ){
+            $query = $this->connect()->query('CALL productProcedure(null, null, null, null, null, null, null, null, null, null, null, null, null, '.$p_adminId.', null, null, null, null, null, null, null, null, "selectAceptedProductsByAdminId")');
+            return $query;
+        }
+
         function selectAllProductsByStatus(
             $p_status
         ){

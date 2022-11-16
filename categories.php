@@ -17,6 +17,11 @@
 
 <body class="d-flex flex-column min-vh-100" style="margin-top: 3.5em;">
     <?php
+        include_once('apis/categoryApi.php');
+        $var = new categorypApi();
+
+        $rows = $var->getAllCategories();
+
         include_once('assets/header.php');
     ?>
 

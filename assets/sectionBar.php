@@ -1,37 +1,23 @@
 <div class="sectionBar">
     <?php
-        $productName = 'Libreta';
-        $productPrice = '50';
-        $productImg = './resourses/dummy/libreta.jpg';
-        $productId = '1';
-        include('assets/itemCard.php');
-    ?>
-    <?php
-        $productName = 'Monitor';
-        $productPrice = '1200';
-        $productImg = './resourses/dummy/monitor.jpg';
-        $productId = '2';
-        include('assets/itemCard.php');
-    ?>
-    <?php
-        $productName = 'Pato de juguete';
-        $productPrice = '100';
-        $productImg = './resourses/dummy/pato.jpg';
-        $productId = '3';
-        include('assets/itemCard.php');
-    ?>
-    <?php
-        $productName = 'Refrigerador';
-        $productPrice = '16000';
-        $productImg = './resourses/dummy/refrigerador.jpg';
-        $productId = '4';
-        include('assets/itemCard.php');
-    ?>
-    <?php
-        $productName = 'Teclado';
-        $productPrice = '500';
-        $productImg = './resourses/dummy/teclado.jpg';
-        $productId = '5';
-        include('assets/itemCard.php');
+        if(isset($method)){
+            if($method == 'profileAdmin'){
+                $rows = $var->selectAprovedProductsByAdminId($adminId);
+
+                for($i = 0;$i < count($rows);$i++){
+                    $productName = $rows[$i]['name'];
+                    $productPrice = $rows[$i]['price'];
+                    $productImg = 'data:image;base64,'.base64_encode($rows[$i]['photo']);
+                    $productId = $rows[$i]['productId'];
+                    include('assets/itemCard.php');
+                }
+            }
+        }else{
+            $productName = 'Libreta';
+            $productPrice = '50';
+            $productImg = './resourses/dummy/libreta.jpg';
+            $productId = '1';
+            include('assets/itemCard.php');
+        }
     ?>
 </div>

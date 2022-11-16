@@ -8,7 +8,6 @@
                 $productSeller = $prods[$i]['sellerName'];
                 $productPrice = $prods[$i]['price'];
                 $productStock = $prods[$i]['quantity'];
-                $productImg = './resourses/dummy/libreta.jpg';
                 $productId = $prods[$i]['productId'];
                 $productDescription = $prods[$i]['description'];
                 include('assets/itemCardApproveProducts.php');

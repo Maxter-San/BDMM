@@ -97,6 +97,19 @@
             return $rows;   
         }
 
+        function selectAprovedProductsByAdminId($adminId){
+            $productClass = new productClass();
+
+            $res = $productClass->selectAprovedProductsByAdminId($adminId);
+
+            $rows = array();
+            while($r = mysqli_fetch_assoc($res)) {
+                $rows[] = $r;
+            }
+            
+            return $rows;   
+        }
+
         function selectAllProductsByStatus($status){
             $productClass = new productClass();
 

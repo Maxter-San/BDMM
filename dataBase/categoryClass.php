@@ -69,6 +69,15 @@
             return $query;
         }
 
+        function getAceptedProductsInCategory(
+            $p_categoryId
+        )
+        {
+            $query = $this->connect()->query('CALL categoryProcedure('.$p_categoryId.', null, null, null, null, null, "selectAceptedProductsInCategory")');
+            //$this->connect()->close();
+            return $query;
+        }
+
     }
 
 ?>

@@ -21,6 +21,8 @@
 
 <body class="d-flex flex-column min-vh-100" style="margin-top: 3.5em;">
     <?php
+        session_start();
+
         include_once('apis/profileApi.php');
 
         include_once('assets/header.php');

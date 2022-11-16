@@ -6,7 +6,7 @@
         <a tabindex="0" class="btn btn-light" role="button" data-bs-toggle="popover<?php echo $categoryId; ?>" data-bs-trigger="focus" data-bs-placement="right" data-bs-title="Descripción" data-bs-content="<?php echo $categoryDescription; ?>"><h5 class="card-title"><?php echo $categoryName; ?></h5></a>
             
             <p class="card-text">Productos en la categoría: <?php echo $categoryQuantity; ?></p>
-            <a href="./searchFilterProducts.php" class="btn btn-outline-warning">Ver categoría</a>
+            <a href="./searchFilterProducts.php?categoryId=<?php echo $categoryId; ?>" class="btn btn-outline-warning">Ver categoría</a>
             
             <!--<?php echo $categoryId; ?> -->
         </div>

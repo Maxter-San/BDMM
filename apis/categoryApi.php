@@ -71,7 +71,7 @@
             
                 header("Location: addCategory.php?successful=delete");
             }
-            
+
             exit();
         }
 
@@ -80,6 +80,35 @@
             $userClass = new userClass();
 
             $search = $userClass->getProfileUserById($_SESSION['s_userId']);
+
+            $rows = array();
+            while($r = mysqli_fetch_assoc($search)) {
+                $rows[] = $r;
+            }
+            $adminInfo = $rows[0]['adminId'];
+
+            $res = $categoryClass->getCreatedCategories($adminInfo);
+
+            $rows = array();
+            while($r = mysqli_fetch_assoc($res)) {
+                $rows[] = $r;
+            }
+            //echo json_encode($rows);
+            //echo $rows[0]['userId'];
+            
+            return $rows;
+        }
+
+        function getCreatedCategoriesProfile(){
+            $categoryClass = new categoryClass();
+            $userClass = new userClass();
+
+            $search = -1;
+            if(isset($_GET['p_userId'])){
+                $search = $userClass->getProfileUserById($_GET['p_userId']);
+            }else if(isset($_SESSION['s_userId'])){
+                $search = $userClass->getProfileUserById($_SESSION['s_userId']);
+            }
 
             $rows = array();
             while($r = mysqli_fetch_assoc($search)) {
@@ -111,6 +140,29 @@
             //echo $rows[0]['userId'];
             
             return $rows;   
+        }
+
+        function getCategoryWithProducts($categoryId){
+            $categoryClass = new categoryClass();
+            $res = $categoryClass->getCategoryWithProduct($categoryId);
+
+            $rows = array();
+            while($r = mysqli_fetch_assoc($res)) {
+                $rows[] = $r;
+            }
+            //echo json_encode($rows);
+            //echo $rows[0]['userId'];
+            
+            return $rows;   
+        }
+
+        function getNumCategoryWithProducts($categoryId){
+            $categoryClass = new categoryClass();
+            $res = $categoryClass->getAceptedProductsInCategory($categoryId);
+
+            $num = mysqli_num_rows($res);
+            
+            return $num;
         }
     }
 

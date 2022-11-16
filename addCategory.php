@@ -20,7 +20,7 @@
     
 </head>
 
-<body class="d-flex flex-column min-vh-100" style="margin-top: 3.5em;" onload="<?php if(isset($_GET['successful'])){echo 'myFunction();';}?>">
+<body class="d-flex flex-column min-vh-100" style="margin-top: 3.5em;" onload="<?php if(isset($_GET['successful']) || isset($_GET['failed'])){echo 'myFunction();';}?>">
     <?php
         session_start();
         include_once('apis/categoryApi.php');
@@ -117,6 +117,12 @@
                 }else if($_GET['successful'] == 'delete'){
         ?>
                     <div id="snackbar">Categoría borrada</div>
+        <?php
+                }
+            }else if(isset($_GET['failed'])){
+                if($_GET['failed'] == 'delete'){
+        ?>
+                    <div id="snackbar">No se puede borrar una categoría que esta ligada a un producto</div>
         <?php
                 }
             }

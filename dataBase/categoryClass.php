@@ -60,6 +60,15 @@
             return $query;
         }
 
+        function getCategoryWithProduct(
+            $p_categoryId
+        )
+        {
+            $query = $this->connect()->query('CALL categoryProcedure('.$p_categoryId.', null, null, null, null, null, "selectCategoryWithProduct")');
+            //$this->connect()->close();
+            return $query;
+        }
+
     }
 
 ?>

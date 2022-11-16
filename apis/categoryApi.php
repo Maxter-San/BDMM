@@ -61,9 +61,16 @@
         function deleteCategory(){
             $categoryClass = new categoryClass();
 
-            $res = $categoryClass->deleteCategory($_POST['categoryId']);
+            $res = $categoryClass->getCategoryWithProduct($_POST['categoryId']);
+
+            if(mysqli_num_rows($res) > 0){
+                header("Location: addCategory.php?failed=delete");
+
+            }else{
+                $res = $categoryClass->deleteCategory($_POST['categoryId']);
             
-            header("Location: addCategory.php?successful=delete");
+                header("Location: addCategory.php?successful=delete");
+            }
             
             exit();
         }

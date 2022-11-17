@@ -46,13 +46,13 @@
                         <div class="col">
                             <div class="col-md form-group">
                                 <label class="form-label">Nombre del producto</label>
-                                <input class="form-control" id="formProductName" placeholder="Escribe el nombre del producto..." name="name" required>
+                                <input class="form-control" id="formProductName" placeholder="Escribe el nombre del producto..." maxlength="50" name="name" required>
                             </div>
                         </div>
                         <div class="col">
                             <div class="col-md form-group">
                                 <label class="form-label">Descripción del producto</label>
-                                <textarea class="form-control" id="formProductDescription" placeholder="Escribe la descripción del producto..." rows="1" name="description" required></textarea>
+                                <textarea class="form-control" id="formProductDescription" placeholder="Escribe la descripción del producto..." rows="1" maxlength="2000" name="description" required></textarea>
                             </div>
                         </div>
                     </div>

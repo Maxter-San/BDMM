@@ -1,37 +1,14 @@
 <div class="sectionBar">
     <?php
-        $productName = 'Libreta';
-        $productImg = './resourses/dummy/libreta.jpg';
-        $productId = '1';
-        $productStock = '1';
-        include('assets/itemCardStock.php');
-    ?>
-    <?php
-        $productName = 'Monitor';
-        $productImg = './resourses/dummy/monitor.jpg';
-        $productId = '2';
-        $productStock = '2';
-        include('assets/itemCardStock.php');
-    ?>
-    <?php
-        $productName = 'Pato de juguete';
-        $productImg = './resourses/dummy/pato.jpg';
-        $productId = '3';
-        $productStock = '3';
-        include('assets/itemCardStock.php');
-    ?>
-    <?php
-        $productName = 'Refrigerador';
-        $productImg = './resourses/dummy/refrigerador.jpg';
-        $productId = '4';
-        $productStock = '4';
-        include('assets/itemCardStock.php');
-    ?>
-    <?php
-        $productName = 'Teclado';
-        $productImg = './resourses/dummy/teclado.jpg';
-        $productId = '5';
-        $productStock = '5';
-        include('assets/itemCardStock.php');
+        $var = new productApi();
+        $rows = $var->selectProductsByStatusBySellerId('Aceptado');
+
+        for($i = 0;$i < count($rows);$i++){
+            $productName = $rows[$i]['name'];
+            $productImg = 'data:image;base64,'.base64_encode($rows[$i]['photo']);
+            $productId = $rows[$i]['productId'];
+            $productStock = $rows[$i]['quantity'];
+            include('assets/itemCardStock.php');
+        }
     ?>
 </div>

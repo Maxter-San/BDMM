@@ -70,6 +70,18 @@
             
         }
 
+        function updateProduct(
+            $p_productId,
+            $name,
+            $description,
+            $quantity,
+            $price
+        ){
+            $query = $this->connect()->query('CALL productProcedure('.$p_productId.', null, "'.$name.'", "'.$description.'", '.$quantity.', null, '.$price.', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, "updateProduct")');
+            
+            return $query;
+        }        
+
         function updateStatusProduct(
             $p_productId,
             $p_adminId,
@@ -83,6 +95,22 @@
             $p_productId
         ){
             $query = $this->connect()->query('CALL productProcedure('.$p_productId.', false, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, "deleteProduct")');
+            return $query;
+        }
+
+        function deleteProductCategories(
+            $p_productId
+        ){
+            $query = $this->connect()->query('CALL productProcedure('.$p_productId.', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, "deleteProductCategory")');
+            
+            return $query;
+        }
+
+        function deleteProductMedia(
+            $productmediaId
+        ){
+            $query = $this->connect()->query('CALL productProcedure(null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, '.$productmediaId.', null, null, null, null, "deleteProductMedia")');
+            
             return $query;
         }
 
@@ -108,10 +136,25 @@
             return $query;
         }
 
+        function selectProductBySellerIdAndProductId(
+            $p_productId,
+            $p_sellerId
+        ){
+            $query = $this->connect()->query('CALL productProcedure('.$p_productId.', null, null, null, null, null, null, null, null, null, null, null, '.$p_sellerId.', null, null, null, null, null, null, null, null, null, "selectProductByProductIdAndSellerId")');
+            return $query;
+        }
+
         function selectPhotosByProductId(
             $p_productId
         ){
             $query = $this->connect()->query('CALL productProcedure('.$p_productId.', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, "SelectPhotosByProductId")');
+            return $query;
+        }
+
+        function selectVideosByProductId(
+            $p_productId
+        ){
+            $query = $this->connect()->query('CALL productProcedure('.$p_productId.', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, "SelectVideosByProductId")');
             return $query;
         }
 

@@ -36,7 +36,7 @@
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
                 <form method="POST" action="<?php echo $_SERVER['PHP_SELF'] ?>" id="myForm">
                     <input class="form-control" id="formProductId" placeholder="ID" name="productId" hidden value="<?php echo $productId;?>">
-                    <button type="submit" name="submitButtonProductDelete" class="btn btn-primary" data-bs-dismiss="modal" data-bs-toggle="modal">Aceptar</button>
+                    <button type="submit" name="submitButtonProductRejectedDelete" class="btn btn-primary" data-bs-dismiss="modal" data-bs-toggle="modal">Aceptar</button>
                 </form>
             </div>
         </div>

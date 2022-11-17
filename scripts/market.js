@@ -137,16 +137,16 @@ function validateMov(value){
         idxDot = itemValue.lastIndexOf(".") + 1,
         extFile = itemValue.substr(idxDot, itemValue.length).toLowerCase();
 
-        if (extFile=="mp4" || extFile=="MOV" || extFile=="avi"){
+        if (extFile=="mp4"){
             //validation = validation + " " + value.item(index).name;
         }else{
             validations++;
-            return "Solo se permiten archivos jpg/jpeg y png";
+            return "Solo se permiten archivos mp4";
         }
 
-        if(value.item(index).size >= 5242880){
+        if(value.item(index).size >= 20971520){
             validations++;
-            return "Video "+ itemValue + " demasiado largo. Máximo de 5MB\n";
+            return "Video "+ itemValue + " demasiado largo. Máximo de 20MB\n";
         }
  
     }

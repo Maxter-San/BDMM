@@ -10,7 +10,7 @@
             for($i = 0;$i < count($rows);$i++){
                 $name = $rows[$i]['name'];
                 $categoryId = $rows[$i]['categoryId'];
-                include('itemDrowDownCategory.php');
+                include('itemDropDownCategory.php');
                 
             }
 

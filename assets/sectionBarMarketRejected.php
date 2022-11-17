@@ -1,7 +1,7 @@
 <div class="sectionBar">
     <?php
         $prod = new productApi();
-        $enEspera = $prod->selectProductsByStatusBySellerId('En espera');
+        $enEspera = $prod->selectProductsByStatusBySellerId('Rechazado');
         
         if(count($enEspera) > 0){
             for($i = 0;$i < count($enEspera);$i++){
@@ -10,10 +10,10 @@
                 $productStock = $enEspera[$i]['quantity'];
                 $productImg = 'data:image;base64,'.base64_encode($enEspera[$i]['photo']);
                 $productId = $enEspera[$i]['productId'];
-                include('assets/itemCardMarketOnHold.php');
+                include('assets/itemCardMarketRejected.php');
             }
         }else{
-            echo '<h4>No hay productos pendientes</h4>';
+            echo '<h4>No hay productos rechazados</h4>';
         }
     ?>
 

@@ -3,6 +3,7 @@
         include_once('assets/profileClient.php');
     }
     else if($_GET['userType'] == 'Vendedor'){
+        $sellerId = $rows[0]['sellerId'];
         include_once('assets/profileSeller.php');
     }
     else if($_GET['userType'] == 'Admin'){

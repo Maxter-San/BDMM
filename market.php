@@ -30,8 +30,6 @@
         $rows = $var->getAllCategories();
 
         include_once('apis/productApi.php');
-        $prod = new productApi();
-        $enEspera = $prod->selectProductsByStatusBySellerId('En espera');
 
         include_once('assets/header.php');
     ?>
@@ -122,13 +120,30 @@
             </div>
         </div>
 
-        <div id="snackbar">Producto agregado</div>  
+        <?php 
+            if(isset($_GET['successful'])){
+                if($_GET['successful'] == 'add'){
+        ?>
+                    <div id="snackbar">Producto agregado</div>  
+        <?php          
+                }else if($_GET['successful'] == 'delete'){
+        ?>
+                    <div id="snackbar">Producto eliminado</div>  
+        <?php
+                }
+            }
+        ?>
 
         <br>
 
         <legend>Productos por confirmar</legend>
         <?php 
             include_once('assets/sectionBarMarketOnHold.php');
+        ?>
+
+        <legend>Productos rechazados</legend>
+        <?php       
+            include_once('assets/sectionBarMarketRejected.php');
         ?>
     </div>
 

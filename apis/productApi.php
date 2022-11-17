@@ -97,6 +97,20 @@
             return $rows;   
         }
 
+        function selectProductsBySellerId($sellerId){
+            $productClass = new productClass();
+
+            $res = $productClass->selectProductsByStatusBySellerId($sellerId, 
+                                                                   'Aceptado');
+
+            $rows = array();
+            while($r = mysqli_fetch_assoc($res)) {
+                $rows[] = $r;
+            }
+            
+            return $rows;   
+        }
+
         function selectAprovedProductsByAdminId($adminId){
             $productClass = new productClass();
 
@@ -180,6 +194,14 @@
 
             header("Location: approveProducts.php?successful=reject");
         }
+
+        function deleteRejectedProduct(){
+            $productClass = new productClass();
+
+            $productClass->deleteProduct($_POST['productId']);
+
+            header("Location: market.php?successful=delete");
+        }
     }
 
     if(isset($_POST['submitProduct'])){
@@ -199,4 +221,10 @@
         $var = new productApi();
 
         $var->rejectProduct();
+    }
+
+    if(isset($_POST['submitButtonProductDelete'])){
+        $var = new productApi();
+
+        $var->deleteRejectedProduct();
     }

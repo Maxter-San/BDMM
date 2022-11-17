@@ -6,21 +6,18 @@
         </div>
 
         <img src=<?php echo $productImg; ?> class="card-img-top" alt="...">
-
         <div class="card-body">
             <h5 class="card-title"><?php echo $productName; ?></h5>
+            <div class="row">
+                <div class="col">
+                    <p class="card-text">$ <?php echo $productPrice; ?></p>
+                </div>
 
-            <div class="mb-3">
-            <label for="formProductStock" class="form-label">Stock</label>
-                <div class="input-group">
-                    <input id="formProductStock" type="text" class="form-control" placeholder="<?php echo $productStock; ?>" readonly>
-                    <button class="btn btn-outline-warning" type="button">-</button>
-                    <button class="btn btn-outline-success" type="button">+</button>
+                <div class="col">
+                    <p class="card-text">Stock: <?php echo $productStock; ?></p>
                 </div>
             </div>
-
-            <a href="./product.php" class="btn btn-outline-warning">Ver producto</a>
-
+            <span class="badge rounded-pill text-bg-danger">Rechazado</span>
             <!--<?php echo $productId; ?> -->
         </div>
     </div>
@@ -39,7 +36,7 @@
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
                 <form method="POST" action="<?php echo $_SERVER['PHP_SELF'] ?>" id="myForm">
                     <input class="form-control" id="formProductId" placeholder="ID" name="productId" hidden value="<?php echo $productId;?>">
-                    <button type="submit" name="submitButtonDelete" class="btn btn-primary" data-bs-dismiss="modal" data-bs-toggle="modal">Aceptar</button>
+                    <button type="submit" name="submitButtonProductDelete" class="btn btn-primary" data-bs-dismiss="modal" data-bs-toggle="modal">Aceptar</button>
                 </form>
             </div>
         </div>

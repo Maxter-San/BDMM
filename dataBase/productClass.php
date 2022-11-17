@@ -79,6 +79,13 @@
             return $query;
         }
 
+        function deleteProduct(
+            $p_productId
+        ){
+            $query = $this->connect()->query('CALL productProcedure('.$p_productId.', false, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, "deleteProduct")');
+            return $query;
+        }
+
         function selectProductsByStatusBySellerId(
             $p_sellerId,
             $p_status

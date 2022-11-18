@@ -1,5 +1,5 @@
 <div class="d-grid gap-2">
-    <a class="btn btn-outline-danger" type="button">Cuenta no habilitada para realizar compras</a>
+    <button class="btn btn-danger" type="button" disabled>Cuenta no habilitada para realizar compras</button>
 
     <br>
     

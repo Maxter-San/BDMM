@@ -16,11 +16,18 @@
             }
             $sellerInfo = $sellerRows[0]['sellerId'];
 
+            $price = 0;
+
+            if($_POST['method'] == 'Vender'){
+                $price = $_POST['price'];
+            }
+            
+
             $product = $productClass->insertProduct($_POST['name'],
                                                 $_POST['description'],
                                                 $_POST['quantity'],
                                                 $_POST['method'],
-                                                $_POST['price'],
+                                                $price,
                                                 $sellerInfo
             );
 
@@ -78,13 +85,19 @@
         function updateProduct(){
             if(isset($_POST['productId'])){
                 $productClass = new productClass();
-                $categoryClass = new categoryClass();  
+                $categoryClass = new categoryClass();
+
+                $price = 0;
+
+                if($_POST['method'] == 'Vender'){
+                    $price = $_POST['price'];
+                }
 
                 $product = $productClass->updateProduct($_POST['productId'],
                                                         $_POST['name'],
                                                         $_POST['description'],
                                                         $_POST['quantity'],
-                                                        $_POST['price']
+                                                        $price
                 );
     
                 $productId = $_POST['productId'];
@@ -180,6 +193,23 @@
                 header("Location: productSettings.php?productId=".$_POST['productId']."&failed=deleteVideo");
             }
             exit();
+        }
+
+        function selectProductsById(){
+            $productClass = new productClass();
+
+            if(isset($_GET['productId'])){
+                if($_GET['productId'] != ''){
+                    $res = $productClass->selectProductsById($_GET['productId']);
+
+                    $rows = array();
+                    while($r = mysqli_fetch_assoc($res)) {
+                        $rows[] = $r;
+                    }
+
+                    return $rows;
+                }
+            }
         }
 
         function selectProductsByStatusBySellerId($status){

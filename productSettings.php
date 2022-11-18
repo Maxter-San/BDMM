@@ -99,6 +99,10 @@
                             <input type="number" class="form-control" id="formProductPrice" placeholder="$ 0.00" onkeypress="floatingNum();" step="0.01" name="price" required value="<?php if(count($product) > 0){ echo $product[0]['price'].'.00'; } ?>">
                         </div>
 
+                        <?php 
+                            echo '<script type="text/javascript"> changeSellType(); </script>';
+                        ?> 
+
                     </div>
 
                     <div class="row">

@@ -79,7 +79,7 @@
                     <div class="row">
                         <div class="col-md form-group">
                             <label class="form-label">Tipo de venta</label>
-                            <select class="form-select" id="formSellType" name="method" required>
+                            <select class="form-select" id="formSellType" name="method" required onclick="changeSellType();">
                                 <option selected value=""></option>
                                 <option value="Vender">Vender</option>
                                 <option value="Cotizar">Cotizar</option>
@@ -88,7 +88,7 @@
 
                         <div class="col-md form-group">
                             <label class="form-label">Precio del producto</label>
-                            <input type="number" class="form-control" id="formProductPrice" placeholder="$ 0.00" onkeypress="floatingNum();" step="0.01" name="price" required>
+                            <input type="number" class="form-control" id="formProductPrice" placeholder="$ 0.00" onkeypress="floatingNum();" step="0.01" name="price" readonly required>
                         </div>
 
                     </div>

@@ -52,8 +52,10 @@
             $categoryClass = new categoryClass();
 
             $productName = null;
-            if($_GET['name'] != ''){
-                $productName = $_GET['name'];
+            if(isset($_GET['name'])){
+                if($_GET['name'] != ''){
+                    $productName = $_GET['name'];
+                }
             }
 
 
@@ -71,7 +73,12 @@
                 }
             }
 
-            $res = $productClass->searchProducts($productName, $categories, $_GET['orderBy']);
+            $order = 'BuyingAsc';
+            if(isset($_GET['orderBy'])){
+                $order = $_GET['orderBy'];
+            }
+
+            $res = $productClass->searchProducts($productName, $categories, $order);
 
             $categoryClass->deleteFilterCategory();
 
@@ -82,6 +89,42 @@
             }
 
             return $rows;   
+        }
+
+        function selectProductsInArrayByCategory($array){
+            $productClass = new productClass();
+            $categoryClass = new categoryClass();
+
+            $res = $categoryClass->getAllCategories();
+            $rows = array();
+            while($r = mysqli_fetch_assoc($res)) {
+                $rows[] = $r;
+            }
+
+            $categories = null;
+            for($i = 0;$i < count($rows);$i++){
+                for($j = 0; $j < count($array); $j++){
+                    if($rows[$i]['categoryId'] == $array[$j]){
+                        $categoryClass->insertFilterCategory($rows[$i]['categoryId']);
+                        $categories = 1;
+                    }
+                }
+            }
+
+            $order = 'BuyingDesc';
+            $res = $productClass->searchProducts(null, $categories, $order);
+
+            $categoryClass->deleteFilterCategory();
+
+            $rows = array();
+            while($r = mysqli_fetch_assoc($res)) {
+                $rows[] = $r;
+                echo json_encode($r);
+            }
+
+            
+            //exit();
+            return $rows;
         }
 
     }

@@ -114,6 +114,13 @@
             return $query;
         }
 
+        function selectProductsById(
+            $p_productId
+        ){
+            $query = $this->connect()->query('CALL productProcedure('.$p_productId.', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, "selectProductById")');
+            return $query;
+        }
+
         function selectProductsByStatusBySellerId(
             $p_sellerId,
             $p_status

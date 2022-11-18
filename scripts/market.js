@@ -162,6 +162,17 @@ function minFiles(value) {
     return '';
 }
 
+function changeSellType(){
+    let varFormSellType = document.getElementById('formSellType');
+    let varFormProductPrice = document.getElementById('formProductPrice');
+    if(varFormSellType.value == 'Vender'){
+        varFormProductPrice.disabled = false;
+    }else{
+        varFormProductPrice.value = 0.00;
+        varFormProductPrice.disabled = true;
+    }
+}
+
 function validateProduct(){
     validations = 0;
     let varFormProductName = document.getElementById('formProductName');
@@ -180,7 +191,9 @@ function validateProduct(){
     varFormControlCategory.setCustomValidity(validateCheckCategories(varFormCheckCategory));
     varFormProductStock.setCustomValidity(validateNumber(varFormProductStock.value));
     varFormSellType.setCustomValidity(validateChecFormSelected(varFormSellType.value));
-    varFormProductPrice.setCustomValidity(validateNumber(varFormProductPrice.value));
+    if(varFormSellType.value != 'Cotizar'){
+        varFormProductPrice.setCustomValidity(validateNumber(varFormProductPrice.value));
+    }
     varFormFilePhoto.setCustomValidity(validateImg(varFormFilePhoto.files));
     varFormFilePhoto.setCustomValidity(minFiles(varFormFilePhoto.files));
     varFormFileClip.setCustomValidity(validateMov(varFormFileClip.files));

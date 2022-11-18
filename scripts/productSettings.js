@@ -121,6 +121,16 @@ function validateImg(value){
     return validation;
 }
 
+function changeSellType(){
+    let varFormSellType = document.getElementById('formSellType');
+    let varFormProductPrice = document.getElementById('formProductPrice');
+    if(varFormSellType.value == 'Vender'){
+        varFormProductPrice.disabled = false;
+    }else{
+        varFormProductPrice.disabled = true;
+    }
+}
+
 function validateMov(value){
     if(value == "") {
         return '';

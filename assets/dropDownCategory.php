@@ -11,11 +11,8 @@
                 $name = $rows[$i]['name'];
                 $categoryId = $rows[$i]['categoryId'];
                 include('itemDropDownCategory.php');
-                
             }
-
         ?>
-
         </ul>
 
     </div>

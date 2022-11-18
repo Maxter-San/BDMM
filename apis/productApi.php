@@ -215,7 +215,7 @@
                 $rows[] = $r;
             }
             
-            return $rows;   
+            return $rows;
         }
 
         function selectAprovedProductsByAdminId($adminId){
@@ -310,6 +310,48 @@
             return $rows;   
         }
 
+        function selectProductsByCategory(){
+            $productClass = new productClass();
+            $userClass = new userClass();
+            $categoryClass = new categoryClass();
+
+            $search = $userClass->getProfileUserById($_SESSION['s_userId']);
+            $sellerRows = array();
+            while($r = mysqli_fetch_assoc($search)) {
+                $sellerRows[] = $r;
+            }
+            $sellerInfo = $sellerRows[0]['sellerId'];
+
+            $res = $categoryClass->getAllCategories();
+            $rows = array();
+            while($r = mysqli_fetch_assoc($res)) {
+                $rows[] = $r;
+            }
+
+            $categories = null;
+            for($i = 0;$i < count($rows);$i++){
+                if(isset($_GET[$rows[$i]['categoryId']])){
+                    $categoryClass->insertFilterCategory($rows[$i]['categoryId']);
+                    $categories = 1;
+                }
+            }
+
+
+            $res = $productClass->selectProductsByCategory($sellerInfo, $categories);
+
+            $categoryClass->deleteCategory();
+
+            $rows = array();
+            while($r = mysqli_fetch_assoc($res)) {
+                $rows[] = $r;
+                echo json_encode($r);
+            }
+
+            
+            //exit();
+            return $rows;
+        }
+
         function aproveProduct(){
             $productClass = new productClass();
             $userClass = new userClass();
@@ -356,6 +398,31 @@
             $productClass->deleteProduct($_POST['productId']);
 
             header("Location: stock.php?successful=delete");
+        }
+
+        function sendCategoryId(){
+            $categoryClass = new categoryClass();
+
+            $res = $categoryClass->getAllCategories();
+            $rows = array();
+            while($r = mysqli_fetch_assoc($res)) {
+                $rows[] = $r;
+            }
+
+            $categories = null;
+            for($i = 0;$i < count($rows);$i++){
+                if(isset($_POST[$rows[$i]['categoryId']])){
+                    if($categories != null){
+                        $categories = $categories."&";
+                    }
+                    $categories = $categories.$rows[$i]['categoryId'];
+                }
+            }
+
+            //if($categories != null){
+                header("Location: stock.php?".$categories);
+                exit();
+            //}
         }
     }
 
@@ -407,4 +474,10 @@
         $var = new productApi();
 
         $var->deleteProductVideos();
+    }
+
+    if(isset($_POST['submitButtonFillProductsByCategory'])){
+        $prod = new productApi();
+
+        $prod->sendCategoryId();
     }

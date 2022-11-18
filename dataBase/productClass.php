@@ -165,5 +165,18 @@
             return $query;
         }
 
+        function selectProductsByCategory(
+            $p_sellerId,
+            $p_categoriesId
+        ){
+            if($p_categoriesId != null){
+                $query = $this->connect()->query('CALL productProcedure(null, null, null, null, null, null, null, null, null, null, null, null, '.$p_sellerId.', null, null, "filter", null, null, null, null, null, null, "selectProductsByCategory")');
+                return $query;
+            }else{
+                $query = $this->connect()->query('CALL productProcedure(null, null, null, null, null, null, null, null, null, null, null, null, '.$p_sellerId.', null, null, null, null, null, null, null, null, null, "selectProductsByCategory")');
+                return $query;
+            }
+        }
+
     }
 ?>

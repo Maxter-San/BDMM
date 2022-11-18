@@ -22,6 +22,12 @@
     <?php
         session_start();
         include_once('apis/productApi.php');
+        $var = new productApi();
+        $products = $var->selectProductsByCategory();
+
+        include_once('apis/categoryApi.php');
+        $var = new categorypApi();
+        $rows = $var->getAllCategories();
 
         include_once('assets/header.php');
     ?>
@@ -33,48 +39,26 @@
             <div class="col">
                 <div class="card">
                     <div class="card-body">
-                        <div class="row">
-                            <div class="col">
-                                <div class="mb-3">
-                                    <label for="formControlCategory" class="form-label">Buscar por categoría</label>
-                                    <div class="dropdown-center d-grid gap-2" id="formControlCategory">
-                                        <button class="btn btn-outline-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                            Elige una o más categorías
-                                        </button>
-                                        <ul class="dropdown-menu dropdown-menu-dark">                  
-                                            <li><a class="dropdown-item" href="#">
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                                    <label class="form-check-label" for="flexCheckDefault">
-                                                        Hogar
-                                                    </label>
-                                                </div>
-                                            </a></li>
 
-                                            <li><a class="dropdown-item" href="#">
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                                    <label class="form-check-label" for="flexCheckDefault">
-                                                        Tecnología
-                                                    </label>
-                                                </div>
-                                            </a></li>
-
-                                            <li><a class="dropdown-item" href="#">
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                                    <label class="form-check-label" for="flexCheckDefault">
-                                                        Otros
-                                                    </label>
-                                                </div>
-                                            </a></li>
-
-                                        </ul>
+                        <form method="POST" action="<?php echo $_SERVER['PHP_SELF'] ?>" id="myForm">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="mb-3">
+                                        <?php 
+                                            include_once('assets/dropDownCategory.php');
+                                        ?>
                                     </div>
                                 </div>
                             </div>
-                        
-                        </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="d-grid gap-2">
+                                        <button type="submit" class="btn btn-outline-warning" name="submitButtonFillProductsByCategory">Buscar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+
                     </div>
                 </div>
             </div>

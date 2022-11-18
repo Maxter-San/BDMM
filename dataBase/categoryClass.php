@@ -26,6 +26,15 @@
 
         }
 
+        function insertFilterCategory(
+            $p_categoryId
+        ){
+            $query = $this->connect()->query('CALL categoryProcedure('.$p_categoryId.', null, null, null, null, null, "fillFilterCategoryTable")');
+            //$this->connect()->close();
+            return $query;
+
+        }
+
         function updateCategory(
             $p_categoryId,
             $p_name,
@@ -38,11 +47,19 @@
         }
 
         function deleteCategory(
-            $p_categoryId
         ){
-            $query = $this->connect()->query('CALL categoryProcedure('.$p_categoryId.', null, null, null, null, null, "deleteCategory")');
+            $query = $this->connect()->query('CALL categoryProcedure(null, null, null, null, null, null, "deleteFilterTable")');
             //$this->connect()->close();
             return $query;
+        }
+
+        function deleteFilterCategory(
+            $p_categoryId
+        ){
+            $query = $this->connect()->query('CALL categoryProcedure('.$p_categoryId.', null, null, null, null, null, "fillFilterCategoryTable")');
+            //$this->connect()->close();
+            return $query;
+
         }
 
         function getCreatedCategories(

@@ -47,16 +47,16 @@
         }
 
         function deleteCategory(
+            $p_categoryId
         ){
-            $query = $this->connect()->query('CALL categoryProcedure(null, null, null, null, null, null, "deleteFilterTable")');
+            $query = $this->connect()->query('CALL categoryProcedure('.$p_categoryId.', null, null, null, null, null, "deleteCategory")');
             //$this->connect()->close();
             return $query;
         }
 
         function deleteFilterCategory(
-            $p_categoryId
         ){
-            $query = $this->connect()->query('CALL categoryProcedure('.$p_categoryId.', null, null, null, null, null, "fillFilterCategoryTable")');
+            $query = $this->connect()->query('CALL categoryProcedure(null, null, null, null, null, null, "deleteFilterTable")');
             //$this->connect()->close();
             return $query;
 

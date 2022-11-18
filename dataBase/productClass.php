@@ -178,5 +178,53 @@
             }
         }
 
+        function searchProducts(
+            $p_name,
+            $p_categoriesId,
+            $p_filter
+        ){
+            if($p_categoriesId != null){
+                if($p_filter == 'BuyingAsc'){
+                    $query = $this->connect()->query('CALL productProcedure(null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, '.$p_categoriesId.', null, null, null, null, "'.$p_name.'", null, "searchResultProductsByBuyingAsc")');
+                    return $query;
+                } else if($p_filter == 'BuyingDesc'){
+                    $query = $this->connect()->query('CALL productProcedure(null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, '.$p_categoriesId.', null, null, null, null, "'.$p_name.'", null, "searchResultProductsByBuyingDesc")');
+                    return $query;
+                } else if($p_filter == 'PriceAsc'){
+                    $query = $this->connect()->query('CALL productProcedure(null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, '.$p_categoriesId.', null, null, null, null, "'.$p_name.'", null, "searchResultProductsByPriceAsc")');
+                    return $query;
+                } else if($p_filter == 'PriceDesc'){
+                    $query = $this->connect()->query('CALL productProcedure(null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, '.$p_categoriesId.', null, null, null, null, "'.$p_name.'", null, "searchResultProductsByPriceDesc")');
+                    return $query;
+                }else if($p_filter == 'ValorationAsc'){
+                    $query = $this->connect()->query('CALL productProcedure(null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, '.$p_categoriesId.', null, null, null, null, "'.$p_name.'", null, "searchResultProductsByValorationAsc")');
+                    return $query;
+                } else if($p_filter == 'ValorationDesc'){
+                    $query = $this->connect()->query('CALL productProcedure(null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, '.$p_categoriesId.', null, null, null, null, "'.$p_name.'", null, "searchResultProductsByValorationDesc")');
+                    return $query;
+                }
+            }else{
+                if($p_filter == 'BuyingAsc'){
+                    $query = $this->connect()->query('CALL productProcedure(null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, "'.$p_name.'", null, "searchResultProductsByBuyingAsc")');
+                    return $query;
+                } else if($p_filter == 'BuyingDesc'){
+                    $query = $this->connect()->query('CALL productProcedure(null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, "'.$p_name.'", null, "searchResultProductsByBuyingDesc")');
+                    return $query;
+                } else if($p_filter == 'PriceAsc'){
+                    $query = $this->connect()->query('CALL productProcedure(null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, "'.$p_name.'", null, "searchResultProductsByPriceAsc")');
+                    return $query;
+                } else if($p_filter == 'PriceDesc'){
+                    $query = $this->connect()->query('CALL productProcedure(null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, "'.$p_name.'", null, "searchResultProductsByPriceDesc")');
+                    return $query;
+                }else if($p_filter == 'ValorationAsc'){
+                    $query = $this->connect()->query('CALL productProcedure(null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, "'.$p_name.'", null, "searchResultProductsByValorationAsc")');
+                    return $query;
+                } else if($p_filter == 'ValorationDesc'){
+                    $query = $this->connect()->query('CALL productProcedure(null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, "'.$p_name.'", null, "searchResultProductsByValorationDesc")');
+                    return $query;
+                }
+            }
+        }
+
     }
 ?>

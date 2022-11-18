@@ -1,7 +1,8 @@
 <?php 
+    include_once('apis/searchApi.php');
     if(session_status() != 2)
     session_start();
-
+    
 ?>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container-fluid container">
@@ -30,9 +31,9 @@
             </li>
             </ul>
 
-            <form class="d-flex ms-5 col-md-6" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <a class="btn btn-outline-light" type="submit" href="./searchFilterProducts.php"><i class="bi bi-search"></i></a>
+            <form class="d-flex ms-5 col-md-6" role="search" method="POST" action="<?php echo $_SERVER['PHP_SELF'] ?>" id="myForm">
+                <input class="form-control me-2" type="search" placeholder="Buscar producto..." name="search" aria-label="Search">
+                <button class="btn btn-outline-light" type="submit" name="submitButtonSearchProduct"><i class="bi bi-search"></i></button>
             </form> 
         </div>
 

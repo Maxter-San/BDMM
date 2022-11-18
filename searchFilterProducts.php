@@ -17,7 +17,13 @@
 
 <body class="d-flex flex-column min-vh-100" style="margin-top: 3.5em;">
     <?php
-        include_once('assets/header.php');
+        include_once('apis/categoryApi.php');
+        $var = new categorypApi();
+
+        include_once('apis/searchApi.php');
+        
+
+        include_once('assets/header.php');        
     ?>
 
     <div class="container mt-5 mb-5">
@@ -29,7 +35,9 @@
 
         <br>
 
-        <?php 
+        <?php
+            $var = new searchApi();
+            $method = 'searchProducts';
             include('assets/sectionBar.php');
         ?>
     </div>

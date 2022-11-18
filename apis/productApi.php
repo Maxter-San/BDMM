@@ -339,7 +339,7 @@
 
             $res = $productClass->selectProductsByCategory($sellerInfo, $categories);
 
-            $categoryClass->deleteCategory();
+            $categoryClass->deleteFilterCategory();
 
             $rows = array();
             while($r = mysqli_fetch_assoc($res)) {

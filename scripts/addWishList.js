@@ -12,7 +12,7 @@ function validateInput(value) {
 
 function validateImg(value){
     if (value === "") {
-        return "Completa este campo";
+        return '';
     }
 
     idxDot = value.lastIndexOf(".") + 1,

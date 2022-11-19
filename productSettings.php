@@ -92,6 +92,7 @@
                                 <option value="Vender" <?php if(count($product) > 0){ if($product[0]['method'] == 'Vender'){ echo 'selected';} } ?> >Vender</option>
                                 <option value="Cotizar" <?php if(count($product) > 0){ if($product[0]['method'] == 'Cotizar'){ echo 'selected';} } ?> >Cotizar</option>
                             </select>
+                            <input id="formType" onkeypress="integerNum();" name="type" required value="<?php if(count($product) > 0){ echo $product[0]['method']; } ?>" hidden>
                         </div> 
 
                         <div class="col-md form-group">

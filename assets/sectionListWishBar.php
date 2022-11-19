@@ -1,43 +1,24 @@
 <div class="sectionListWishBar">
         <?php
-            $listWishName = 'Mi lista';
-            $listWishItems = '100';
-            $listWishImg = './resourses/comprador.jpg';
-            $listWishId = '1';
-            include('assets/itemListWishCard.php');
+            $lists = null;
+
+            if($wishListApi->getClientId() != null && !isset($_GET['p_userId'])){
+                $_GET['clientId'] = $wishListApi->getClientId();
+                $lists = $wishListApi->selectCreatedWishList();
+            }else{
+                $_GET['clientId'] = $rows[0]["clientId"];
+                $lists = $wishListApi->selectWishLists();
+            }
+            
+            for($i = 0;$i < count($lists);$i++){
+                $listWishName = $lists[$i]['name'];
+                $listWishItems = count($wishListApi->selectProductsWishListById($lists[$i]['listwishId']));
+                $listWishImg = null;
+                if($lists[$i]['photo'] != null){
+                    $listWishImg = 'data:image;base64,'.base64_encode($lists[$i]['photo']);
+                }
+                $listWishId = $lists[$i]['listwishId'];
+                include('assets/itemListWishCard.php');
+            }
         ?>
-
-        <?php
-            $listWishName = 'Utiles escolares';
-            $listWishItems = '20';
-            $listWishImg = './resourses/compras.jpg';
-            $listWishId = '2';
-            include('assets/itemListWishCard.php');
-        ?>
-
-        <?php
-            $listWishName = 'List wish';
-            $listWishItems = '500';
-            $listWishImg = './resourses/comunidad.jpg';
-            $listWishId = '3';
-            include('assets/itemListWishCard.php');
-        ?>
-
-        <?php
-            $listWishName = 'Importante';
-            $listWishItems = '50';
-            $listWishImg = './resourses/ventas.jpg';
-            $listWishId = '4';
-            include('assets/itemListWishCard.php');
-        ?>
-
-        <?php
-            $listWishName = 'lista 2';
-            $listWishItems = '5';
-            $listWishImg = './resourses/comprador.jpg';
-            $listWishId = '5';
-            include('assets/itemListWishCard.php');
-        ?>
-
-
 </div>

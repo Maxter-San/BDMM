@@ -5,7 +5,10 @@
         $wishListName = $rows[$i]['name'];
         $wishListDescription = $rows[$i]['description'];
         $wishListType = $rows[$i]['listType'];
-        $wishListPhoto = 'data:image;base64,'.base64_encode($rows[$i]['photo']);
+        $wishListPhoto = null;
+        if($rows[$i]['photo'] != null){
+            $wishListPhoto = 'data:image;base64,'.base64_encode($rows[$i]['photo']);
+        }
         include('assets/itemBarAddWishList.php');
     }
 ?>

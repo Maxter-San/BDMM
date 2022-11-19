@@ -89,7 +89,7 @@
 
                 $price = 0;
 
-                if($_POST['method'] == 'Vender'){
+                if($_POST['type'] == 'Vender'){
                     $price = $_POST['price'];
                 }
 

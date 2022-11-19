@@ -24,10 +24,11 @@
     <link rel='stylesheet' type='text/css' media='screen' href='./style/tabGallery.css'>
     
 </head>
-<body class="d-flex flex-column min-vh-100" style="margin-top: 3.5em;">
+<body class="d-flex flex-column min-vh-100" style="margin-top: 3.5em;" onload="<?php if(isset($_GET['successful'])  || isset($_GET['failed'])){echo 'myFunction();';}?>">
     <?php
         include_once('apis/searchApi.php');
         include_once('apis/productApi.php');
+        include_once('apis/wishListApi.php');
         $productApi = new productApi();
         $product = $productApi->selectProductsById();
 
@@ -230,7 +231,21 @@
         </div>
     </div>
 
-    <div id="snackbar">Producto agregado</div>
+    <?php 
+        if(isset($_GET['successful'])){
+            if($_GET['successful'] == 'AddList'){
+                echo '<div id="snackbar">Producto agregado a la lista</div>';
+            }else if($_GET['successful'] == 'AddCart'){
+                echo '<div id="snackbar">Producto agregado al carrito</div>';
+            }else if($_GET['successful'] == 'AddCuotation'){
+                echo '<div id="snackbar">Solicitud de cotización enviada</div>';
+            }
+        }else if(isset($_GET['failed'])){
+            if($_GET['failed'] == 'AddList'){
+                echo '<div id="snackbar">Este producto ya esta en esta lista</div>';
+            }
+        }
+    ?>
 
     <?php
         include_once('assets/footer.php');

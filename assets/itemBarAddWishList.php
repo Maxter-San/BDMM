@@ -6,7 +6,9 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" data-bs-toggle="modal" data-bs-target="#staticBackdrop<?php echo $listwishId;?>"></button>
         </div>
         <div class="col-md-2">
-            <img src="<?php echo $wishListPhoto ?>" class="img-fluid rounded-start" alt="...">
+            <?php if($wishListPhoto != null){?>
+                <img src="<?php echo $wishListPhoto ?>" class="img-fluid rounded-start" alt="...">
+            <?php }?>
         </div>
         <div class="col-md-10">
             <div class="card-body">

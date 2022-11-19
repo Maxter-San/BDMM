@@ -1,5 +1,6 @@
 <h4>Mis listas:</h4>
 <?php
+    $wishListApi = new addWishListApi();
     include('assets/sectionListWishBar.php');
 ?>
 

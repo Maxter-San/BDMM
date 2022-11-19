@@ -29,6 +29,15 @@
 
         }
 
+        function insertProducrWishList(
+            $p_listwishId,
+            $p_productId
+        ){
+            $query = $this->connect()->query('CALL wishListProcedure('.$p_listwishId.', null, null, null, null, null, '.$p_productId.', "insertProducrWishList")');
+            //$this->connect()->close();
+            return $query;
+        }
+
         function updateWishList(
             $p_listwishId,
             $p_name,
@@ -78,6 +87,16 @@
             //$this->connect()->close();
             return $query;
         }
+
+        function searchProductInWishList(
+            $p_listwishId,
+            $p_productId
+        ){
+            $query = $this->connect()->query('CALL wishListProcedure('.$p_listwishId.', null, null, null, null, null, '.$p_productId.', "searchProductInWishList")');
+            //$this->connect()->close();
+            return $query;
+        }
+
     }
 
 ?>

@@ -81,7 +81,7 @@
                     <div class="row">
                         <div class="col form-group">
                             <label class="form-label">Descripción de la lista</label>
-                            <textarea class="form-control" name="description" id="formWishListDescription" placeholder="Escribe la descripción del producto..." rows="1" maxlength="2000" required disabled></textarea>
+                            <textarea class="form-control" name="description" id="formWishListDescription" placeholder="Escribe la descripción de la lista..." rows="1" maxlength="2000" required disabled></textarea>
                         </div>
 
                         <div class="col-md form-group">

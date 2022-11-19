@@ -24,6 +24,7 @@
         session_start();
 
         include_once('apis/profileApi.php');
+        include_once('apis/wishListApi.php');
 
         include_once('assets/header.php');
 

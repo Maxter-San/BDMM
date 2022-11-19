@@ -29,6 +29,10 @@
     </header>
 
     <?php
+        session_start();
+        include_once('apis/wishListApi.php');
+        $wishListApi = new addWishListApi();
+
         include_once('assets/header.php');
     ?>
 
@@ -40,9 +44,15 @@
                     <legend>Listas de deseo:</legend>
                 </div>
 
-                <div class="col text-center">
-                    <a type="button" class="btn btn-warning" href="./addWishList.php">Nueva lista de deseos</a>
-                </div>
+                <?php 
+                    if($wishListApi->getClientId() != null && !isset($_GET['clientId'])){
+                ?>
+                    <div class="col-2 text-end">
+                        <a type="button" class="btn btn-success" href="./addWishList.php">Nueva lista de deseos</a>
+                    </div>
+                <?php 
+                    }
+                ?>
             </div>    
            
             </div>
@@ -56,40 +66,7 @@
 
     </div>
 
-    <div id="snackbar">Producto agregado al carrito</div>  
-
-    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">Confirmación</h5>
-                </div>
-                <div class="modal-body">
-                  ¿Seguro qué quiéres borrar esta lista de deseos?
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#exampleModal">Aceptar</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Lista borrada con exito!</h5>
-                </div>
-                <div class="modal-body">
-                    Has borrado una lista de deseos
-                </div>
-                <div class="modal-footer">
-                    <a class="btn btn-success" type="button" data-bs-dismiss="modal">Aceptar</a>
-                </div>
-            </div>
-        </div>
-    </div>
+    <div id="snackbar">Producto agregado al carrito</div>
 
     <?php
         include_once('assets/footer.php');

@@ -1,42 +1,22 @@
-<div class="sectionBar">
+<div class="sectionBar" style="margin-bottom: 1en;">
     <?php
-        $productName = 'Libreta';
-        $productPrice = '50';
-        $productImg = './resourses/dummy/libreta.jpg';
-        $productQuantity = '1';
-        $productId = '1';
-        include('assets/itemCartCard.php');
-    ?>
-    <?php
-        $productName = 'Monitor';
-        $productPrice = '1200';
-        $productImg = './resourses/dummy/monitor.jpg';
-        $productQuantity = '2';
-        $productId = '2';
-        include('assets/itemCartCard.php');
-    ?>
-    <?php
-        $productName = 'Pato de juguete';
-        $productPrice = '100';
-        $productImg = './resourses/dummy/pato.jpg';
-        $productQuantity = '3';
-        $productId = '3';
-        include('assets/itemCartCard.php');
-    ?>
-    <?php
-        $productName = 'Refrigerador';
-        $productPrice = '16000';
-        $productImg = './resourses/dummy/refrigerador.jpg';
-        $productQuantity = '4';
-        $productId = '4';
-        include('assets/itemCartCard.php');
-    ?>
-    <?php
-        $productName = 'Teclado';
-        $productPrice = '500';
-        $productImg = './resourses/dummy/teclado.jpg';
-        $productQuantity = '5';
-        $productId = '4';
-        include('assets/itemCartCard.php');
+        $shoppingCartApi = new shoppingCartApi();
+        $rows = $shoppingCartApi->selectProductsByCartId();
+
+        $validateAvaibleStock = null;
+
+        for($i = 0;$i < count($rows);$i++){
+            $productName = $rows[$i]['name'];
+            $productPrice = $rows[$i]['price'];
+            $productImg = 'data:image;base64,'.base64_encode($rows[$i]['photo']);
+            $productQuantity = $rows[$i]['quantity'];
+            $productStock = $rows[$i]['stock'];
+            $cartproductId = $rows[$i]['cartproductId'];
+            include('assets/itemCartCard.php');
+
+            if($productStock < $productQuantity){
+                $validateAvaibleStock = 1;
+            }
+        }
     ?>
 </div>

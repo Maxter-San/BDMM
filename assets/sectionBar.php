@@ -6,7 +6,7 @@
 
                 for($i = 0;$i < count($rows);$i++){
                     $productName = $rows[$i]['name'];
-                    $productPrice = $rows[$i]['price'];
+                    $productPrice = number_format($rows[$i]['price'], 2, '.', ' ');
                     $productImg = 'data:image;base64,'.base64_encode($rows[$i]['photo']);
                     $productId = $rows[$i]['productId'];
                     include('assets/itemCard.php');
@@ -17,7 +17,7 @@
 
                 for($i = 0;$i < count($rows);$i++){
                     $productName = $rows[$i]['name'];
-                    $productPrice = $rows[$i]['price'];
+                    $productPrice = number_format($rows[$i]['price'], 2, '.', ' ');
                     $productImg = 'data:image;base64,'.base64_encode($rows[$i]['photo']);
                     $productId = $rows[$i]['productId'];
                     include('assets/itemCard.php');
@@ -28,7 +28,7 @@
 
                 for($i = 0;$i < count($rows);$i++){
                     $productName = $rows[$i]['name'];
-                    $productPrice = $rows[$i]['price'];
+                    $productPrice = number_format($rows[$i]['price'], 2, '.', ' ');
                     $productImg = 'data:image;base64,'.base64_encode($rows[$i]['photo']);
                     $productId = $rows[$i]['productId'];
                     include('assets/itemCard.php');
@@ -37,7 +37,7 @@
             else if($method == 'custom'){
                 for($i = 0;$i < count($rows);$i++){
                     $productName = $rows[$i]['name'];
-                    $productPrice = $rows[$i]['price'];
+                    $productPrice = number_format($rows[$i]['price'], 2, '.', ' ');
                     $productImg = 'data:image;base64,'.base64_encode($rows[$i]['photo']);
                     $productId = $rows[$i]['productId'];
                     include('assets/itemCard.php');

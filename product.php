@@ -93,7 +93,7 @@
 
                 <br><br>
 
-                <h3 class="price">$ <?php if(isset($product)){ if($product != null){echo $product[0]['price'];}}?></h3>
+                <h3 class="price">$ <?php if(isset($product)){ if($product != null){echo number_format($product[0]['price'], 2, '.', ' ');}}?></h3>
 
                 <br>
 

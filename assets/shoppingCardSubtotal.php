@@ -24,43 +24,13 @@
     </div>
     <ul class="list-group list-group-flush">
         <?php
-            $shoppingCardItemName = 'Libreta';
-            $shoppingCardItemQuantity = '1';
-            $shoppingCardItemPrice = '50';
-            $subtotal += $shoppingCardItemQuantity * $shoppingCardItemPrice;
-            include('assets/shoppingCardSubtotalItem.php');
-        ?>
-
-        <?php
-            $shoppingCardItemName = 'Monitor';
-            $shoppingCardItemQuantity = '2';
-            $shoppingCardItemPrice = '1200';
-            $subtotal += $shoppingCardItemQuantity * $shoppingCardItemPrice;
-            include('assets/shoppingCardSubtotalItem.php');
-        ?>
-
-        <?php
-            $shoppingCardItemName = 'Pato de juguete';
-            $shoppingCardItemQuantity = '3';
-            $shoppingCardItemPrice = '100';
-            $subtotal += $shoppingCardItemQuantity * $shoppingCardItemPrice;
-            include('assets/shoppingCardSubtotalItem.php');
-        ?>
-
-        <?php
-            $shoppingCardItemName = 'Refrigerador';
-            $shoppingCardItemQuantity = '4';
-            $shoppingCardItemPrice = '16000';
-            $subtotal += $shoppingCardItemQuantity * $shoppingCardItemPrice;
-            include('assets/shoppingCardSubtotalItem.php');
-        ?>
-
-        <?php
-            $shoppingCardItemName = 'Teclado';
-            $shoppingCardItemQuantity = '5';
-            $shoppingCardItemPrice = '500';
-            $subtotal += $shoppingCardItemQuantity * $shoppingCardItemPrice;
-            include('assets/shoppingCardSubtotalItem.php');
+            for($i = 0;$i < count($rows);$i++){
+                $shoppingCardItemName = $rows[$i]['name'];
+                $shoppingCardItemQuantity = $rows[$i]['quantity'];
+                $shoppingCardItemPrice = $rows[$i]['price'];
+                $subtotal += $shoppingCardItemQuantity * $shoppingCardItemPrice;
+                include('assets/shoppingCardSubtotalItem.php');
+            }
         ?>
 
         <li class="list-group-item">
@@ -75,14 +45,16 @@
                     
                 </div>
                 <div class="col">
-                    <h5>$ <?php echo $subtotal; ?></h5>
+                    <h5>$ <?php echo  number_format($subtotal, 2, '.', ' '); ?></h5>
                 </div>
             </div>
 
             <div class="row">
                 <div class="col"></div>
                 <div class="col-md-3">
-                    <a class="btn btn-success" href="./confirmPayment.php" type="button">Comprar</a>
+                    <form method="POST" action="confirmPayment.php" id="myForm">
+                        <button class="btn btn-success" type="submit" <?php if($validateAvaibleStock != null){echo 'disabled';} ?>>Comprar</button>
+                    </form>
                 </div>
             </div>
         </li>

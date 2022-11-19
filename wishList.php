@@ -23,7 +23,7 @@
     <link rel='stylesheet' type='text/css' media='screen' href='./style/toast.css'>
 
 </head>
-<body class="d-flex flex-column min-vh-100" style="margin-top: 3.5em;">
+<body class="d-flex flex-column min-vh-100" style="margin-top: 3.5em;" onload="<?php if(isset($_GET['successful'])){echo 'myFunction();';}?>">
     <header>
         
     </header>
@@ -66,7 +66,17 @@
 
     </div>
 
-    <div id="snackbar">Producto agregado al carrito</div>
+    <?php 
+        if(isset($_GET['successful'])){
+            if($_GET['successful'] == 'add'){
+                echo '<div id="snackbar">Producto agregado al carrito</div>';
+            }
+            else if($_GET['successful'] == 'delete'){
+                echo '<div id="snackbar">Producto borrado de la lista</div>';
+            }
+        }
+    ?>
+    
 
     <?php
         include_once('assets/footer.php');

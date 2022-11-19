@@ -98,6 +98,16 @@
             exit();
         }
 
+        function deleteProductWishList(){
+            $wishListClass = new wishListClass();
+
+            $res = $wishListClass->deleteProductWishList($_POST['wishListId'], $_POST['productId']);
+            
+            header("Location: wishList.php?successful=delete");
+
+            exit();
+        }
+
         function selectCreatedWishList(){
             $wishListClass = new wishListClass();
             $userClass = new userClass();
@@ -210,9 +220,15 @@
     }
 
     if(isset($_POST['submitButtonProductToList'])){
-        echo $_POST['wishListId'];
+        //echo $_POST['wishListId'];
         $var = new addWishListApi();
 
         $var->insertProducrWishList();
+    }
+
+    if(isset($_POST['submitButtonDeleteProductWishList'])){
+        $var = new addWishListApi();
+
+        $var->deleteProductWishList();
     }
 ?>

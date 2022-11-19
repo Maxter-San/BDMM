@@ -64,6 +64,15 @@
             return $query;
         }
 
+        function deleteProductWishList(
+            $p_listwishId,
+            $p_productId
+        ){
+            $query = $this->connect()->query('CALL wishListProcedure('.$p_listwishId.', null, null, null, null, null, '.$p_productId.', "deleteProductWishList")');
+            //$this->connect()->close();
+            return $query;
+        }
+
         function selectCreatedWishList(
             $p_clientId
         ){

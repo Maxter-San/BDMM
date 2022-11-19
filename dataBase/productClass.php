@@ -70,6 +70,15 @@
             
         }
 
+        function insertViewedProduct(
+            $p_productId,
+            $clientId
+        ){
+            $query = $this->connect()->query('CALL productProcedure('.$p_productId.', null, null, null, null, null, null, null, null, null, null, '.$clientId.', null, null, null, null, null, null, null, null, null, null, "insertViewedProduct")');
+            
+            return $query;
+        }
+
         function updateProduct(
             $p_productId,
             $name,

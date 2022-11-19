@@ -29,6 +29,8 @@
         include_once('apis/searchApi.php');
         include_once('apis/productApi.php');
         include_once('apis/wishListApi.php');
+        session_start();
+        include_once('apis/shoppingCartApi.php');
         $productApi = new productApi();
         $product = $productApi->selectProductsById();
 
@@ -48,13 +50,17 @@
                                     ?>
                                 </div>
                                 <?php
-                                    $productVideos = $productApi->selectProductVideos($product[0]['productId']);
-                                    for($i = 0;$i < count($productVideos);$i++){
-                                        echo '<div class="carousel-item text-center">
-                                                <video class="col-xl-11" controls>
-                                                    <source src="resourses/videos/'.$productVideos[$i]['video'].'" type="video/mp4">
-                                                </video>
-                                              </div>';
+                                    if(isset($product)){
+                                        if($product != null){
+                                            $productVideos = $productApi->selectProductVideos($product[0]['productId']);
+                                            for($i = 0;$i < count($productVideos);$i++){
+                                                echo '<div class="carousel-item text-center">
+                                                        <video class="col-xl-11" controls>
+                                                            <source src="resourses/videos/'.$productVideos[$i]['video'].'" type="video/mp4">
+                                                        </video>
+                                                      </div>';
+                                            }
+                                        }
                                     }
                                 ?>
                             </div>
@@ -81,13 +87,13 @@
             <div class="col-1"></div>
 
             <div class="col menuContainer" id="menuContainer">
-                <h3 class="name"><?php if(isset($product)){ echo $product[0]['name'];}?></h3>
+                <h3 class="name"><?php if(isset($product)){ if($product != null){ echo $product[0]['name'];}}?></h3>
 
-                <script>setStars(<?php if(isset($product)){ echo $product[0]['buying']*5; }else{ echo '100';}?>, <?php if(isset($product)){ echo $product[0]['valoration']; }else{ echo '70';}?>, 'menuContainer');</script>
+                <script>setStars(<?php if(isset($product)){ if($product != null){ echo $product[0]['buying']*5; }}else{ echo '100';}?>, <?php if(isset($product)){ if($product != null){ echo $product[0]['valoration']; }}else{ echo '70';}?>, 'menuContainer');</script>
 
                 <br><br>
 
-                <h3 class="price">$ <?php if(isset($product)){ echo $product[0]['price'];}?></h3>
+                <h3 class="price">$ <?php if(isset($product)){ if($product != null){echo $product[0]['price'];}}?></h3>
 
                 <br>
 
@@ -99,11 +105,13 @@
                         <h4 class="existence">
                             <?php
                                 if(isset($product)){
-                                    $categories = $productApi->selectCategoriesByProductId($product[0]['productId']);
-                                    $arrayCategories = array();
-                                    for($j = 0;$j < count($categories);$j++){
-                                            echo '<span class="badge rounded-pill text-bg-warning">'.$categories[$j]['categoryName'].'</span>';
-                                            $arrayCategories[] = $categories[$j]['categoryId'];
+                                    if($product != null){
+                                        $categories = $productApi->selectCategoriesByProductId($product[0]['productId']);
+                                        $arrayCategories = array();
+                                        for($j = 0;$j < count($categories);$j++){
+                                                echo '<span class="badge rounded-pill text-bg-warning">'.$categories[$j]['categoryName'].'</span>';
+                                                $arrayCategories[] = $categories[$j]['categoryId'];
+                                        }
                                     }
                                 }
                             ?>
@@ -113,34 +121,43 @@
 
                 <br>
 
-                <h4 class="existence">En existencia: <?php if(isset($product)){ echo $product[0]['quantity'];}?></h4>
+                <h4 class="existence">En existencia: <?php if(isset($product)){ if($product != null){ echo $product[0]['quantity'];}}?></h4>
 
                 <br>
 
-                <div class="input-group">
-                    <input type="number" class="form-control" placeholder="0" value="0" id="formQuantity" min="0" max="<?php if(isset($product)){ echo $product[0]['quantity'];}else{echo '0';}?>" readonly>
-                    <button class="btn btn-outline-warning" onclick="quantityMin();" id="btnMin" type="button">-</button>
-                    <button class="btn btn-outline-success" onclick="quantityPlus(<?php if(isset($product)){ echo $product[0]['quantity'];}else{echo '0';}?>);" id="btnPlus" type="button">+</button>
-                </div>
+                <form method="POST" action="<?php echo $_SERVER['PHP_SELF'] ?>" id="myForm">
+                <input type="number" name="productId" id="formProductId" value="<?php if(isset($product)){ if($product != null){ echo $product[0]['productId'];}}?>" hidden>
+                    <div class="input-group">
+                        <input type="number" class="form-control" name="quantity" placeholder="0" value="0" id="formQuantity" min="0" max="<?php if(isset($product)){ if($product != null){ echo $product[0]['quantity'];}}else{echo '0';}?>" readonly>
+                        <button class="btn btn-outline-warning" onclick="quantityMin();" id="btnMin" type="button">-</button>
+                        <button class="btn btn-outline-success" onclick="quantityPlus(<?php if(isset($product)){ if($product != null){ echo $product[0]['quantity'];}}else{echo '0';}?>);" id="btnPlus" type="button">+</button>
+                    </div>
 
-                <br>
+                    <br>
 
-                <?php
-                    
-                    $_GET['userType'] = '0';
-                    if(isset($_SESSION["s_userType"])){
-                        if($_SESSION["s_userType"] != null){
-                            $_GET['userType'] = $_SESSION["s_userType"];
+                    <?php
+                        if(isset($product)){
+                            if($product != null){
+
+                                $_GET['userType'] = '0';
+                                if(isset($_SESSION["s_userType"])){
+                                    if($_SESSION["s_userType"] != null){
+                                        $_GET['userType'] = $_SESSION["s_userType"];
+
+                                        if($_SESSION["s_userType"] == 'Comprador'){
+                                            $productApi->insertViewProduct($product[0]['productId']);
+                                        }
+                                    }
+                                }
+
+                                $_GET['buyQuotation'] = 'Vender';
+                                $_GET['buyQuotation'] = $product[0]['method'];
+                                    
+                                include_once('assets/productSettings.php');
+                            }
                         }
-                    }
-
-                    $_GET['buyQuotation'] = 'Vender';
-                    if(isset($product)){
-                        $_GET['buyQuotation'] = $product[0]['method'];
-                    }
-
-                    include_once('assets/productSettings.php');
-                ?>
+                    ?>
+                </form>
 
                 <br>
             </div>
@@ -157,7 +174,7 @@
 
             <div class="col-md">
                 <h3 class="existence">Descripción</h3>
-                <h3 class="price"><?php if(isset($product)){ echo $product[0]['description'];}?></h3>
+                <h3 class="price"><?php if(isset($product)){ if($product != null){ echo $product[0]['description'];}}?></h3>
             </div>
 
             <div class="col-md-5">
@@ -214,7 +231,9 @@
                     $method = 'profileSeller';
                     $sellerId = 0;
                     if(isset($product)){ 
-                        $sellerId = $product[0]['sellerId'];
+                        if($product != null){
+                            $sellerId = $product[0]['sellerId'];
+                        }
                     }
                     
                     include('assets/sectionBar.php');
@@ -222,10 +241,14 @@
 
                 <h2>Productos similares</h2>
                 <?php
-                    $method = 'custom';
-                    $var = new searchApi();
-                    $rows = $var->selectProductsInArrayByCategory($arrayCategories);
-                    include('assets/sectionBar.php');
+                    if(isset($product)){ 
+                        if($product != null){
+                            $method = 'custom';
+                            $var = new searchApi();
+                            $rows = $var->selectProductsInArrayByCategory($arrayCategories);
+                            include('assets/sectionBar.php');
+                        }
+                    }
                 ?>
             </div>
         </div>
@@ -242,7 +265,13 @@
             }
         }else if(isset($_GET['failed'])){
             if($_GET['failed'] == 'AddList'){
-                echo '<div id="snackbar">Este producto ya esta en esta lista</div>';
+                echo '<div id="snackbar">Este producto ya está en esta lista</div>';
+            }
+            else if($_GET['failed'] == 'AddCart'){
+                echo '<div id="snackbar">Este producto ya está en el carrito</div>';
+            }
+            else if($_GET['failed'] == 'quantity'){
+                echo '<div id="snackbar">Tienes que agregar al menos un producto</div>';
             }
         }
     ?>

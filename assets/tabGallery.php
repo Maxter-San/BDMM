@@ -2,11 +2,13 @@
     <div class="sectionImageBar">
       <?php
         if(isset($product)){
-          $productImages = $productApi->selectProductImages($product[0]['productId']);
-          for($i = 0;$i < count($productImages);$i++){
-            echo '<div class="cardSectionImageBar col-xl-3">
-                    <img class="miniatureImg" src="'.'data:image;base64,'.base64_encode($productImages[$i]["photo"]).'" alt="Lights" onclick="displayImage(this);">
-                  </div>';
+          if($product != null){
+            $productImages = $productApi->selectProductImages($product[0]['productId']);
+            for($i = 0;$i < count($productImages);$i++){
+              echo '<div class="cardSectionImageBar col-xl-3">
+                      <img class="miniatureImg" src="'.'data:image;base64,'.base64_encode($productImages[$i]["photo"]).'" alt="Lights" onclick="displayImage(this);">
+                    </div>';
+            }
           }
         }
       ?>

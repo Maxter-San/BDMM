@@ -82,6 +82,21 @@
             exit();
         }
 
+        function insertViewProduct($productId){
+            $productClass = new productClass();
+            $userClass = new userClass();
+
+            $search = $userClass->getProfileUserById($_SESSION['s_userId']);
+            $clientRows = array();
+            while($r = mysqli_fetch_assoc($search)) {
+                $clientRows[] = $r;
+            }
+            $clientInfo = $clientRows[0]['clientId'];
+
+            $productClass->insertViewedProduct($productId, $clientInfo);
+
+        }
+
         function updateProduct(){
             if(isset($_POST['productId'])){
                 $productClass = new productClass();

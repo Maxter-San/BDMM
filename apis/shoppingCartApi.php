@@ -34,6 +34,49 @@
             exit();
         }
 
+        function insertRecord(){
+            $shoppingCartClass = new shoppingCartClass();
+            $userClass = new userClass();
+
+            $search = $userClass->getProfileUserById($_SESSION['s_userId']);
+            $rowsUser = array();
+            while($r = mysqli_fetch_assoc($search)) {
+                $rowsUser[] = $r;
+            } 
+            $clientInfo = $rowsUser[0]['clientId'];
+
+            $rowsProduct = $this->selectProductsByCartId();
+            $subtotal = 0;     
+            for($i = 0;$i < count($rowsProduct);$i++){
+                $productStock = $rowsProduct[$i]['stock'];    
+                $shoppingCartItemQuantity = $rowsProduct[$i]['quantity'];
+                $shoppingCartItemPrice = $rowsProduct[$i]['price'];
+                $subtotal += $shoppingCartItemQuantity * $shoppingCartItemPrice;
+            }
+
+            $record = $shoppingCartClass->insertRecord($clientInfo, number_format($subtotal, 2, '.', ''), $_POST['payMethod']);
+
+            $rowsRecord = array();
+            while($r = mysqli_fetch_assoc($record)) {
+                $rowsRecord[] = $r;
+            }
+
+            for($i = 0;$i < count($rowsProduct);$i++){  
+
+                $shoppingCartClass->insertRecordProduct($rowsProduct[$i]['quantity'],
+                                                        $rowsProduct[$i]['price'],
+                                                        $rowsProduct[$i]['productId'],
+                                                        $rowsRecord[0]['recordId'],
+                                                        $rowsProduct[$i]['sellerId']);
+
+                $shoppingCartClass->deleteCartProduct($rowsProduct[$i]['cartproductId']);
+            }
+            
+
+            header("Location: record.php");
+            exit();
+        }
+
         function selectProductsByCartId(){
             $shoppingCartClass = new shoppingCartClass();
             $userClass = new userClass();
@@ -49,7 +92,7 @@
 
             $res = $shoppingCartClass->selectProductsByCartId($clientInfo);
             $rows = array();
-            while($r = mysqli_fetch_assoc($res)) {
+            while($r = mysqli_fetch_assoc($res)){
                 $rows[] = $r;
             }
 
@@ -75,6 +118,40 @@
             
             exit();
         }
+
+        function selectPayMethod(){
+            $shoppingCartClass = new shoppingCartClass();
+            $userClass = new userClass();
+            $search = $userClass->getProfileUserById($_SESSION['s_userId']);
+
+            $rows = array();
+            while($r = mysqli_fetch_assoc($search)) {
+                $rows[] = $r;
+            }
+            $clientInfo = $rows[0]['clientId'];
+
+            $payMethod = $shoppingCartClass->selectPayMethod($clientInfo);
+            $rows = array();
+            while($r = mysqli_fetch_assoc($payMethod)) {
+                $rows[] = $r;
+            }
+            
+            return $rows;
+        }
+
+        function getDebitCard(){
+            $shoppingCartClass = new shoppingCartClass();
+            $userClass = new userClass();
+            $search = $userClass->getProfileUserById($_SESSION['s_userId']);
+
+            $rows = array();
+            while($r = mysqli_fetch_assoc($search)) {
+                $rows[] = $r;
+            }
+            $clientInfo = $rows[0]['debitCard'];
+
+            return '**** **** **** '.substr($clientInfo, 12, 4);
+        }
     }
 
     if(isset($_POST['submitButtonAddToCart'])){
@@ -94,4 +171,10 @@
 
         $var->deleteCartProduct();
     };
+
+    if(isset($_POST['submitButtonPay'])){
+        $var = new shoppingCartApi();
+
+        $var->insertRecord();
+    }
 ?>

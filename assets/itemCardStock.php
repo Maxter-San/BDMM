@@ -10,6 +10,8 @@
         <div class="card-body">
             <h5 class="card-title"><?php echo $productName; ?></h5>
 
+            <p>Vendidos: <?php echo $productBuying;?></p>
+
             <div class="d-grid gap-2">
                 <a href="./productSettings.php?productId=<?php echo $productId; ?>" class="btn btn-outline-success">Modificar</a>
                 <a href="./product.php?productId=<?php echo $productId; ?>" class="btn btn-outline-warning">Ver producto</a>

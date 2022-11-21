@@ -53,7 +53,7 @@
                 <div class="col"></div>
                 <div class="col-md-3">
                     <form method="POST" action="confirmPayment.php" id="myForm">
-                        <button class="btn btn-success" type="submit" <?php if($validateAvaibleStock != null){echo 'disabled';} ?>>Comprar</button>
+                        <button class="btn btn-success" type="submit" <?php if($validateAvaibleStock != null || $subtotal == 0){echo 'disabled';} ?>>Comprar</button>
                     </form>
                 </div>
             </div>

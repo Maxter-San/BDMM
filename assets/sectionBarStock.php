@@ -5,6 +5,7 @@
             $productImg = 'data:image;base64,'.base64_encode($products[$i]['photo']);
             $productId = $products[$i]['productId'];
             $productStock = $products[$i]['quantity'];
+            $productBuying = $products[$i]['buying'];
             include('assets/itemCardStock.php');
         }
     ?>

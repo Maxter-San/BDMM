@@ -34,6 +34,22 @@
         $productApi = new productApi();
         $product = $productApi->selectProductsById();
 
+        $shoppingCartApi = new shoppingCartApi();
+        $reviews = null;
+        $totalStars = 0;
+        $totalReviews = 0;
+        if(isset($product)){
+            if($product != null){
+                $reviews = $shoppingCartApi->selectCommentsByProductId($product[0]['productId']);
+
+                $totalReviews = count($reviews);
+                
+                for ($i=0; $i < $totalReviews; $i++){
+                    $totalStars += $reviews[$i]['valoration'];
+                }
+            }
+        }
+
         include_once('assets/header.php');
     ?>
 
@@ -89,7 +105,7 @@
             <div class="col menuContainer" id="menuContainer">
                 <h3 class="name"><?php if(isset($product)){ if($product != null){ echo $product[0]['name'];}}?></h3>
 
-                <script>setStars(<?php if(isset($product)){ if($product != null){ echo $product[0]['buying']*5; }}else{ echo '100';}?>, <?php if(isset($product)){ if($product != null){ echo $product[0]['valoration']; }}else{ echo '70';}?>, 'menuContainer');</script>
+                <script>setStars(<?php echo $totalReviews * 5; ?>, <?php echo $totalStars; ?>, 'menuContainer');</script>
 
                 <br><br>
 
@@ -188,27 +204,7 @@
                         <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
                             <div class="accordion-body">
                             <?php
-                                $commentID = '1';
-                                $commentUserName = 'Charbel';
-                                $commentScore = '3.5';
-                                $commentDescription = 'Se ve medio raro pero igual me gusta.';
-                                include('assets/comments.php');
-                            ?>
-
-                            <?php
-                                $commentID = '2';
-                                $commentUserName = 'Maxter2';
-                                $commentScore = '5';
-                                $commentDescription = 'Me gustó mucho';
-                                include('assets/comments.php');
-                            ?>
-
-                            <?php
-                                $commentID = '3';
-                                $commentUserName = 'Valeria';
-                                $commentScore = '0';
-                                $commentDescription = 'Resulte alergica al perro :(';
-                                include('assets/comments.php');
+                                include_once('assets/productReviews.php');
                             ?>
                             </div>
                         </div>

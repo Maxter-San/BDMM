@@ -244,6 +244,19 @@
             return $rows;
         }
 
+        function selectCommentsByProductId($p_productId){
+            $shoppingCartClass = new shoppingCartClass();
+
+            $res = $shoppingCartClass->selectCommentsByProductId($p_productId);
+
+            $rows = array();
+            while($r = mysqli_fetch_assoc($res)) {
+                $rows[] = $r;
+            }
+
+            return $rows;
+        }
+
         function getDebitCard(){
             $shoppingCartClass = new shoppingCartClass();
             $userClass = new userClass();

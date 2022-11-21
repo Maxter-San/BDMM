@@ -1,6 +1,6 @@
 <div class="card" style="margin-bottom: 1em;">
     <div class="card-header">
-        <?php echo $commentUserName; ?>
+        <a href="profile.php?p_userId=<?php echo $commentUserId; ?>" target="_blank" class="link-dark"><?php echo $commentUserName; ?></a>
     </div>
     <div class="card-body">
         <h5 class="card-title" id="cardComment<?php echo $commentID; ?>">

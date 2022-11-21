@@ -1,18 +1,18 @@
-function clickStar(btn){
-    let hBtn1 = document.getElementById('btn1');
-    let hBtn2 = document.getElementById('btn2');
-    let hBtn3 = document.getElementById('btn3');
-    let hBtn4 = document.getElementById('btn4');
-    let hBtn5 = document.getElementById('btn5');
+function clickStar(btn, recordId){
+    let hBtn1 = document.getElementById('btn1-'+recordId);
+    let hBtn2 = document.getElementById('btn2-'+recordId);
+    let hBtn3 = document.getElementById('btn3-'+recordId);
+    let hBtn4 = document.getElementById('btn4-'+recordId);
+    let hBtn5 = document.getElementById('btn5-'+recordId);
 
-    let star1 = document.getElementById('star1');
-    let star2 = document.getElementById('star2');
-    let star3 = document.getElementById('star3');
-    let star4 = document.getElementById('star4');
-    let star5 = document.getElementById('star5');
+    let star1 = document.getElementById('star1-'+recordId);
+    let star2 = document.getElementById('star2-'+recordId);
+    let star3 = document.getElementById('star3-'+recordId);
+    let star4 = document.getElementById('star4-'+recordId);
+    let star5 = document.getElementById('star5-'+recordId);
 
-    let valoration = document.getElementById('formValoration');
-    let check = document.getElementById('formCheck');
+    let valoration = document.getElementById('formValoration-'+recordId);
+    let check = document.getElementById('formCheck-'+recordId);
 
     check.checked = true;
     
@@ -58,21 +58,21 @@ function clickStar(btn){
     }
 }
 
-function handleHover(btn) {
-    let hBtn1 = document.getElementById('btn1');
-    let hBtn2 = document.getElementById('btn2');
-    let hBtn3 = document.getElementById('btn3');
-    let hBtn4 = document.getElementById('btn4');
-    let hBtn5 = document.getElementById('btn5');
+function handleHover(btn, recordId) {
+    let hBtn1 = document.getElementById('btn1-'+recordId);
+    let hBtn2 = document.getElementById('btn2-'+recordId);
+    let hBtn3 = document.getElementById('btn3-'+recordId);
+    let hBtn4 = document.getElementById('btn4-'+recordId);
+    let hBtn5 = document.getElementById('btn5-'+recordId);
 
-    let star1 = document.getElementById('star1');
-    let star2 = document.getElementById('star2');
-    let star3 = document.getElementById('star3');
-    let star4 = document.getElementById('star4');
-    let star5 = document.getElementById('star5');
+    let star1 = document.getElementById('star1-'+recordId);
+    let star2 = document.getElementById('star2-'+recordId);
+    let star3 = document.getElementById('star3-'+recordId);
+    let star4 = document.getElementById('star4-'+recordId);
+    let star5 = document.getElementById('star5-'+recordId);
 
-    let valoration = document.getElementById('formValoration');
-    let check = document.getElementById('formCheck');
+    let valoration = document.getElementById('formValoration-'+recordId);
+    let check = document.getElementById('formCheck-'+recordId);
 
     if(!check.checked){
         if(btn == hBtn1){

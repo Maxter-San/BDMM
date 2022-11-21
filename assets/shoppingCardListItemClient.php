@@ -33,7 +33,7 @@
                 if(!$isValued){
             ?>
                     <div class="d-grid gap-2 d-md-block">
-                        <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                        <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#staticBackdrop<?php echo $recordProductId; ?>">
                             Valorar compra
                         </button>
                     </div>
@@ -52,7 +52,7 @@
     </div>
 </li>
 <?php if(!$isValued){?>
-    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal fade" id="staticBackdrop<?php echo $recordProductId; ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -63,17 +63,17 @@
                 <form method="POST" action="<?php echo $_SERVER['PHP_SELF'] ?>" id="myForm">
                     <div class="modal-body">
                         Valora el producto
-                        <input id="formRecordProductId" name="productId" value="<?php echo $productId; ?>" hidden>
-                        <input id="formRecordProductId" name="recordProductId" value="<?php echo $recordProductId; ?>" hidden>
-                        <input id="formValoration" name="valoration" value="1" hidden>
-                        <input type="checkbox" id="formCheck" hidden>
+                        <input id="formProductId<?php echo $recordProductId; ?>" name="productId" value="<?php echo $productId; ?>" hidden>
+                        <input id="formRecordProductId<?php echo $recordProductId; ?>" name="recordProductId" value="<?php echo $recordProductId; ?>" hidden>
+                        <input id="formValoration-<?php echo $recordProductId; ?>" name="valoration" value="1" hidden>
+                        <input type="checkbox" id="formCheck-<?php echo $recordProductId; ?>" hidden>
 
                         <div class="input-group mb-3">
-                            <button class="btn btn-outline-secondary" type="button" id="btn1" onclick="clickStar(this);" onmouseover="handleHover(this);"><i class="bi bi-star-fill" id="star1"></i></button>
-                            <button class="btn btn-outline-secondary" type="button" id="btn2" onclick="clickStar(this);" onmouseover="handleHover(this);"><i class="bi bi-star" id="star2"></i></button>
-                            <button class="btn btn-outline-secondary" type="button" id="btn3" onclick="clickStar(this);" onmouseover="handleHover(this);"><i class="bi bi-star" id="star3"></i></button>
-                            <button class="btn btn-outline-secondary" type="button" id="btn4" onclick="clickStar(this);" onmouseover="handleHover(this);"><i class="bi bi-star" id="star4"></i></button>
-                            <button class="btn btn-outline-secondary" type="button" id="btn5" onclick="clickStar(this);" onmouseover="handleHover(this);"><i class="bi bi-star" id="star5"></i></button>
+                            <button class="btn btn-outline-secondary" type="button" id="btn1-<?php echo $recordProductId; ?>" onclick="clickStar(this, <?php echo $recordProductId; ?>);" onmouseover="handleHover(this, <?php echo $recordProductId; ?>);"><i class="bi bi-star-fill" id="star1-<?php echo $recordProductId; ?>"></i></button>
+                            <button class="btn btn-outline-secondary" type="button" id="btn2-<?php echo $recordProductId; ?>" onclick="clickStar(this, <?php echo $recordProductId; ?>);" onmouseover="handleHover(this, <?php echo $recordProductId; ?>);"><i class="bi bi-star" id="star2-<?php echo $recordProductId; ?>"></i></button>
+                            <button class="btn btn-outline-secondary" type="button" id="btn3-<?php echo $recordProductId; ?>" onclick="clickStar(this, <?php echo $recordProductId; ?>);" onmouseover="handleHover(this, <?php echo $recordProductId; ?>);"><i class="bi bi-star" id="star3-<?php echo $recordProductId; ?>"></i></button>
+                            <button class="btn btn-outline-secondary" type="button" id="btn4-<?php echo $recordProductId; ?>" onclick="clickStar(this, <?php echo $recordProductId; ?>);" onmouseover="handleHover(this, <?php echo $recordProductId; ?>);"><i class="bi bi-star" id="star4-<?php echo $recordProductId; ?>"></i></button>
+                            <button class="btn btn-outline-secondary" type="button" id="btn5-<?php echo $recordProductId; ?>" onclick="clickStar(this, <?php echo $recordProductId; ?>);" onmouseover="handleHover(this, <?php echo $recordProductId; ?>);"><i class="bi bi-star" id="star5-<?php echo $recordProductId; ?>"></i></button>
                         </div>
                             
                         <div class="col-md form-group">

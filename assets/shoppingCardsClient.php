@@ -29,7 +29,7 @@
     </div>
     <ul class="list-group list-group-flush">
         <?php
-            $products = $shoppingCartApi->selectRecordProductsByRecordId($recordId);
+            $products = $filterRecordsApi->searchRecordProducts($recordId);
             for($j = 0;$j < count($products);$j++){
                 $recordProductId = $products[$j]['recordProductId'];
                 $productId = $products[$j]['productId'];
@@ -46,7 +46,7 @@
                 <div class="col"></div>
                 <div class="col"></div>
                 <div class="col"></div>
-                <div class="col"></div>
+                <div class="col"><h5>Total de la compra</h5></div>
                 <div class="col"><h5>$ <?php echo $recordAmount;?></h5></div>
                 <div class="col"></div>
             </div>

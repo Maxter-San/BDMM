@@ -26,6 +26,9 @@
         session_start();
         include_once('apis/shoppingCartApi.php');
         include_once('apis/productApi.php');
+        include_once('apis/categoryApi.php');
+        include_once('apis/filterRecordsApi.php');
+        $var = new categorypApi();
 
         include_once('assets/header.php');
     ?>
@@ -39,7 +42,7 @@
 
         <div class="row">
             <?php 
-                include_once('assets/filterRecords.php');
+                include_once('assets/filterClientRecords.php');
             ?>
         </div>
 

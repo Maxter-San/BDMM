@@ -6,12 +6,22 @@
             <h5 class="card-title"><?php echo $productName; ?></h5>
 
             <h5 class="card-title" id="productItem<?php echo $productId; ?>">
-                <script>
-                    setStars(5, <?php echo $productScore; ?>, 'productItem<?php echo $productId; ?>');
-                </script>
+                <?php 
+                    if($productIsValued){
+                ?>
+                        <script>
+                            setStars(5, <?php echo $productScore; ?>, 'productItem<?php echo $productId; ?>');
+                        </script>
+                <?php 
+                    }else{
+                ?>
+                        <label style="color : red;">Sin calificar</label>
+                <?php 
+                    }
+                ?>
             </h5>
 
-            <a href="./product.php" class="btn btn-outline-warning">Ver producto</a>
+            <a href="./product.php?productId=<?php echo $productId; ?>" class="btn btn-outline-warning">Ver producto</a>
 
             <!--<?php echo $productId; ?> -->
         </div>

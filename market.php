@@ -88,7 +88,7 @@
 
                         <div class="col-md form-group">
                             <label class="form-label">Precio del producto</label>
-                            <input type="number" class="form-control" id="formProductPrice" placeholder="$ 0.00" onkeypress="floatingNum();" step="0.01" name="price" readonly required>
+                            <input type="number" class="form-control" id="formProductPrice" placeholder="$ 0.00" onkeypress="floatingNum();" step="0.01" name="price" required>
                         </div>
 
                     </div>

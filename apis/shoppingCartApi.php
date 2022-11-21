@@ -77,6 +77,27 @@
             exit();
         }
 
+        function insertComment(){
+            $shoppingCartClass = new shoppingCartClass();
+            $userClass = new userClass();
+
+            $search = $userClass->getProfileUserById($_SESSION['s_userId']);
+            $rowsUser = array();
+            while($r = mysqli_fetch_assoc($search)) {
+                $rowsUser[] = $r;
+            } 
+            $clientInfo = $rowsUser[0]['clientId'];
+
+            $shoppingCartClass->insertComment($_POST['comment'],
+                                              $_POST['valoration'],
+                                              $clientInfo,
+                                              $_POST['productId'],
+                                              $_POST['recordProductId']);
+
+            header("Location: myShopping.php?successful=comment");
+            exit();
+        }
+
         function selectProductsByCartId(){
             $shoppingCartClass = new shoppingCartClass();
             $userClass = new userClass();
@@ -139,6 +160,90 @@
             return $rows;
         }
 
+        function selectAllRecordsByClientId(){
+            $shoppingCartClass = new shoppingCartClass();
+            $userClass = new userClass();
+
+            $index = 0;
+            
+            if(isset($_SESSION["s_userId"])){
+                $index = $_SESSION["s_userId"];
+            }
+
+            if(isset($_GET["p_userId"])){
+                $index = $_GET["p_userId"];
+            }
+
+            $search = $userClass->getProfileUserById($index);
+
+            $rows = array();
+            while($r = mysqli_fetch_assoc($search)) {
+                $rows[] = $r;
+            }
+            
+            if(isset($rows[0]['clientId'])){
+                $clientInfo = $rows[0]['clientId'];
+
+                $res = $shoppingCartClass->selectAllRecordsByClientId($clientInfo);
+
+                $rows = array();
+                while($r = mysqli_fetch_assoc($res)) {
+                    $rows[] = $r;
+                }
+
+                return $rows;
+            }
+        }
+
+        function selectRecordsByClientId(){
+            $shoppingCartClass = new shoppingCartClass();
+            $userClass = new userClass();
+
+            $search = $userClass->getProfileUserById($_SESSION['s_userId']);
+
+            $rows = array();
+            while($r = mysqli_fetch_assoc($search)) {
+                $rows[] = $r;
+            }
+            
+            $clientInfo = $rows[0]['clientId'];
+
+            $res = $shoppingCartClass->selectRecordsByClientId($clientInfo);
+
+            $rows = array();
+            while($r = mysqli_fetch_assoc($res)) {
+                $rows[] = $r;
+            }
+
+            return $rows;
+        }
+
+        function selectRecordProductsByRecordId($p_recordId){
+            $shoppingCartClass = new shoppingCartClass();
+
+            $res = $shoppingCartClass->selectRecordProductsByRecordId($p_recordId);
+
+            $rows = array();
+            while($r = mysqli_fetch_assoc($res)) {
+                $rows[] = $r;
+            }
+
+            return $rows;
+        }
+
+        function selectCommentByRecordProductId($p_recordProductId){
+            $shoppingCartClass = new shoppingCartClass();
+
+            $res = $shoppingCartClass->selectCommentByRecordProductId($p_recordProductId);
+
+            $rows = array();
+            while($r = mysqli_fetch_assoc($res)) {
+                $rows[] = $r;
+            }
+
+            return $rows;
+        }
+
         function getDebitCard(){
             $shoppingCartClass = new shoppingCartClass();
             $userClass = new userClass();
@@ -176,5 +281,11 @@
         $var = new shoppingCartApi();
 
         $var->insertRecord();
+    }
+
+    if(isset($_POST['buttonSubmitComment'])){
+        $var = new shoppingCartApi();
+
+        $var->insertComment();
     }
 ?>

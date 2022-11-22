@@ -29,3 +29,13 @@ function multiplyQuantityProducts(productQuotationId){
 
     vartotalPriceQuotation.value = "$ " + parseFloat(parseFloat(varproductPriceQuotation.value).toFixed(2) * varproductCuantityQuotation.value).toFixed(2);
 }
+
+function validateCuotation(productQuotationId){
+    let varproductPriceQuotation = document.getElementById('productPriceQuotation'+productQuotationId);
+
+    if(varproductPriceQuotation.value <= 0 || varproductPriceQuotation.value == null){
+        varproductPriceQuotation.setCustomValidity('Ingresa un precio valido');
+    }else{
+        varproductPriceQuotation.setCustomValidity('');
+    }
+}

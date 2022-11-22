@@ -17,8 +17,8 @@
                 <div class="input-group">
                     <input name="cartProductId" value="<?php echo $cartproductId; ?>" hidden>
                     <input type="number" name="quantity" id="formQuantity<?php echo $cartproductId; ?>" class="form-control" value="<?php echo $productQuantity; ?>" readonly>
-                    <button class="btn btn-outline-warning" name="buttonSubmitQuantity" onclick="quantityMin('formQuantity<?php echo $cartproductId; ?>');" type="input">-</button>
-                    <button class="btn btn-outline-success" name="buttonSubmitQuantity" onclick="quantityPlus('formQuantity<?php echo $cartproductId; ?>', <?php echo $productStock; ?>);" type="input">+</button>
+                    <button class="btn btn-outline-warning" <?php if($method == 'Cotizar'){ echo 'disabled';}?> name="buttonSubmitQuantity" onclick="quantityMin('formQuantity<?php echo $cartproductId; ?>');" type="input">-</button>
+                    <button class="btn btn-outline-success" <?php if($method == 'Cotizar'){ echo 'disabled';}?> name="buttonSubmitQuantity" onclick="quantityPlus('formQuantity<?php echo $cartproductId; ?>', <?php echo $productStock; ?>);" type="input">+</button>
                 </div>
             </form>
             <input name="cartProductId" value="<?php echo $cartproductId; ?>" hidden>
@@ -45,7 +45,11 @@
                 <form method="POST" action="<?php echo $_SERVER['PHP_SELF'] ?>" id="myForm">
                     <input name="cartProductId" value="<?php echo $cartproductId; ?>" hidden>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="submit" name="submitButtonDeleteProduct" class="btn btn-primary" data-bs-dismiss="modal">Aceptar</button>
+                    <?php if($method == 'Cotizar'){?>
+                        <button type="submit" name="submitButtonDeleteCuotationFromCart" class="btn btn-primary" data-bs-dismiss="modal">Aceptar</button>
+                    <?php } else {?>
+                        <button type="submit" name="submitButtonDeleteProduct" class="btn btn-primary" data-bs-dismiss="modal">Aceptar</button>
+                    <?php }?>
                 </form>
             </div>
         </div>

@@ -18,8 +18,11 @@
     
 </head>
 
-<body class="d-flex flex-column min-vh-100" style="margin-top: 3.5em;">
+<body class="d-flex flex-column min-vh-100" style="margin-top: 3.5em;" onload="<?php if(isset($_GET['successful'])){echo 'myFunction();';}?>">
     <?php
+        session_start();
+        include_once('apis/shoppingCartApi.php');
+
         include_once('assets/header.php');
     ?>
 
@@ -31,7 +34,16 @@
         ?>
     </div>
 
-    <div id="snackbar">Información actualizada</div>
+    <?php 
+        if(isset($_GET['successful'])){
+            if($_GET['successful'] == 'acept'){
+                echo '<div id="snackbar">solicitud de cotización aceptada</div>';
+            }
+            else if($_GET['successful'] == 'reject'){
+                echo '<div id="snackbar">solicitud de cotización rechazada</div>';
+            }
+        }
+    ?>
 
     <?php
         include_once('assets/footer.php');

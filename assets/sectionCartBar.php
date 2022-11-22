@@ -12,6 +12,26 @@
             $productQuantity = $rows[$i]['quantity'];
             $productStock = $rows[$i]['stock'];
             $cartproductId = $rows[$i]['cartproductId'];
+            $method = $rows[$i]['method'];
+            include('assets/itemCartCard.php');
+
+            if($productStock < $productQuantity){
+                $validateAvaibleStock = 1;
+            }
+        }
+
+        $rows = $shoppingCartApi->selectCuotationsByCartId();
+
+        $validateAvaibleStock = null;
+
+        for($i = 0;$i < count($rows);$i++){
+            $productName = $rows[$i]['name'];
+            $productPrice = $rows[$i]['price'];
+            $productImg = 'data:image;base64,'.base64_encode($rows[$i]['photo']);
+            $productQuantity = $rows[$i]['quantity'];
+            $productStock = $rows[$i]['stock'];
+            $cartproductId = $rows[$i]['cartproductId'];
+            $method = $rows[$i]['method'];
             include('assets/itemCartCard.php');
 
             if($productStock < $productQuantity){

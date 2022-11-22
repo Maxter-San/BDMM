@@ -1,5 +1,5 @@
 <div class="d-grid gap-2">
-    <button class="btn btn-success" type="button" onclick="myFunction();" <?php if(isset($product)){ if($product[0]['quantity'] == 0){ echo 'disabled';}}?>>Solicitar cotización</button>
+    <button class="btn btn-success" type="submit" name="submitButtonCuotation" <?php if(isset($product)){ if($product[0]['quantity'] == 0){ echo 'disabled';}}?>>Solicitar cotización</button>
 
     <div class="dropdown-center d-grid gap-2">
         <button class="btn btn-outline-warning dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">

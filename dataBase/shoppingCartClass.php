@@ -23,15 +23,77 @@
         p_orderBy
         p_categories
 
+        p_cuotationId
+        p_status
+
         p_action
         */
+
+        function insertCuotation(
+            $p_quantity,
+            $p_clientId,
+            $p_sellerId,
+            $p_productId
+        ){
+            $query = $this->connect()->query('CALL shoppingCartProcedure(null, null, '.$p_clientId.', null, '.$p_quantity.', '.$p_productId.', null, null, null, '.$p_sellerId.', null, null, null, null, null, null, "En espera", "insertCuotation")');
+            //$this->connect()->close();
+            return $query;
+        }
+
+        function updateCuotationStatus(
+            $p_cuotationId,
+            $p_status,
+            $p_price
+        ){
+            $price = 'null';
+            if($p_price != null){
+                $price = $p_price;
+            }
+            $query = $this->connect()->query('CALL shoppingCartProcedure(null, null, null, null, null, null, '.$price.', null, null, null, null, null, null, null, null, '.$p_cuotationId.', "'.$p_status.'", "updateCuotationStatus")');
+            //$this->connect()->close();
+            return $query;
+        }
+
+        function searchRepeatCuotation(
+            $p_clientId,
+            $p_productId
+        ){
+            $query = $this->connect()->query('CALL shoppingCartProcedure(null, null, '.$p_clientId.', null, null, '.$p_productId.', null, null, null, null, null, null, null, null, null, null, "En espera", "searchRepeatCuotation")');
+            //$this->connect()->close();
+            return $query;
+        }
+
+        function selectWaitingCuotationsByCliendId(
+            $p_clientId
+        ){
+            $query = $this->connect()->query('CALL shoppingCartProcedure(null, null, '.$p_clientId.', null, null, null, null, null, null, null, null, null, null, null, null, null, null, "selectWaitingCuotationsByCliendId")');
+            //$this->connect()->close();
+            return $query;
+        }
+
+        function selectWaitingCuotationsBySellerId(
+            $p_sellerId
+        ){
+            $query = $this->connect()->query('CALL shoppingCartProcedure(null, null, null, null, null, null, null, null, null, '.$p_sellerId.', null, null, null, null, null, null, null, "selectWaitingCuotationsBySellerId")');
+            //$this->connect()->close();
+            return $query;
+        }
+
+        function deleteCuotation(
+            $p_cuotationId
+        ){
+            $query = $this->connect()->query('CALL shoppingCartProcedure(null, false, null, null, null, null, null, null, null, null, null, null, null, null, null, '.$p_cuotationId.', null, "deleteCuotation")');
+            //$this->connect()->close();
+            return $query;
+        }
+
 
         function insertCartProduct(
             $p_cartId,
             $p_productId,
             $p_quantity
         ){
-            $query = $this->connect()->query('CALL shoppingCartProcedure('.$p_cartId.', null, null, null, '.$p_quantity.', '.$p_productId.', null, null, null, null, null, null, null, null, null, "insertCartProduct")');
+            $query = $this->connect()->query('CALL shoppingCartProcedure('.$p_cartId.', null, null, null, '.$p_quantity.', '.$p_productId.', null, null, null, null, null, null, null, null, null, null, null, "insertCartProduct")');
             //$this->connect()->close();
             return $query;
         }
@@ -41,7 +103,7 @@
             $p_price,
             $p_payMethod
         ){
-            $query = $this->connect()->query('CALL shoppingCartProcedure(null, null, '.$p_clientId.', null, null, null, '.$p_price.', "'.$p_payMethod.'", null, null, null, null, null, null, null, "insertRecord")');
+            $query = $this->connect()->query('CALL shoppingCartProcedure(null, null, '.$p_clientId.', null, null, null, '.$p_price.', "'.$p_payMethod.'", null, null, null, null, null, null, null, null, null, "insertRecord")');
             //$this->connect()->close();
             return $query;
         }
@@ -53,7 +115,7 @@
             $p_recordId,
             $p_sellerId
         ){
-            $query = $this->connect()->query('CALL shoppingCartProcedure(null, null, null, null, '.$p_quantity.', '.$p_productId.', '.$p_price.', null, '.$p_recordId.', '.$p_sellerId.', null, null, null, null, null, "insertRecordProduct")');
+            $query = $this->connect()->query('CALL shoppingCartProcedure(null, null, null, null, '.$p_quantity.', '.$p_productId.', '.$p_price.', null, '.$p_recordId.', '.$p_sellerId.', null, null, null, null, null, null, null, "insertRecordProduct")');
             //$this->connect()->close();
             return $query;
         }
@@ -65,7 +127,7 @@
             $p_productId,
             $p_recordProductId
         ){
-            $query = $this->connect()->query('CALL shoppingCartProcedure(null, null, '.$p_clientId.', null, null, '.$p_productId.', null, null, null, null, "'.$p_comment.'", '.$p_valoration.', '.$p_recordProductId.', null, null, "insertComment")');
+            $query = $this->connect()->query('CALL shoppingCartProcedure(null, null, '.$p_clientId.', null, null, '.$p_productId.', null, null, null, null, "'.$p_comment.'", '.$p_valoration.', '.$p_recordProductId.', null, null, null, null, "insertComment")');
             //$this->connect()->close();
             return $query;
         }
@@ -74,7 +136,7 @@
             $p_cartProductId,
             $p_quantity
         ){
-            $query = $this->connect()->query('CALL shoppingCartProcedure(null, null, null, '.$p_cartProductId.', '.$p_quantity.', null, null, null, null, null, null, null, null, null, null, "updateCartProduct")');
+            $query = $this->connect()->query('CALL shoppingCartProcedure(null, null, null, '.$p_cartProductId.', '.$p_quantity.', null, null, null, null, null, null, null, null, null, null, null, null, "updateCartProduct")');
             //$this->connect()->close();
             return $query;
         }
@@ -82,7 +144,7 @@
         function deleteCartProduct(
             $p_cartProductId
         ){
-            $query = $this->connect()->query('CALL shoppingCartProcedure(null, null, null, '.$p_cartProductId.', null, null, null, null, null, null, null, null, null, null, null, "deleteCartProduct")');
+            $query = $this->connect()->query('CALL shoppingCartProcedure(null, null, null, '.$p_cartProductId.', null, null, null, null, null, null, null, null, null, null, null, null, null, "deleteCartProduct")');
             //$this->connect()->close();
             return $query;
         }
@@ -91,7 +153,7 @@
             $p_cartId,
             $p_productId
         ){
-            $query = $this->connect()->query('CALL shoppingCartProcedure('.$p_cartId.', null, null, null, null, '.$p_productId.', null, null, null, null, null, null, null, null, null, "searchProductInCart")');
+            $query = $this->connect()->query('CALL shoppingCartProcedure('.$p_cartId.', null, null, null, null, '.$p_productId.', null, null, null, null, null, null, null, null, null, null, null, "searchProductInCart")');
             //$this->connect()->close();
             return $query;
         }
@@ -99,7 +161,15 @@
         function selectProductsByCartId(
             $p_cartId
         ){
-            $query = $this->connect()->query('CALL shoppingCartProcedure('.$p_cartId.', null, null, null, null, null, null, null, null, null, null, null, null, null, null, "selectProductsByCartId")');
+            $query = $this->connect()->query('CALL shoppingCartProcedure('.$p_cartId.', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, "selectProductsByCartId")');
+            //$this->connect()->close();
+            return $query;
+        }
+
+        function selectCuotationsByCartId(
+            $p_cartId
+        ){
+            $query = $this->connect()->query('CALL shoppingCartProcedure('.$p_cartId.', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, "selectCuotationsByCartId")');
             //$this->connect()->close();
             return $query;
         }
@@ -107,7 +177,7 @@
         function selectPayMethod(
             $p_clientId
         ){
-            $query = $this->connect()->query('CALL shoppingCartProcedure(null, null, '.$p_clientId.', null, null, null, null, null, null, null, null, null, null, null, null, "selectPayMethodByClientId")');
+            $query = $this->connect()->query('CALL shoppingCartProcedure(null, null, '.$p_clientId.', null, null, null, null, null, null, null, null, null, null, null, null, null, null, "selectPayMethodByClientId")');
             //$this->connect()->close();
             return $query;
         }
@@ -115,7 +185,7 @@
         function selectAllRecordsByClientId(
             $p_clientId
         ){
-            $query = $this->connect()->query('CALL shoppingCartProcedure(null, null, '.$p_clientId.', null, null, null, null, null, null, null, null, null, null, null, null, "selectAllRecordsByClientId")');
+            $query = $this->connect()->query('CALL shoppingCartProcedure(null, null, '.$p_clientId.', null, null, null, null, null, null, null, null, null, null, null, null, null, null, "selectAllRecordsByClientId")');
             //$this->connect()->close();
             return $query;
         }
@@ -123,7 +193,7 @@
         function selectRecordsByClientId(
             $p_clientId
         ){
-            $query = $this->connect()->query('CALL shoppingCartProcedure(null, null, '.$p_clientId.', null, null, null, null, null, null, null, null, null, null, null, null, "selectRecordsByClientId")');
+            $query = $this->connect()->query('CALL shoppingCartProcedure(null, null, '.$p_clientId.', null, null, null, null, null, null, null, null, null, null, null, null, null, null, "selectRecordsByClientId")');
             //$this->connect()->close();
             return $query;
         }
@@ -131,7 +201,7 @@
         function selectRecordProductsByRecordId(
             $p_recordId
         ){
-            $query = $this->connect()->query('CALL shoppingCartProcedure(null, null, null, null, null, null, null, null, '.$p_recordId.', null, null, null, null, null, null, "selectRecordProductsByRecordId")');
+            $query = $this->connect()->query('CALL shoppingCartProcedure(null, null, null, null, null, null, null, null, '.$p_recordId.', null, null, null, null, null, null, null, null, "selectRecordProductsByRecordId")');
             //$this->connect()->close();
             return $query;
         }
@@ -139,7 +209,7 @@
         function selectCommentByRecordProductId(
             $p_recordProductId
         ){
-            $query = $this->connect()->query('CALL shoppingCartProcedure(null, null, null, null, null, null, null, null, null, null, null, null, '.$p_recordProductId.', null, null, "selectCommentByRecordProductId")');
+            $query = $this->connect()->query('CALL shoppingCartProcedure(null, null, null, null, null, null, null, null, null, null, null, null, '.$p_recordProductId.', null, null, null, null, "selectCommentByRecordProductId")');
             //$this->connect()->close();
             return $query;
         }
@@ -147,7 +217,7 @@
         function selectCommentsByProductId(
             $p_productId
         ){
-            $query = $this->connect()->query('CALL shoppingCartProcedure(null, null, null, null, null, '.$p_productId.', null, null, null, null, null, null, null, null, null, "selectCommentsByProductId")');
+            $query = $this->connect()->query('CALL shoppingCartProcedure(null, null, null, null, null, '.$p_productId.', null, null, null, null, null, null, null, null, null, null, null, "selectCommentsByProductId")');
             //$this->connect()->close();
             return $query;
         }
@@ -159,11 +229,11 @@
 
         ){
             if($p_categories == null){
-                $query = $this->connect()->query('CALL shoppingCartProcedure(null, null, '.$p_clientId.', null, null, null, null, null, null, null, null, null, null, "'.$p_orderBy.'", null, "searchRecords")');
+                $query = $this->connect()->query('CALL shoppingCartProcedure(null, null, '.$p_clientId.', null, null, null, null, null, null, null, null, null, null, "'.$p_orderBy.'", null, null, null, "searchRecords")');
                 //$this->connect()->close();
                 return $query;
             }else{
-                $query = $this->connect()->query('CALL shoppingCartProcedure(null, null, '.$p_clientId.', null, null, null, null, null, null, null, null, null, null, "'.$p_orderBy.'", "'.$p_categories.'", "searchRecords")');
+                $query = $this->connect()->query('CALL shoppingCartProcedure(null, null, '.$p_clientId.', null, null, null, null, null, null, null, null, null, null, "'.$p_orderBy.'", "'.$p_categories.'", null, null, "searchRecords")');
                 //$this->connect()->close();
                 return $query;
             }
@@ -197,7 +267,7 @@
                 $paramRecordId = $p_recordId;
             }
 
-            $query = $this->connect()->query('CALL shoppingCartProcedure(null, null, '.$paramcliendId.', null, null, null, null, null, '.$paramRecordId.', '.$paramSellerId.', null, null, null, "'.$p_orderBy.'", '.$paramCategories.', "searchRecordProducts")');
+            $query = $this->connect()->query('CALL shoppingCartProcedure(null, null, '.$paramcliendId.', null, null, null, null, null, '.$paramRecordId.', '.$paramSellerId.', null, null, null, "'.$p_orderBy.'", '.$paramCategories.', null, null, "searchRecordProducts")');
             //$this->connect()->close();
             return $query;
             
@@ -212,7 +282,7 @@
                 $paramCategories = '"'.$p_categories.'"';
             }
 
-            $query = $this->connect()->query('CALL shoppingCartProcedure(null, null, null, null, null, null, null, null, null, '.$p_sellerId.', null, null, null, null, '.$paramCategories.', "searchGroup")');
+            $query = $this->connect()->query('CALL shoppingCartProcedure(null, null, null, null, null, null, null, null, null, '.$p_sellerId.', null, null, null, null, '.$paramCategories.', null, null, "searchGroup")');
             //$this->connect()->close();
             return $query;
             

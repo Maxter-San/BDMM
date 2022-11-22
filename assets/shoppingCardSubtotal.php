@@ -24,6 +24,16 @@
     </div>
     <ul class="list-group list-group-flush">
         <?php
+            $rows = $shoppingCartApi->selectProductsByCartId();
+            for($i = 0;$i < count($rows);$i++){
+                $shoppingCardItemName = $rows[$i]['name'];
+                $shoppingCardItemQuantity = $rows[$i]['quantity'];
+                $shoppingCardItemPrice = $rows[$i]['price'];
+                $subtotal += $shoppingCardItemQuantity * $shoppingCardItemPrice;
+                include('assets/shoppingCardSubtotalItem.php');
+            }
+
+            $rows = $shoppingCartApi->selectCuotationsByCartId();
             for($i = 0;$i < count($rows);$i++){
                 $shoppingCardItemName = $rows[$i]['name'];
                 $shoppingCardItemQuantity = $rows[$i]['quantity'];

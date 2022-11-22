@@ -1,26 +1,17 @@
 <?php 
-    $quotationClientId = '1';
-    $quotationClientSeller = 'Juan';
-    $quotationClientProduct = 'Libreta';
-    $quotationClientQuantity = '10';
-    $quotationClienPhoto = './resourses/dummy/libreta.jpg';
-    include('assets/itemBarQuotationClient.php');
-?>
+    $shoppingCartApi = new shoppingCartApi();
 
-<?php 
-    $quotationClientId = '2';
-    $quotationClientSeller = 'Maxter';
-    $quotationClientProduct = 'Pato de juguete';
-    $quotationClientQuantity = '1';
-    $quotationClienPhoto = './resourses/dummy/pato.jpg';
-    include('assets/itemBarQuotationClient.php');
-?>
+    $rows = $shoppingCartApi->selectWaitingCuotationsByCliendId();
 
-<?php 
-    $quotationClientId = '3';
-    $quotationClientSeller = 'Valeria';
-    $quotationClientProduct = 'Refrigerador';
-    $quotationClientQuantity = '40';
-    $quotationClienPhoto = './resourses/dummy/refrigerador.jpg';
-    include('assets/itemBarQuotationClient.php');
+    for($i = 0;$i < count($rows);$i++){
+        $cuotationId = $rows[$i]['cuotationId'];
+        $sellerUserName = $rows[$i]['userName'];
+        $productName = $rows[$i]['name'];
+        $productId = $rows[$i]['productId'];
+        $quantity = $rows[$i]['quantity'];
+        $status = $rows[$i]['status'];
+        $productPhoto = 'data:image;base64,'.base64_encode($rows[$i]['photo']);
+        include('assets/itemBarQuotationClient.php');
+    }
+
 ?>

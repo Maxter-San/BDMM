@@ -143,6 +143,8 @@
 
                 <form method="POST" action="<?php echo $_SERVER['PHP_SELF'] ?>" id="myForm">
                 <input type="number" name="productId" id="formProductId" value="<?php if(isset($product)){ if($product != null){ echo $product[0]['productId'];}}?>" hidden>
+                <input type="number" name="sellerId" id="formSellerId" value="<?php if(isset($product)){ if($product != null){ echo $product[0]['sellerId'];}}?>" hidden>
+
                     <div class="input-group">
                         <input type="number" class="form-control" name="quantity" placeholder="0" value="0" id="formQuantity" min="0" max="<?php if(isset($product)){ if($product != null){ echo $product[0]['quantity'];}}else{echo '0';}?>" readonly>
                         <button class="btn btn-outline-warning" onclick="quantityMin();" id="btnMin" type="button">-</button>
@@ -268,6 +270,8 @@
             }
             else if($_GET['failed'] == 'quantity'){
                 echo '<div id="snackbar">Tienes que agregar al menos un producto</div>';
+            }else if($_GET['failed'] == 'AddCuotation'){
+                echo '<div id="snackbar">Solicitud de cotización repetida</div>';
             }
         }
     ?>

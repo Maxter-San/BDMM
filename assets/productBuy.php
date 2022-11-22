@@ -1,6 +1,5 @@
 <div class="d-grid gap-2">
     <button class="btn btn-success" type="submit" name="submitButtonAddToCart" <?php if(isset($product)){ if($product[0]['quantity'] == 0){ echo 'disabled';}}?>>Agregar al carrito</button>
-    
 
     <div class="dropdown-center d-grid gap-2">
         <button class="btn btn-outline-warning dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -25,7 +24,5 @@
             <li><a type="button" name="submitButtonProductToList" href="addWishList.php" class="dropdown-item">Crear lista de deseos</a></li>
         </ul>
     </div>
-
-    
     
 </div>

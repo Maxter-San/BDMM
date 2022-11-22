@@ -18,8 +18,11 @@
     
 </head>
 
-<body class="d-flex flex-column min-vh-100" style="margin-top: 3.5em;">
+<body class="d-flex flex-column min-vh-100" style="margin-top: 3.5em;" onload="<?php if(isset($_GET['successful']) || isset($_GET['failed'])){echo 'myFunction();';}?>">
     <?php
+        session_start();
+        include_once('apis/shoppingCartApi.php');
+
         include_once('assets/header.php');
     ?>
 
@@ -31,7 +34,24 @@
         ?>
     </div>
 
-    <div id="snackbar">Información actualizada</div>
+    <?php 
+        if(isset($_GET['successful'])){
+            if($_GET['successful'] == 'AddCuotation'){
+                echo '<div id="snackbar">Cotización agregada al carrito</div>';
+            }
+            if($_GET['successful'] == 'delete'){
+                echo '<div id="snackbar">solicitud de cotización borrada</div>';
+            }
+        }else if(isset($_GET['failed'])){
+            if($_GET['failed'] == 'AddCuotation'){
+                echo '<div id="snackbar">Cotización ya se encuentra agregada al carrito</div>';
+            }
+            if($_GET['failed'] == 'quantity'){
+                echo '<div id="snackbar">Error en la cantidad</div>';
+            }
+        }
+    ?>
+    
 
     <?php
         include_once('assets/footer.php');

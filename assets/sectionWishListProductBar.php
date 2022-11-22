@@ -6,6 +6,7 @@
             $productPrice = number_format($prod[$j]['price'], 2, '.', ' ');
             $productImg = 'data:image;base64,'.base64_encode($prod[$j]['productPhoto']);
             $productId = $prod[$j]['productId'];
+            $productMethod = $prod[$j]['method'];
             include('assets/itemWishListProduct.php');
         }
     ?>

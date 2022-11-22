@@ -66,7 +66,7 @@
                     </div>
 
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckRememberUser">
+                        <input class="form-check-input" type="checkbox" name="remember" value="ok" id="flexCheckRememberUser">
                         <label class="form-check-label" for="flexCheckRememberUser">
                             Recordar usuario
                         </label>
@@ -81,7 +81,8 @@
                 <?php 
                     if (isset($_GET['invalidLogin'])){
                         echo '<label style="color : red;">Credenciales incorrectas</label>';
-
+                    } else if (isset($_GET['unsuscribed'])){
+                        echo '<label style="color : red;">Usuario dado de baja</label>';
                     };
                 ?>
                 

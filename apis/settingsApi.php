@@ -44,28 +44,34 @@
             if($validations == ''){
                 //$profilePhotoBlob = $rows[0]['profilePhoto'];
                 //if($_FILES["profilePhoto"]["size"] > 0){
-                    $archivo = $_FILES["profilePhoto"]["tmp_name"]; 
-                    $tamanio = $_FILES["profilePhoto"]["size"];
-                    $tipo    = $_FILES["profilePhoto"]["type"];
-                    $nombre  = $_FILES["profilePhoto"]["name"];
+                    $profilePhotoBlob = null;
+                    if($_FILES["profilePhoto"]["size"] > 0){
+                        $archivo = $_FILES["profilePhoto"]["tmp_name"]; 
+                        $tamanio = $_FILES["profilePhoto"]["size"];
+                        $tipo    = $_FILES["profilePhoto"]["type"];
+                        $nombre  = $_FILES["profilePhoto"]["name"];
 
-                    $fp = fopen($archivo, "rb");
-                    $profilePhotoBlob = fread($fp, $tamanio);
-                    $profilePhotoBlob = addslashes($profilePhotoBlob);
-                    fclose($fp);
+                        $fp = fopen($archivo, "rb");
+                        $profilePhotoBlob = fread($fp, $tamanio);
+                        $profilePhotoBlob = addslashes($profilePhotoBlob);
+                        fclose($fp);
+                    }
                 //}
 
                 //$coverPhotoBlob = $rows[0]['coverPhoto'];
                 //if($_FILES["coverPhoto"]["size"] > 0){
-                    $archivo = $_FILES["coverPhoto"]["tmp_name"]; 
-                    $tamanio = $_FILES["coverPhoto"]["size"];
-                    $tipo    = $_FILES["coverPhoto"]["type"];
-                    $nombre  = $_FILES["coverPhoto"]["name"];
-                    
-                    $fp = fopen($archivo, "rb");
-                    $coverPhotoBlob = fread($fp, $tamanio);
-                    $coverPhotoBlob = addslashes($coverPhotoBlob);
-                    fclose($fp);
+                    $coverPhotoBlob = null;
+                    if($_FILES["coverPhoto"]["size"] > 0){
+                        $archivo = $_FILES["coverPhoto"]["tmp_name"]; 
+                        $tamanio = $_FILES["coverPhoto"]["size"];
+                        $tipo    = $_FILES["coverPhoto"]["type"];
+                        $nombre  = $_FILES["coverPhoto"]["name"];
+                        
+                        $fp = fopen($archivo, "rb");
+                        $coverPhotoBlob = fread($fp, $tamanio);
+                        $coverPhotoBlob = addslashes($coverPhotoBlob);
+                        fclose($fp);
+                    }
                 //}
 
                 $isDebitCardCheck = 0;
@@ -99,8 +105,13 @@
                 }
 
                 $password = $_POST['password'];
-                if(isset($_POST['newPassword'])){
+                if(isset($_POST['ifNewPassword'])){
                     $password = $_POST['newPassword'];
+                }
+
+                $isVisible = false;
+                if(isset($_POST['isVisible']) && $_POST['isVisible']){
+                    $isVisible = true;
                 }
 
                 $res = $userClass->updateUser(
@@ -121,7 +132,8 @@
                     $numCard,
                     $isDebitCardCheck,
                     $isPaypalCheck,
-                    $isOxxoCheck
+                    $isOxxoCheck,
+                    $isVisible
                 );
 
                 $res = $userClass->getProfileUserById($_SESSION["s_userId"]);
@@ -143,12 +155,49 @@
             }
             
         }
+
+        function unsubscribe(){
+            $userClass = new userClass();
+
+            $indexId = 0;
+            
+            if(isset($_SESSION["s_userId"])){
+                $indexId = $_SESSION["s_userId"];
+            }
+
+            $res = $userClass->getProfileUserById($indexId);
+
+            $rows = array();
+            while($r = mysqli_fetch_assoc($res)) {
+                $rows[] = $r;
+            }
+
+            if(isset($rows[0]['sellerId'])){
+                include_once './dataBase/productClass.php';
+                $productClass = new productClass();
+
+                $productClass->updateProductOutStock($rows[0]['sellerId']);
+            }
+
+            $userClass->deleteUser($_SESSION["s_userId"], false);
+
+            $_SESSION['s_userId']='';
+            $_SESSION['s_userName']='';
+            $_SESSION['s_userType']='';
+            header("Location: main.php");
+            
+        }
     }
 
     if(isset($_POST['submitButton'])){
         $var = new settingsApi(); 
         $var->setUserData();
     };
+
+    if(isset($_POST['submitUnsubscribe'])){
+        $var = new settingsApi(); 
+        $var->unsubscribe();
+    }
 
     $varSet = new settingsApi(); 
         $rows = $varSet->getUserData();

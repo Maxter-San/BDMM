@@ -2,6 +2,18 @@
     include_once('apis/searchApi.php');
     if(session_status() != 2)
     session_start();
+
+    if(isset($_SESSION['time']) && $_SESSION['time'] != ''){
+        if((time() - $_SESSION['time']) > 3600){
+            
+            $_SESSION['time'] = '';
+            $_SESSION['s_userId']='';
+            $_SESSION['s_userName']='';
+            $_SESSION['s_userType']='';
+
+            header('location: main.php');
+        }
+    }
     
 ?>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">

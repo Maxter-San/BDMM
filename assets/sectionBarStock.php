@@ -6,6 +6,7 @@
             $productId = $products[$i]['productId'];
             $productStock = $products[$i]['quantity'];
             $productBuying = $products[$i]['buying'];
+            $status = $products[$i]['status'];
             include('assets/itemCardStock.php');
         }
     ?>

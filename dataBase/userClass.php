@@ -118,13 +118,43 @@
             $debitCard,
             $isDebitCard,
             $isPaypal,
-            $isOxxo
+            $isOxxo,
+            $isVisible
         ){
-            $query = $this->connect()->query('CALL userProcedure("'.$userId.'", null, "'.$userName.'", "'.$password.'", null, "'.$profilePhoto.'", "'.$coverPhoto.'", "'.$description.'", null, "'.$name.'", "'.$lastName.'", "'.$birthDay.'", "'.$gender.'", "'.$address.'", "'.$postalCode.'", "'.$city.'", "'.$state.'", "'.$debitCard.'", "'.$isDebitCard.'", "'.$isPaypal.'", "'.$isOxxo.'", null, null, "updatUserData")');
+            $paramProfilePhoto = 'null';
+            if($profilePhoto != null){
+                $paramProfilePhoto = '"'.$profilePhoto.'"';
+            }
+
+            $paramCoverPhoto = 'null';
+            if($coverPhoto != null){
+                $paramCoverPhoto = '"'.$coverPhoto.'"';
+            }
+
+            $paramIsVisible = 'false';
+            if($isVisible){
+                $paramIsVisible = 'true';
+            }
+
+            $query = $this->connect()->query('CALL userProcedure("'.$userId.'", '.$paramIsVisible.', "'.$userName.'", "'.$password.'", null, '.$paramProfilePhoto.', '.$paramCoverPhoto.', "'.$description.'", null, "'.$name.'", "'.$lastName.'", "'.$birthDay.'", "'.$gender.'", "'.$address.'", "'.$postalCode.'", "'.$city.'", "'.$state.'", "'.$debitCard.'", "'.$isDebitCard.'", "'.$isPaypal.'", "'.$isOxxo.'", null, null, "updatUserData")');
 
                 return $query;
         }
 
+        function deleteUser(
+            $userId,
+            $isActive
+        ){
+            $value = '';
+            if($isActive){
+                $value = 'true';
+            }else{
+                $value = 'false';
+            }
+            $query = $this->connect()->query('CALL userProcedure("'.$userId.'", '.$value.', null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, "deleteUser")');
+
+                return $query;
+        }
 
         function getComunity(
             $userName,

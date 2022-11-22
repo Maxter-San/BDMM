@@ -210,7 +210,7 @@ function validateMail(value){
 
 function validateImg(value){
     if(value == ""){
-    return 'Selecciona una foto';
+    return '';
     }
     idxDot = value.lastIndexOf(".") + 1,
     extFile = value.substr(idxDot, value.length).toLowerCase();

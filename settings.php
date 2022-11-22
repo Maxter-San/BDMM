@@ -163,12 +163,20 @@
             </div>
 
             <div class="row">
-                <div class="col-md form-group">
+                <div class="col-6 form-group">
                     <label class="form-label">Imagen de perfil</label>
-                    <input class="form-control" type="file" id="formFile" name="profilePhoto" required>
+                    <input class="form-control" type="file" id="formFile" name="profilePhoto">
                 </div>
 
-                <div class="col-md form-group">
+                <div class="col">
+                    <br>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckVisible" onclick="formPasswordDisable();" name="isVisible" <?php if(isset($rows[0]['isVisible']) && $rows[0]['isVisible']){echo 'checked';} ?>>
+                        <label class="form-check-label" for="flexSwitchCheckPassword">Perfil público</label>
+                    </div>
+                </div>  
+
+                <div class="col-4 form-group">
                     <label class="form-label">Tipo de usuario</label>
                     <select class="form-select" id="formRole" disabled name="userType">
                         <option value="">Selecciona tu rol de usuario</option>
@@ -177,12 +185,12 @@
                         <option value="Admin" <?php if(isset($rows[0]['userType'])){if($rows[0]['userType'] == "Admin"){echo("selected");}}?>>Admin</option>
                         <option value="SuperAdmin" <?php if(isset($rows[0]['userType'])){if($rows[0]['userType'] == "SuperAdmin"){echo("selected");}}?>>SuperAdmin</option>
                     </select>
-                </div>               
+                </div>  
             </div>
             <div class="row">
                 <div class="col-md form-group">
                     <label class="form-label">Imagen de portada</label>
-                    <input class="form-control" type="file" id="formFrontPage" name="coverPhoto" required>
+                    <input class="form-control" type="file" id="formFrontPage" name="coverPhoto">
                 </div>
 
                 <div class="col-md form-group">
@@ -196,17 +204,17 @@
             <div class="row">
                 <div class="col">
                     <br>
-                <div class="form-check form-switch">
-                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckPassword" onclick="formPasswordDisable();" name="newPassword" value="<?php if(isset($_GET['p_newPassword'])){echo $_GET['p_newPassword'];} ?>">
-                    <label class="form-check-label" for="flexSwitchCheckPassword">Cambiar contraseña</label>
-                </div>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckPassword" onclick="formPasswordDisable();" name="ifNewPassword" value="<?php if(isset($_GET['p_newPassword'])){echo $_GET['p_newPassword'];} ?>">
+                        <label class="form-check-label" for="flexSwitchCheckPassword">Cambiar contraseña</label>
+                    </div>
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-md form-group">
                     <label class="form-label">Nueva contraseña</label>
-                    <input class="form-control" type="password" id="formPassword" maxlength="50" placeholder="Crea una contraseña..." disabled>
+                    <input class="form-control" type="password" id="formPassword" maxlength="50" placeholder="Crea una contraseña..." disabled name="newPassword">
                 </div>
 
                 <div class="col-md form-group">
@@ -232,9 +240,39 @@
                 </div>
             </div>
         </form>
+
+        <br><br><br><hr>
+
+        <div class="row">
+            <div class="col text-center">
+                <a href="#" class="link-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Dar de baja la cuenta</a>
+            </div>
+        </div>
     </div>
 
     <div id="snackbar">Información actualizada</div>  
+
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Confirmación</h5>
+                </div>
+                <div class="modal-body">
+                ¿Seguro qué quiéres dar de baja tu cuenta?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+
+                    <form method="POST" action="<?php echo $_SERVER['PHP_SELF'] ?>" id="myForm">
+                        <input class="form-control" id="formProductId" placeholder="ID" name="productId" hidden value="<?php echo $productId;?>">
+
+                        <button type="submit" name="submitUnsubscribe" class="btn btn-primary" data-bs-dismiss="modal" data-bs-toggle="modal">Aceptar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <?php
         include_once('assets/footer.php');

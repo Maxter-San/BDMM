@@ -100,6 +100,13 @@
             return $query;
         }
 
+        function updateProductOutStock(
+            $p_sellerId
+        ){
+            $query = $this->connect()->query('CALL productProcedure(null, null, null, null, null, null, null, null, null, null, null, null, '.$p_sellerId.', null, null, null, null, null, null, null, null, null, "updateProductOutStock")');
+            return $query;
+        }
+
         function deleteProduct(
             $p_productId
         ){

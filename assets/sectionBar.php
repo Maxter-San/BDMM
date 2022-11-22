@@ -9,6 +9,7 @@
                     $productPrice = number_format($rows[$i]['price'], 2, '.', ' ');
                     $productImg = 'data:image;base64,'.base64_encode($rows[$i]['photo']);
                     $productId = $rows[$i]['productId'];
+                    $productMethod = $rows[$i]['method'];
                     include('assets/itemCard.php');
                 }
             }
@@ -20,6 +21,7 @@
                     $productPrice = number_format($rows[$i]['price'], 2, '.', ' ');
                     $productImg = 'data:image;base64,'.base64_encode($rows[$i]['photo']);
                     $productId = $rows[$i]['productId'];
+                    $productMethod = $rows[$i]['method'];
                     include('assets/itemCard.php');
                 }
             }
@@ -31,6 +33,7 @@
                     $productPrice = number_format($rows[$i]['price'], 2, '.', ' ');
                     $productImg = 'data:image;base64,'.base64_encode($rows[$i]['photo']);
                     $productId = $rows[$i]['productId'];
+                    $productMethod = $rows[$i]['method'];
                     include('assets/itemCard.php');
                 }
             }
@@ -40,6 +43,7 @@
                     $productPrice = number_format($rows[$i]['price'], 2, '.', ' ');
                     $productImg = 'data:image;base64,'.base64_encode($rows[$i]['photo']);
                     $productId = $rows[$i]['productId'];
+                    $productMethod = $rows[$i]['method'];
                     include('assets/itemCard.php');
                 }
             }
@@ -49,6 +53,7 @@
             $productPrice = '50';
             $productImg = './resourses/dummy/libreta.jpg';
             $productId = '1';
+            $productMethod = 'Vender';
             include('assets/itemCard.php');
         }
     ?>

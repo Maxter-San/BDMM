@@ -249,5 +249,17 @@
             }
         }
 
+        function mainProducts(
+            $p_filter,
+            $p_clientId
+        ){
+            $param = 'null';
+            if($p_clientId != null){
+                $param = $p_clientId;
+            }
+            $query = $this->connect()->query('CALL productProcedure(null, null, null, null, null, null, null, null, null, null, null, '.$param.', null, null, null, null, null, null, null, null, null, null, "'.$p_filter.'")');
+            return $query;
+        }
+
     }
 ?>

@@ -469,6 +469,32 @@
                 exit();
             //}
         }
+
+        function mainProducts($order){
+            $productClass = new productClass();
+
+            $clientInfo = null;
+            if($order == 'filterProductsByLastViewed'){
+                $userClass = new userClass();
+
+                $search = $userClass->getProfileUserById($_SESSION['s_userId']);
+                $clientRows = array();
+                while($r = mysqli_fetch_assoc($search)) {
+                    $clientRows[] = $r;
+                }
+                $clientInfo = $clientRows[0]['clientId'];
+            }
+            //
+            $res = $productClass->mainProducts($order, $clientInfo);
+
+            $rows = array();
+            while($r = mysqli_fetch_assoc($res)) {
+                $rows[] = $r;
+                echo json_encode($r);
+            }
+
+            return $rows;   
+        }
     }
 
     if(isset($_POST['submitProduct'])){

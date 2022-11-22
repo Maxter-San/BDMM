@@ -16,6 +16,9 @@
 </head>
 <body class="d-flex flex-column min-vh-100" style="margin-top: 3.5em;">
     <?php
+        session_start();
+        include_once('apis/productApi.php');
+        $var = new productApi();
         include_once('assets/header.php');
     ?>
 
@@ -48,23 +51,29 @@
 
     <div class="container mt-5 mb-5">
     
-    <h2>Tus últimos productos vistos</h2>
     <?php
-        include('assets/sectionBar.php');
+        if($_SESSION["s_userType"] == 'Comprador'){
+            echo '<h2>Tus últimos productos vistos</h2>';
+            $method = 'filterProductsByLastViewed';
+            include('assets/sectionBar.php');
+        }
     ?>
 
     <h2>Productos populares</h2>
     <?php
+        $method = 'filterProductsByViews';
         include('assets/sectionBar.php');
     ?>
 
     <h2>Más comprados</h2>
     <?php
+        $method = 'filterProductsByBuying';
         include('assets/sectionBar.php');
     ?>
 
     <h2>Más recomendados</h2>
     <?php
+        $method = 'searchResultProductsByValorationDesc';
         include('assets/sectionBar.php');
     ?>
 

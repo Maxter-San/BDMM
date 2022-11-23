@@ -37,7 +37,7 @@
         <div class="contenedor last-section" id="hrefComunidad">
             <div class="contenedor-textos-main">
                 <h2 class="titulo left">Comunidad</h2>
-                <p class="parrafo">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam sed rerum quam possimus odio quibusdam, repellendus mollitia error cupiditate ratione, maiores voluptatibus cum vitae adipisci. Aut aperiam odio porro sint?</p>
+                <p class="parrafo">Entra a la comunidad menos peor entre las comunidades toxicas de tiendas. Inscribirse es gratis. Damos clases los jueves, no cobramos mucho.</p>
                 <a href="#hrefInfo" class="btn btn-warning cta" role="button">Siguiente</a>
             </div>
             <img src="./resourses/comunidad.jpg" alt="comunidad">
@@ -47,7 +47,7 @@
     <section class="info" id="hrefInfo">
         <div class="contenedor container-fluid container">
             <h2 class="titulo left">Información</h2>
-            <p class="parrafo">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <p class="parrafo">Encuentra los mejores productos para gastar tu dinero con los mejores descuentos que puedas imaginar, no solo puedes ser cliente, para los que buscan otras opciones también puedes ser el mejor vendedor de la comunidad o contactarte con el administrador para tener una cuenta exclusiva de administrador.</p>
             <a href="#hrefUsuarios" class="btn btn-outline-light cta" role="button">Aceptar</a>
         </div>
     </section>
@@ -59,21 +59,21 @@
                 <article class="card">
                     <i class="bi bi-person-badge"></i>
                     <h3>Comprador</h3>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quibusdam provident doloribus ipsa vitae, tenetur esse? Quisquam nisi libero, repellendus atque hic dolorem quaerat sequi quo a modi aut aperiam veniam!</p>
+                    <p>Selecciona los mejores artículos entre la gran variedad de productos que manejamos y compra los que más te gusten, puedes tener diferentes métodos de pago para hacer más accesible tus pagos.</p>
                     <a href="#hrefComprador" class="btn btn-warning cta" role="button">Me interesa</a>
                 </article>
 
                 <article class="card">
                     <i class="bi bi-shop"></i>
                     <h3>Vendedor</h3>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quibusdam provident doloribus ipsa vitae, tenetur esse? Quisquam nisi libero, repellendus atque hic dolorem quaerat sequi quo a modi aut aperiam veniam!</p>
+                    <p>Vende tus artículos ya sea en precio fijo o cotízalos dependiendo de la cantidad que te soliciten, los productos previamente subidos tendrán que ser aprobados por un administrador para tener un control de calidad.</p>
                     <a href="#hrefvendedor" class="btn btn-warning cta" role="button">Me interesa</a>
                 </article>
                 
                 <article class="card">
                     <i class="bi bi-tools"></i>
                     <h3>Administrador</h3>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quibusdam provident doloribus ipsa vitae, tenetur esse? Quisquam nisi libero, repellendus atque hic dolorem quaerat sequi quo a modi aut aperiam veniam!</p>
+                    <p>Contacta al super administrador por correo para solicitar una cuenta verificada como administrador para ayudar a gestionar los productos y crear nuevas categorías.</p>
                 </article>
             </div>
         </section>
@@ -81,7 +81,7 @@
         <div class="contenedor last-section" id="hrefComprador">
             <div class="contenedor-textos-main">
                 <h2 class="titulo left">Compradores</h2>
-                <p class="parrafo">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam sed rerum quam possimus odio quibusdam, repellendus mollitia error cupiditate ratione, maiores voluptatibus cum vitae adipisci. Aut aperiam odio porro sint?</p>
+                <p class="parrafo">Los compradores pueden calificar los productos que han comprado y dar un comentario al respecto del producto.</p>
                 <a href="#hrefCompras" class="btn btn-warning cta" role="button">Registrarme</a>
             </div>
             <img src="./resourses/comprador.jpg" alt="comunidad">
@@ -90,7 +90,7 @@
         <div class="contenedor last-section" id="hrefvendedor">
             <div class="contenedor-textos-main">
                 <h2 class="titulo left">Vendedores</h2>
-                <p class="parrafo">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam sed rerum quam possimus odio quibusdam, repellendus mollitia error cupiditate ratione, maiores voluptatibus cum vitae adipisci. Aut aperiam odio porro sint?</p>
+                <p class="parrafo">Los vendedores no están autorizados para comprar pero siempre pueden crear una nueva cuenta con el mismo correo para ser compradores.</p>
                 <a href="#hrefCompras" class="btn btn-warning cta" role="button">Registrarme</a>
             </div>
             <img src="./resourses/ventas.jpg" alt="comunidad">
@@ -99,7 +99,7 @@
         <div class="contenedor last-section" id="hrefCompras">
             <div class="contenedor-textos-main">
                 <h2 class="titulo left">Comienza a comprar en linea</h2>
-                <p class="parrafo">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam sed rerum quam possimus odio quibusdam, repellendus mollitia error cupiditate ratione, maiores voluptatibus cum vitae adipisci. Aut aperiam odio porro sint?</p>
+                <p class="parrafo">Crea una cuenta y comienza a ser parte de esta comunidad o inicia sesión en caso de ya ser parte de esta familia.</p>
                 
                 <a href="./signUp.php" class="btn btn-warning cta me-5" role="button">Registrarme</a>
                 <a href="./logIn.php" class="btn btn-outline-warning cta me-5" role="button">Iniciar sesión</a>

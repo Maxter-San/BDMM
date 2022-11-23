@@ -41,7 +41,7 @@
 
                             $checkControl = 0;
 
-                            if($payMethod != null){
+                            if($payMethod[0]['isDebitCard'] || $payMethod[0]['isPaypal'] || $payMethod[0]['isOxxo']){
                                 $countMethdos = 0;
                                 if($payMethod[0]['isDebitCard']){
                                     $countMethdos++;

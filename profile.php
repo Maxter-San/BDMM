@@ -35,7 +35,7 @@
     ?>
 
     <header class="hero" 
-        style='background-image: url("<?php if(isset($rows[0]['coverPhoto'])){echo 'data:image;base64,'.base64_encode($rows[0]["coverPhoto"]);}else{echo './resourses/dummy/coverPhoto.jpg';} ?>");'
+        style='background-image: url("<?php if(isset($rows[0]['coverPhoto'])){echo 'data:image;base64,'.base64_encode($rows[0]["coverPhoto"]);}else{echo './resourses/coverPhoto.jpg';} ?>");'
     >
         <img src="
             <?php 

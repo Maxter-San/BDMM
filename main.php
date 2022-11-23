@@ -33,10 +33,10 @@
                 <img src="./resourses/carousel01.jpg" class="d-block w-100" alt="...">
             </div>
             <div class="carousel-item">
-                <img src="./resourses/carousel01.jpg" class="d-block w-100" alt="...">
+                <img src="./resourses/carousel02.jpg" class="d-block w-100" alt="...">
             </div>
             <div class="carousel-item">
-                <img src="./resourses/carousel01.jpg" class="d-block w-100" alt="...">
+                <img src="./resourses/carousel03.jpg" class="d-block w-100" alt="...">
             </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">

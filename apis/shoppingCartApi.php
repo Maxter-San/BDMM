@@ -224,7 +224,7 @@
                                                         $rowsRecord[0]['recordId'],
                                                         $rowsProduct[$i]['sellerId']);
 
-                $shoppingCartClass->deleteCartProduct($rowsProduct[$i]['cartproductId']);
+                $shoppingCartClass->deleteCartProduct($rowsProduct[$i]['cartProductId']);
             }
 
             $rowsProduct = $this->selectCuotationsByCartId();
@@ -236,7 +236,7 @@
                                                         $rowsRecord[0]['recordId'],
                                                         $rowsProduct[$i]['sellerId']);
 
-                $shoppingCartClass->deleteCartProduct($rowsProduct[$i]['cartproductId']);
+                $shoppingCartClass->deleteCartProduct($rowsProduct[$i]['cartProductId']);
                 $shoppingCartClass->deleteCuotation($rowsProduct[$i]['cuotationId']);
             }
             

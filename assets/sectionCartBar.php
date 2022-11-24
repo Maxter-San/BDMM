@@ -11,7 +11,7 @@
             $productImg = 'data:image;base64,'.base64_encode($rows[$i]['photo']);
             $productQuantity = $rows[$i]['quantity'];
             $productStock = $rows[$i]['stock'];
-            $cartproductId = $rows[$i]['cartproductId'];
+            $cartproductId = $rows[$i]['cartProductId'];
             $method = $rows[$i]['method'];
             include('assets/itemCartCard.php');
 
@@ -30,7 +30,7 @@
             $productImg = 'data:image;base64,'.base64_encode($rows[$i]['photo']);
             $productQuantity = $rows[$i]['quantity'];
             $productStock = $rows[$i]['stock'];
-            $cartproductId = $rows[$i]['cartproductId'];
+            $cartproductId = $rows[$i]['cartProductId'];
             $method = $rows[$i]['method'];
             include('assets/itemCartCard.php');
 

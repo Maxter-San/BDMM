@@ -40,7 +40,7 @@
                 
             }
             else{
-                header("Location: login.php?invalidLogin=true".
+                header("Location: logIn.php?invalidLogin=true".
                        "&p_user=".$_POST['user'].
                        "&p_password=".$_POST['password'].
                        "&p_userType=".$_POST['userType']

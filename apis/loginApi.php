@@ -35,7 +35,7 @@
 
                     header("Location: main.php");
                 }else{
-                    header("Location: login.php?unsuscribed");
+                    header("Location: logIn.php?unsuscribed");
                 }
                 
             }

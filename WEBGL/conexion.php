@@ -28,7 +28,7 @@
 		$nivel = $_POST["nivel"];
 		$mysqli = connect();
 
-		$result = $mysqli->query("INSERT INTO puntaje(nombre, puntaje, nivel) values('".$name."','".$puntaje."','".$nivel."')");	
+		$result = $mysqli->query("INSERT INTO puntaje(nombre, puntaje) values('".$name."','".$puntaje."')");	
 		
 		if (!$result) {
 			echo "Problema al hacer un query: " . $mysqli->error;								

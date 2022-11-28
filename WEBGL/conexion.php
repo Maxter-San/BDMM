@@ -9,12 +9,12 @@
 
 	function connect() {
 		$databasehost = "159.223.191.152";
-		$databasename = "webgl";
 		$databaseuser = "remote";
 		$databasepass = "super-secret";
+		$databasename = "webgl";
 
 		$mysqli = new mysqli($databasehost, $databaseuser, $databasepass, $databasename);
-		if ($mysqli->connect_errno) {
+		if ($mysqli->connect_error) {
 			echo "Problema con la conexion a la base de datos";
 		}
 		return $mysqli;

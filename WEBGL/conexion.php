@@ -8,10 +8,10 @@
     getPuntaje();
 
 	function connect() {
-		$databasehost = "localhost:3306";
+		$databasehost = "159.223.191.152";
 		$databasename = "webgl";
-		$databaseuser = "root";
-		$databasepass = "35652515";
+		$databaseuser = "remote";
+		$databasepass = "super-secret";
 
 		$mysqli = new mysqli($databasehost, $databaseuser, $databasepass, $databasename);
 		if ($mysqli->connect_errno) {

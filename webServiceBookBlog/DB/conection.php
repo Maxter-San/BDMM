@@ -6,13 +6,15 @@
         private $dbname;
 
         public function __construct(){
-            //$this->servername = "localhost";
-            //$this->username = "root";
-            //$this->password = "Pass741852963";
-            $this->servername = "159.223.191.152";
-            $this->username = "remote";
-            $this->password = "super-secret";
-            $this->dbname = "MAXTERSHOP";
+            $this->servername = "localhost";
+            $this->username = "root";
+            $this->password = "Pass741852963";
+            $this->dbname = "BOOKBLOG";
+
+            //$this->servername = "159.223.191.152";
+            //$this->username = "remote";
+            //$this->password = "super-secret";
+            //$this->dbname = "MAXTERSHOP";
         }
 
         function connect(){
@@ -27,5 +29,4 @@
             return $conn;
         }
     }
-
 ?>

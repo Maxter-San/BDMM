@@ -27,10 +27,10 @@
     <form method="POST" action="<?php echo $_SERVER['PHP_SELF'] ?>">
             <input class="form-check-input" type="radio" name="payMethod" value="isPaypal" id="flexRadioDebitCard" checked>
             <?php 
-                if(isset($_GET['paypal'])){
+
                     
-                    $var->insertRecord();
-                }
+                $var->insertRecord();
+                
             ?>
     </form>
 

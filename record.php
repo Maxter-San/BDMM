@@ -38,6 +38,10 @@
                 <p class="card-text">Gracias por comprar en Maxter Shop. Por favor sigue viendo mas artículos.</p>
                 <a href="main.php" class="btn btn-warning">Ir al inicio</a>
             </div>
+
+            <div>
+                <input type="button" class="btn btn-primary" onclick="enviarCompra()" value="Compartir">
+            </div>
         </div>
     </div>
 
@@ -46,4 +50,51 @@
     ?>
 
 </body>
+
+    <script>
+
+        function enviarCompra(){	
+            shareScore($().val());		
+        }
+        
+
+        $(document).ready(function () {
+            let params = new URLSearchParams(location.search);
+
+            var Puntaje = params.get('Puntaje');
+            var Level = params.get('Level');
+    
+            $("#Puntaje").val(Puntaje);
+            $("#Nivel").val(Level);
+        });
+
+
+        window.fbAsyncInit = function() {
+        FB.init({
+            appId      : '693788108832171',
+            xfbml      : true,
+            version    : 'v2.9'
+        });
+        FB.AppEvents.logPageView();
+    }   ;
+
+    (   function(d, s, id){
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) {return;}
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+
+        function shareScore(){
+            FB.ui({
+                method: 'share',
+                href: 'http://159.223.191.152/',
+                hashtag: "#PWCI",
+                quote: 'Mi compra'
+            }, function(response){});
+        }
+
+
+    </script>
 </html>

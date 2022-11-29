@@ -39,7 +39,7 @@
 		var collisionObjects = [];
 		var isWorldReady = [false, false];
 		var jet;
-
+		var puntuacion = 0;
 
 		var particleSystem;
 		var mixers = [];
@@ -641,7 +641,6 @@
 
 				}
 
-				var puntuacion = 0;
 				if (detectCollision(boxPlayer, consumable1.object)) {
 					console.log("colide");
 					//scene.splice( scene.indexOf(consumable1.object), 1);

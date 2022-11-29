@@ -177,7 +177,7 @@
                             onAuthorize: function (data, actions) {
                                 return actions.payment.execute()
                                 .then(function () {
-                                    window.location = "<?php echo PayPalBaseUrl ?>orderDetails.php?paymentID="+data.paymentID+"&payerID="+data.payerID+"&token="+data.paymentToken+"&pid=<?php echo $productId; ?>";
+                                    window.location = "<?php echo PayPalBaseUrl ?>record.php; ?>";
                                 });
                             }
 

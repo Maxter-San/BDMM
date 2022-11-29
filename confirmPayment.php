@@ -161,11 +161,7 @@
                             paypal.Button.render({
                             env: '<?php echo PayPalENV; ?>',
                             client: {
-                                <?php if(ProPayPal) { ?>  
-                                production: '1000'
-                                <?php } else { ?>
-                                sandbox: '1000'
-                                <?php } ?>  
+                                sandbox: '1000' 
                             },
                             payment: function (data, actions) {
                                 return actions.payment.create({

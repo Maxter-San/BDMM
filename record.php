@@ -25,7 +25,7 @@
     ?>
 
     <form method="POST" action="<?php echo $_SERVER['PHP_SELF'] ?>">
-            <input type="text" value="true" name="payMethod" hidden>
+            <input class="form-check-input" type="radio" name="payMethod" value="isPaypal" id="flexRadioDebitCard" checked>
             <?php 
                 if(isset($_GET['paypal'])){
                     $var = new shoppingCartApi();

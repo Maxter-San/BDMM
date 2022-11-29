@@ -16,6 +16,15 @@
 </head>
 <body class="d-flex flex-column min-vh-100" style="margin-top: 3.5em;">
     <?php
+        session_start();
+        include_once('apis/shoppingCartApi.php');
+
+        if(isset($_GET['paypal'])){
+            $var = new shoppingCartApi();
+
+            $var->insertRecord();
+        }
+        
         include_once('assets/header.php');
     ?>
 

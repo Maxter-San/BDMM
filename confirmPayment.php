@@ -179,14 +179,8 @@
                                 onAuthorize: function (data, actions) {
                                 return actions.payment.execute()
                                 .then(function () {
-                                window.location = "<?php echo PayPalBaseUrl ?>record.php?paymentID="+data.paymentID+"&payerID="+data.payerID+"&token="+data.paymentToken+"&pid=<?php echo $productId; ?>";
+                                window.location = "<?php echo PayPalBaseUrl ?>record.php?paypal=true&paymentID="+data.paymentID+"&payerID="+data.payerID+"&token="+data.paymentToken+"&pid=<?php echo $productId; ?>";
                                 });
-                                <?php
-                                    $var = new shoppingCartApi();
-
-                                    $var->insertRecord();
-                                ?>
-                                
                                 }
                                 }, '#paypal-button');
                             </script>

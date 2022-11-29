@@ -171,7 +171,7 @@
                                 transactions: [{
                                 amount: {
                                 total: '<?php echo $subtotal; ?>',
-                                currency: '<?php echo "MX"; ?>'
+                                currency: '<?php echo "EUR"; ?>'
                                 }
                                 }]
                                 });

@@ -56,6 +56,7 @@
                                 }
                                 if($payMethod[0]['isPaypal']){
                                     $countMethdos++;
+                                    include_once('apis/paypal.php');
                         ?>
                                     <div id="paypal-button-container"></div>
                                     <div id="paypal-button"></div>

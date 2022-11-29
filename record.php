@@ -21,7 +21,7 @@
         include_once('apis/shoppingCartApi.php');
         $var = new shoppingCartApi();
         if(isset($_GET['paypal'])){
-            $_POST['payMethod'] = "isPaypal";
+            $_POST['payMethod'] = "Paypal";
             $var->insertRecord();
         }
 

@@ -149,6 +149,48 @@
                         <div class="d-grid gap-2">
                             <button class="btn btn-success" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop" <?php if($validations != 0){echo 'disabled';} ?>>Aceptar</button>
                         </div>
+
+                        <?php 
+                            if($payMethod[0]['isPaypal']){
+                                include_once('apis/paypal.php');
+                        ?>
+
+                        <div id="paypal-button"></div>
+                        <script src="https://www.paypalobjects.com/api/checkout.js"></script>
+                        <script>
+                            paypal.Button.render({
+                            env: '<?php echo PayPalENV; ?>',
+                            client: {
+                                <?php if(ProPayPal) { ?>  
+                                production: '1000'
+                                <?php } else { ?>
+                                sandbox: '1000'
+                                <?php } ?>  
+                            },
+                            payment: function (data, actions) {
+                                return actions.payment.create({
+                                transactions: [{
+                                    amount: {
+                                    total:  <?php echo number_format($subtotal, 2, '.', ''); ?>,
+                                    currency: '<?php echo "EUR"; ?>'
+                                    }
+                                }]
+                                });
+                            },
+                            
+                            onAuthorize: function (data, actions) {
+                                return actions.payment.execute()
+                                .then(function () {
+                                    window.location = "<?php echo PayPalBaseUrl ?>orderDetails.php?paymentID="+data.paymentID+"&payerID="+data.payerID+"&token="+data.paymentToken+"&pid=<?php echo $productId; ?>";
+                                });
+                            }
+
+                            }, '#paypal-button');
+                        </script>
+ 
+                        <?php
+                            }
+                        ?>
                         
                     </div>
                     </div>

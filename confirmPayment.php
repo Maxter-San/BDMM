@@ -57,12 +57,35 @@
                                 if($payMethod[0]['isPaypal']){
                                     $countMethdos++;
                         ?>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="payMethod" value="Paypal" id="flexRadioPaypal" <?php if($checkControl == 0){ echo 'checked'; $checkControl = 1; } ?>>
-                                        <label class="form-check-label" for="flexRadioPaypal">
-                                            <h4 style="font-weight: lighter;">Paypal</h4>
-                                        </label>
-                                    </div>
+                                    <div id="paypal-button-container"></div>
+                                    <div id="paypal-button"></div>
+                                    <script src="https://www.paypalobjects.com/api/checkout.js"></script>
+                                    <script>
+                                        paypal.Button.render({
+                                        env: '<?php echo PayPalENV; ?>',
+                                        client: {
+                                        
+                                        sandbox: '<?php echo PayPalClientId; ?>'
+                                        
+                                        },
+                                        payment: function (data, actions) {
+                                        return actions.payment.create({
+                                        transactions: [{
+                                        amount: {
+                                        total: '<?php echo $subtotal; ?>',
+                                        currency: '<?php echo "EUR"; ?>'
+                                        }
+                                        }]
+                                        });
+                                        },
+                                        onAuthorize: function (data, actions) {
+                                        return actions.payment.execute()
+                                        .then(function () {
+                                        window.location = "<?php echo PayPalBaseUrl ?>record.php?paypal=true&paymentID="+data.paymentID+"&payerID="+data.payerID+"&token="+data.paymentToken+"&pid=<?php echo $productId; ?>";
+                                        });
+                                        }
+                                        }, '#paypal-button');
+                                    </script>
                         <?php 
                                 }
                                 if($payMethod[0]['isOxxo']){
@@ -149,46 +172,6 @@
                         <div class="d-grid gap-2">
                             <button class="btn btn-success" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop" <?php if($validations != 0){echo 'disabled';} ?>>Aceptar</button>
                         </div>
-
-                        <?php 
-                            if($payMethod[0]['isPaypal']){
-                                include_once('apis/paypal.php');
-                        ?>
-
-                            <div id="paypal-button-container"></div>
-                            <div id="paypal-button"></div>
-                            <script src="https://www.paypalobjects.com/api/checkout.js"></script>
-                            <script>
-                                paypal.Button.render({
-                                env: '<?php echo PayPalENV; ?>',
-                                client: {
-                                
-                                sandbox: '<?php echo PayPalClientId; ?>'
-                                
-                                },
-                                payment: function (data, actions) {
-                                return actions.payment.create({
-                                transactions: [{
-                                amount: {
-                                total: '<?php echo $subtotal; ?>',
-                                currency: '<?php echo "EUR"; ?>'
-                                }
-                                }]
-                                });
-                                },
-                                onAuthorize: function (data, actions) {
-                                return actions.payment.execute()
-                                .then(function () {
-                                window.location = "<?php echo PayPalBaseUrl ?>record.php?paypal=true&paymentID="+data.paymentID+"&payerID="+data.payerID+"&token="+data.paymentToken+"&pid=<?php echo $productId; ?>";
-                                });
-                                }
-                                }, '#paypal-button');
-                            </script>
-                        
-                       
-                        <?php
-                            }
-                        ?>
                         
                     </div>
                     </div>

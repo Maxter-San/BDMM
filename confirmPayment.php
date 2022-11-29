@@ -28,6 +28,40 @@
     <div class="container mt-5 mb-5">
         <legend>Confirmar compra</legend>
 
+        <?php 
+            $validateAvaibleStock = null;
+
+            $subtotal = 0;
+
+            $rows = $shoppingCartApi->selectProductsByCartId();
+            for($i = 0;$i < count($rows);$i++){
+                $productStock = $rows[$i]['stock'];    
+                $shoppingCartItemQuantity = $rows[$i]['quantity'];
+                $shoppingCartItemPrice = $rows[$i]['price'];
+                $subtotal += $shoppingCartItemQuantity * $shoppingCartItemPrice;
+                                
+                if($productStock < $shoppingCartItemQuantity){
+                    $validateAvaibleStock = 1;
+                }
+            }
+
+            $rows = $shoppingCartApi->selectCuotationsByCartId();
+            for($i = 0;$i < count($rows);$i++){
+                $productStock = $rows[$i]['stock'];    
+                $shoppingCartItemQuantity = $rows[$i]['quantity'];
+                $shoppingCartItemPrice = $rows[$i]['price'];
+                $subtotal += $shoppingCartItemQuantity * $shoppingCartItemPrice;
+                
+                if($productStock < $shoppingCartItemQuantity){
+                    $validateAvaibleStock = 1;
+                }
+            }
+                
+            if($validateAvaibleStock == 1 || $subtotal == 0){
+                $validations = 1;
+            }
+        ?>
+
         <form method="POST" action="<?php echo $_SERVER['PHP_SELF'] ?>">
             <div class="row">
                 <div class="col">
@@ -117,40 +151,6 @@
                     <div class="card">
                     <div class="card-body">
                         <h3>Confirmar compra</h3>
-
-                        <?php 
-                            $validateAvaibleStock = null;
-
-                            $subtotal = 0;
-                    
-                            $rows = $shoppingCartApi->selectProductsByCartId();
-                            for($i = 0;$i < count($rows);$i++){
-                                $productStock = $rows[$i]['stock'];    
-                                $shoppingCartItemQuantity = $rows[$i]['quantity'];
-                                $shoppingCartItemPrice = $rows[$i]['price'];
-                                $subtotal += $shoppingCartItemQuantity * $shoppingCartItemPrice;
-                    
-                                if($productStock < $shoppingCartItemQuantity){
-                                    $validateAvaibleStock = 1;
-                                }
-                            }
-
-                            $rows = $shoppingCartApi->selectCuotationsByCartId();
-                            for($i = 0;$i < count($rows);$i++){
-                                $productStock = $rows[$i]['stock'];    
-                                $shoppingCartItemQuantity = $rows[$i]['quantity'];
-                                $shoppingCartItemPrice = $rows[$i]['price'];
-                                $subtotal += $shoppingCartItemQuantity * $shoppingCartItemPrice;
-                    
-                                if($productStock < $shoppingCartItemQuantity){
-                                    $validateAvaibleStock = 1;
-                                }
-                            }
-
-                            if($validateAvaibleStock == 1 || $subtotal == 0){
-                                $validations = 1;
-                            }
-                        ?>
 
                         <div class="row">
                             <div class="col">

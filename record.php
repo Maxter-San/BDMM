@@ -20,19 +20,13 @@
         session_start();
         include_once('apis/shoppingCartApi.php');
         $var = new shoppingCartApi();
+        if(isset($_GET['paypal'])){
+            $_POST['payMethod'] = "isPaypal";
+            $var->insertRecord();
+        }
 
         include_once('assets/header.php');
     ?>
-
-    <form method="POST" action="<?php echo $_SERVER['PHP_SELF'] ?>">
-            <input class="form-check-input" type="radio" name="payMethod" value="isPaypal" id="flexRadioDebitCard" checked>
-            <?php 
-
-                    
-                $var->insertRecord();
-                
-            ?>
-    </form>
 
     <div class="container mt-5 mb-5">
         <div class="card text-center">

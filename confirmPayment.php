@@ -181,6 +181,12 @@
                                 .then(function () {
                                 window.location = "<?php echo PayPalBaseUrl ?>record.php?paymentID="+data.paymentID+"&payerID="+data.payerID+"&token="+data.paymentToken+"&pid=<?php echo $productId; ?>";
                                 });
+                                <?php
+                                    $var = new shoppingCartApi();
+
+                                    $var->insertRecord();
+                                ?>
+                                
                                 }
                                 }, '#paypal-button');
                             </script>

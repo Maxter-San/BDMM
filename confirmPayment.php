@@ -155,35 +155,37 @@
                                 include_once('apis/paypal.php');
                         ?>
 
-                        <div id="paypal-button"></div>
-                        <script src="https://www.paypalobjects.com/api/checkout.js"></script>
-                        <script>
-                            paypal.Button.render({
-                            env: '<?php echo PayPalENV; ?>',
-                            client: {
-                                sandbox: '1000' 
-                            },
-                            payment: function (data, actions) {
+                            <div id="paypal-button-container"></div>
+                            <div id="paypal-button"></div>
+                            <script src="https://www.paypalobjects.com/api/checkout.js"></script>
+                            <script>
+                                paypal.Button.render({
+                                env: '<?php echo PayPalENV; ?>',
+                                client: {
+                                
+                                sandbox: '<?php echo PayPalClientId; ?>'
+                                
+                                },
+                                payment: function (data, actions) {
                                 return actions.payment.create({
                                 transactions: [{
-                                    amount: {
-                                    total:  <?php echo number_format($subtotal, 2, '.', ''); ?>,
-                                    currency: '<?php echo "EUR"; ?>'
-                                    }
+                                amount: {
+                                total: '<?php echo $subtotal; ?>',
+                                currency: '<?php echo "EUR"; ?>'
+                                }
                                 }]
                                 });
-                            },
-                            
-                            onAuthorize: function (data, actions) {
+                                },
+                                onAuthorize: function (data, actions) {
                                 return actions.payment.execute()
                                 .then(function () {
-                                    window.location = "<?php echo PayPalBaseUrl ?>record.php; ?>";
+                                window.location = "<?php echo PayPalBaseUrl ?>record.php?paymentID="+data.paymentID+"&payerID="+data.payerID+"&token="+data.paymentToken+"&pid=<?php echo $productId; ?>";
                                 });
-                            }
-
-                            }, '#paypal-button');
-                        </script>
- 
+                                }
+                                }, '#paypal-button');
+                            </script>
+                        
+                       
                         <?php
                             }
                         ?>

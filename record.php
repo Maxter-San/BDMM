@@ -19,7 +19,7 @@
     <?php
         session_start();
         include_once('apis/shoppingCartApi.php');
-        
+        $var = new shoppingCartApi();
 
         include_once('assets/header.php');
     ?>
@@ -28,7 +28,7 @@
             <input class="form-check-input" type="radio" name="payMethod" value="isPaypal" id="flexRadioDebitCard" checked>
             <?php 
                 if(isset($_GET['paypal'])){
-                    $var = new shoppingCartApi();
+                    
                     $var->insertRecord();
                 }
             ?>

@@ -880,6 +880,8 @@
 						playerMovZ = 0;
 					}
 				} 
+
+				var puntuacion = 0;
 				if(detectCollision(boxPlayer, consumable1.object)){
 					console.log("colide");
 					//scene.splice( scene.indexOf(consumable1.object), 1);
@@ -1141,7 +1143,7 @@
     
 
     });
-	document.getElementById("miaudio").volume = 0.02;
+	document.getElementById("miaudio").volume = 0.01;
 
     document.querySelector("#reanudarbutton").addEventListener("click", () => {
         div.classList.remove("show_hide");

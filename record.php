@@ -15,19 +15,24 @@
     
 </head>
 <body class="d-flex flex-column min-vh-100" style="margin-top: 3.5em;">
-    <form method="POST" action="<?php echo $_SERVER['PHP_SELF'] ?>">
-            <input type="text" value="true" name="payMethod" hidden>
-    </form>
+    
     <?php
         session_start();
         include_once('apis/shoppingCartApi.php');
-        if(isset($_GET['paypal'])){
-            $var = new shoppingCartApi();
-            $var->insertRecord();
-        }
+        
 
         include_once('assets/header.php');
     ?>
+
+    <form method="POST" action="<?php echo $_SERVER['PHP_SELF'] ?>">
+            <input type="text" value="true" name="payMethod" hidden>
+            <?php 
+                if(isset($_GET['paypal'])){
+                    $var = new shoppingCartApi();
+                    $var->insertRecord();
+                }
+            ?>
+    </form>
 
     <div class="container mt-5 mb-5">
         <div class="card text-center">

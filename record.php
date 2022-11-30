@@ -41,7 +41,7 @@
             </div>
 
             <div>
-                <input type="button" class="btn btn-primary" onclick="enviarCompra()" value="Compartir">
+                <input type="button" class="btn btn-primary" onclick="enviarCompra()" value="Compartir en Facebook">
             </div>
         </div>
     </div>
@@ -58,18 +58,6 @@
             shareScore($().val());		
         }
         
-
-        $(document).ready(function () {
-            let params = new URLSearchParams(location.search);
-
-            var Puntaje = params.get('Puntaje');
-            var Level = params.get('Level');
-    
-            $("#Puntaje").val(Puntaje);
-            $("#Nivel").val(Level);
-        });
-
-
         window.fbAsyncInit = function() {
         FB.init({
             appId      : '693788108832171',

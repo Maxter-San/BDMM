@@ -18,14 +18,15 @@
 
         function insertUser(
             $name,
+            $lastName,
             $mail,
             $password,
             $cellphone,
             $profilePhoto
         ){
             $query = $this->connect()->query('
-                                            INSERT INTO user (name, mail, password, cellphone, profilePhoto)
-                                            VALUES("'.$name.'", "'.$mail.'", "'.$password.'", "'.$cellphone.'", "'.$profilePhoto.'");
+                                            INSERT INTO user (name, lastName, mail, password, cellphone, profilePhoto)
+                                            VALUES("'.$name.'", "'.$lastName.'", "'.$mail.'", "'.$password.'", "'.$cellphone.'", "'.$profilePhoto.'");
                                             ');
             //$this->connect()->close();
             return $query;
@@ -34,6 +35,7 @@
         function updateUser(
             $userId,
             $name,
+            $lastName,
             $mail,
             $password,
             $cellphone,
@@ -43,6 +45,7 @@
             $query = $this->connect()->query('
                                             UPDATE user
                                             SET name = "'.$name.'",
+                                                lastName = "'.$lastName.'",
                                                 mail = "'.$mail.'",
                                                 password = "'.$password.'",
                                                 cellphone = "'.$cellphone.'",

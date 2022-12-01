@@ -28,10 +28,21 @@
         
         if(isset($_POST['title']) && isset($_POST['description']) && isset($_POST['image']) && isset($_POST['book']) && isset($_POST['userId'])){
             header("HTTP/1.1 200 ok");
+
+            $archivo = $_FILES["image"]["tmp_name"]; 
+            $tamanio = $_FILES["image"]["size"];
+            $tipo    = $_FILES["image"]["type"];
+            $nombre  = $_FILES["image"]["name"];
+
+            $fp = fopen($archivo, "rb");
+            $contenido = fread($fp, $tamanio);
+            $contenido = addslashes($contenido);
+            fclose($fp); 
+
             $res = $reviewClass->insertReview($_POST['title'],
                                               $_POST['description'],
-                                              $_POST['image'],
                                               $_POST['book'],
+                                              $contenido,
                                               $_POST['userId']
             );
         }else{

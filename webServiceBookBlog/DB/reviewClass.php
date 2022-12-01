@@ -21,13 +21,13 @@
         function insertReview(
             $title,
             $description,
-            $image,
             $book,
+            $image,
             $userId
         ){
             $query = $this->connect()->query('
-                                            INSERT INTO review (title, description, image, book, userId)
-                                            VALUES("'.$title.'", "'.$description.'", "'.$image.'", "'.$book.'", '.$userId.');
+                                            INSERT INTO review (title, description, book, image, userId)
+                                            VALUES("'.$title.'", "'.$description.'", "'.$book.'", "'.$image.'", '.$userId.');
                                             ');
             //$this->connect()->close();
             return $query;

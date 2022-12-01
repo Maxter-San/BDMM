@@ -26,9 +26,10 @@
 
     else if($_SERVER['REQUEST_METHOD'] == 'POST'){
         
-        if(isset($_POST['name']) && isset($_POST['mail']) && isset($_POST['password']) && isset($_POST['cellphone']) && isset($_POST['profilePhoto'])){
+        if(isset($_POST['name']) && isset($_POST['lastName']) && isset($_POST['mail']) && isset($_POST['password']) && isset($_POST['cellphone']) && isset($_POST['profilePhoto'])){
             header("HTTP/1.1 200 ok");
             $res = $userClass->insertUser($_POST['name'],
+                                          $_POST['lastName'],
                                           $_POST['mail'],
                                           $_POST['password'],
                                           $_POST['cellphone'],
@@ -42,10 +43,11 @@
     }
 
     else if($_SERVER['REQUEST_METHOD'] == 'PUT'){
-        if(isset($_GET['userId']) && isset($_GET['name']) && isset($_GET['mail']) && isset($_GET['password']) && isset($_GET['cellphone']) && isset($_GET['address']) && isset($_GET['profilePhoto'])){
+        if(isset($_GET['userId']) && isset($_GET['name']) && isset($_POST['lastName']) && isset($_GET['mail']) && isset($_GET['password']) && isset($_GET['cellphone']) && isset($_GET['address']) && isset($_GET['profilePhoto'])){
             header("HTTP/1.1 200 ok");
             $res = $userClass->updateUser($_GET['userId'],
                                           $_GET['name'],
+                                          $_POST['lastName'],
                                           $_GET['mail'],
                                           $_GET['password'],
                                           $_GET['cellphone'],
@@ -58,11 +60,6 @@
             //                                        $_GET['valoration']
             //    );
             //}
-        }else if(isset($_GET['userId']) && isset($_GET['userType'])){
-            $res = $userClass->updateUserType($_GET['userId'],
-                                              $_GET['userType']
-            );
-
         }
         else{
             header("HTTP/1.1 400 faltan datos");

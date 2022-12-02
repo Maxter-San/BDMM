@@ -26,11 +26,23 @@
 
     else if($_SERVER['REQUEST_METHOD'] == 'POST'){
         
-        if(isset($_POST['title']) && isset($_POST['description']) && isset($_POST['image']) && isset($_POST['book']) && isset($_POST['userId'])){
+        
+            header("HTTP/1.1 200 okee");
+
+            //$HTTP_RAW_POST_DATA
+            $json = file_get_contents('php://input');
+
+            // Converts it into a PHP object
+            $data = json_decode($json, true);
+
+            //echo $data['userId'];
+            //exit;
+        
+        if(isset($data['title']) && isset($data['description']) && isset($data['image']) && isset($data['book']) && isset($data['userId'])){
             header("HTTP/1.1 200 ok");
 
             $contenido = null;
-            if($_POST['image'] != null){
+            if($data['image'] != null){
             $archivo = $_FILES["image"]["tmp_name"]; 
             $tamanio = $_FILES["image"]["size"];
             $tipo    = $_FILES["image"]["type"];
@@ -43,17 +55,20 @@
                 fclose($fp); 
             }
 
-            $res = $reviewClass->insertReview($_POST['title'],
-                                              $_POST['description'],
-                                              $_POST['book'],
+            $res = $reviewClass->insertReview($data['title'],
+                                              $data['description'],
+                                              $data['book'],
                                               $contenido,
-                                              $_POST['userId']
+                                              $data['userId']
             );
+            echo $json;
+            exit;
+
         }else{
             header("HTTP/1.1 400 faltan datos");
         }
         
-        $res = $reviewClass->getReviewById(0);
+        $res = $reviewClass->getReviewById(1);
         $rows= [];
 
         while($r = mysqli_fetch_assoc($res)) {

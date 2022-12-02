@@ -29,12 +29,14 @@
         if(isset($_POST['title']) && isset($_POST['description']) && isset($_POST['image']) && isset($_POST['book']) && isset($_POST['userId'])){
             header("HTTP/1.1 200 ok");
 
+            $contenido = null;
+            if($_POST['image'] != null){
             $archivo = $_FILES["image"]["tmp_name"]; 
             $tamanio = $_FILES["image"]["size"];
             $tipo    = $_FILES["image"]["type"];
             $nombre  = $_FILES["image"]["name"];
 
-            if($tamanio > 0 || $_POST['image'] != " "){
+            
                 $fp = fopen($archivo, "rb");
                 $contenido = fread($fp, $tamanio);
                 $contenido = addslashes($contenido);

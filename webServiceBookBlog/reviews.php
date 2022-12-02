@@ -52,7 +52,7 @@
         }else{
             header("HTTP/1.1 400 faltan datos");
         }
-
+        echo json_encode(null);
         exit;
     }
 

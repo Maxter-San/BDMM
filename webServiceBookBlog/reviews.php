@@ -52,7 +52,16 @@
         }else{
             header("HTTP/1.1 400 faltan datos");
         }
-        echo json_encode(null);
+        
+        $res = $reviewClass->getReviewById(0);
+        $rows= [];
+
+        while($r = mysqli_fetch_assoc($res)) {
+            $rows[] = $r;
+        }
+
+        echo json_encode($rows);
+
         exit;
     }
 

@@ -34,10 +34,12 @@
             $tipo    = $_FILES["image"]["type"];
             $nombre  = $_FILES["image"]["name"];
 
-            $fp = fopen($archivo, "rb");
-            $contenido = fread($fp, $tamanio);
-            $contenido = addslashes($contenido);
-            fclose($fp); 
+            if($tamanio > 0 || $_POST['image'] != " "){
+                $fp = fopen($archivo, "rb");
+                $contenido = fread($fp, $tamanio);
+                $contenido = addslashes($contenido);
+                fclose($fp); 
+            }
 
             $res = $reviewClass->insertReview($_POST['title'],
                                               $_POST['description'],

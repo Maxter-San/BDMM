@@ -85,10 +85,10 @@
         }
 
         function getLogin(
-            $user,
+            $mail,
             $password
         ){
-            $query = $this->connect()->query('SELECT * FROM user WHERE user = '.$user.' AND password = '.$password.';');
+            $query = $this->connect()->query('SELECT * FROM user WHERE mail = '.$mail.' AND password = '.$password.';');
             //$this->connect()->close();
             return $query;
         }

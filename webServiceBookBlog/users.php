@@ -5,8 +5,8 @@
     if($_SERVER['REQUEST_METHOD'] == 'GET'){
         header("HTTP/1.1 200 ok");
 
-        if(isset($_GET['user']) && isset($_GET['password'])){
-            $res = $userClass->getLogin($_GET['user'], $_GET['password']);
+        if(isset($_GET['mail']) && isset($_GET['password'])){
+            $res = $userClass->getLogin($_GET['mail'], $_GET['password']);
             $rows= [];
             while($r = mysqli_fetch_assoc($res)) {
                 $rows[] = $r;

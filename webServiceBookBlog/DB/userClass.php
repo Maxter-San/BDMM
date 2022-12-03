@@ -88,7 +88,12 @@
             $mail,
             $password
         ){
-            $query = $this->connect()->query('SELECT * FROM user WHERE mail = '.$mail.' AND password = '.$password.';');
+            $mailP = null;
+            if($mail != null){$mailP = $mail;}
+            $passP = null;
+            if($password != null){$passP = $password;}
+
+            $query = $this->connect()->query('SELECT * FROM user WHERE mail = "'.$mailP.'" AND password = "'.$passP.'";');
             //$this->connect()->close();
             return $query;
         }

@@ -12,7 +12,16 @@
                 $rows[] = $r;
             }
             echo json_encode($rows);
-        }else{
+        }
+        else if(isset($_GET['userId'])){
+            $res = $reviewClass->getAllReviewsDetailByUserId($_GET['userId']);
+            $rows= [];
+            while($r = mysqli_fetch_assoc($res)) {
+                $rows[] = $r;
+            }
+            echo json_encode($rows);
+        }
+        else{
             $res = $reviewClass->getAllReviewsDetail();
             $rows= [];
             while($r = mysqli_fetch_assoc($res)) {

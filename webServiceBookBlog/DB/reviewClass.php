@@ -88,6 +88,17 @@
             return $query;
         }
 
+        function getAllReviewsDetailByUserId($userId){
+            $query = $this->connect()->query('SELECT reviewId, T1.creationDate, status, title, description, image, feedback, book, T1.userId, name, profilePhoto
+                                              FROM review AS T1
+                                              INNER JOIN user AS T2
+                                              ON T1.userId = T2.userId
+                                              WHERE T1.userId = '.$userId.'
+                                              ORDER BY T1.creationDate desc;');
+            //$this->connect()->close();
+            return $query;
+        }
+
     }
 
 ?>

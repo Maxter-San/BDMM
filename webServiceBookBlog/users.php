@@ -5,7 +5,15 @@
     if($_SERVER['REQUEST_METHOD'] == 'GET'){
         header("HTTP/1.1 200 ok");
 
-        if(isset($_GET['userId'])){
+        if(isset($_GET['user']) && isset($_GET['password'])){
+            $res = $userClass->getLogin($_GET['user'], $_GET['password']);
+            $rows= [];
+            while($r = mysqli_fetch_assoc($res)) {
+                $rows[] = $r;
+            }
+            echo json_encode($rows);
+        }
+        else if(isset($_GET['userId'])){
             $res = $userClass->getUserById($_GET['userId']);
             $rows= [];
             while($r = mysqli_fetch_assoc($res)) {

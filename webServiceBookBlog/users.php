@@ -60,11 +60,11 @@
     }
 
     else if($_SERVER['REQUEST_METHOD'] == 'PUT'){
-        if(isset($_GET['userId']) && isset($_GET['name']) && isset($_POST['lastName']) && isset($_GET['mail']) && isset($_GET['password']) && isset($_GET['cellphone']) && isset($_GET['address']) && isset($_GET['profilePhoto'])){
+        if(isset($_GET['userId']) && isset($_GET['name']) && isset($_GET['lastName']) && isset($_GET['mail']) && isset($_GET['password']) && isset($_GET['cellphone']) && isset($_GET['address']) && isset($_GET['profilePhoto'])){
             header("HTTP/1.1 200 ok");
             $res = $userClass->updateUser($_GET['userId'],
                                           $_GET['name'],
-                                          $_POST['lastName'],
+                                          $_GET['lastName'],
                                           $_GET['mail'],
                                           $_GET['password'],
                                           $_GET['cellphone'],
@@ -81,6 +81,12 @@
         else{
             header("HTTP/1.1 400 faltan datos");
         }
+
+        $input = $_GET;
+        $postId = $input['userId'];
+        
+        echo $input."...";
+        echo $postId;
 
         exit;
     }

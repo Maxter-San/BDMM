@@ -82,12 +82,6 @@
             header("HTTP/1.1 400 faltan datos");
         }
 
-        $input = $_GET;
-        $postId = $input['userId'];
-        
-        echo $input."...";
-        echo $postId;
-
         exit;
     }
 

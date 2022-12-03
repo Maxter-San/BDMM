@@ -72,6 +72,7 @@
         function deleteUser(
             $userId
         ){
+            $query = $this->connect()->query('DELETE FROM review WHERE userId = '.$userId.';');
             $query = $this->connect()->query('DELETE FROM user WHERE userId = '.$userId.';');
             return $query;
         }

@@ -116,9 +116,9 @@
     }
 
     else if($_SERVER['REQUEST_METHOD'] == 'DELETE'){
-        if(isset($_GET['bookId'])){
+        if(isset($_GET['reviewId'])){
             header("HTTP/1.1 200 ok");
-            
+            $res = $userClass->deleteReview($_GET['reviewId']);
         }else{
             header("HTTP/1.1 400 faltan datos");   
         }

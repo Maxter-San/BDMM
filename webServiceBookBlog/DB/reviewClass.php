@@ -63,6 +63,13 @@
             return $query;
         }
 
+        function deleteReview(
+            $reviewId
+        ){
+            $query = $this->connect()->query('DELETE FROM review WHERE reviewId = '.$reviewId.';');
+            return $query;
+        }
+
         function getAllReviews()
         {
             $query = $this->connect()->query('SELECT * FROM review;');

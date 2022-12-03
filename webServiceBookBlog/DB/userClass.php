@@ -69,6 +69,13 @@
             return $query;
         }
 
+        function deleteUser(
+            $userId
+        ){
+            $query = $this->connect()->query('DELETE FROM user WHERE userId = '.$userId.';');
+            return $query;
+        }
+
         function getAllUsers()
         {
             $query = $this->connect()->query('SELECT * FROM user;');

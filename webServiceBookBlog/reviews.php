@@ -6,7 +6,7 @@
         header("HTTP/1.1 200 ok");
 
         if(isset($_GET['reviewId'])){
-            $res = $reviewClass->getReviewById($_GET['reviewId']);
+            $res = $reviewClass->getAllReviewsDetailByUserId($_GET['reviewId']);
             $rows= [];
             while($r = mysqli_fetch_assoc($res)) {
                 $rows[] = $r;

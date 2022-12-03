@@ -50,7 +50,7 @@
                                           $data['mail'],
                                           $data['password'],
                                           $data['cellphone'],
-                                          $data['profilePhoto']
+                                          null
             );
         }else{
             header("HTTP/1.1 400 faltan datos");
@@ -69,7 +69,7 @@
                                           $_GET['password'],
                                           $_GET['cellphone'],
                                           $_GET['address'],
-                                          $_GET['profilePhoto']
+                                          null
             );
 
             //if(isset($_GET['bookId']) && $_GET['valoration']){

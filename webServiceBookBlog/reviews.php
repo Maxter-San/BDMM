@@ -52,10 +52,10 @@
 
             $contenido = null;
             if($data['image'] != null){
-            $archivo = $_FILES["image"]["tmp_name"]; 
-            $tamanio = $_FILES["image"]["size"];
-            $tipo    = $_FILES["image"]["type"];
-            $nombre  = $_FILES["image"]["name"];
+                $archivo = $_FILES["image"]["tmp_name"]; 
+                $tamanio = $_FILES["image"]["size"];
+                $tipo    = $_FILES["image"]["type"];
+                $nombre  = $_FILES["image"]["name"];
 
             
                 $fp = fopen($archivo, "rb");

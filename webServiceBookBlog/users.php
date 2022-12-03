@@ -33,15 +33,24 @@
     }
 
     else if($_SERVER['REQUEST_METHOD'] == 'POST'){
+
+        header("HTTP/1.1 200 okee");
+
+            //$HTTP_RAW_POST_DATA
+        $json = file_get_contents('php://input');
+
+            // Converts it into a PHP object
+        $data = json_decode($json, true);
         
-        if(isset($_POST['name']) && isset($_POST['lastName']) && isset($_POST['mail']) && isset($_POST['password']) && isset($_POST['cellphone']) && isset($_POST['profilePhoto'])){
+        
+        if(isset($data['name']) && isset($data['lastName']) && isset($data['mail']) && isset($data['password']) && isset($data['cellphone']) && isset($data['profilePhoto'])){
             header("HTTP/1.1 200 ok");
-            $res = $userClass->insertUser($_POST['name'],
-                                          $_POST['lastName'],
-                                          $_POST['mail'],
-                                          $_POST['password'],
-                                          $_POST['cellphone'],
-                                          $_POST['profilePhoto']
+            $res = $userClass->insertUser($data['name'],
+                                          $data['lastName'],
+                                          $data['mail'],
+                                          $data['password'],
+                                          $data['cellphone'],
+                                          $data['profilePhoto']
             );
         }else{
             header("HTTP/1.1 400 faltan datos");

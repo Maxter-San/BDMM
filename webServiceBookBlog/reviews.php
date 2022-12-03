@@ -14,7 +14,7 @@
             echo json_encode($rows);
         }
         else if(isset($_GET['userId'])){
-            $res = $reviewClass->getAllReviewsDetailByUserId($_GET['userId']);
+            $res = $reviewClass->getAllReviewsDetailById($_GET['userId']);
             $rows= [];
             while($r = mysqli_fetch_assoc($res)) {
                 $rows[] = $r;

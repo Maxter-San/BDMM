@@ -5,16 +5,16 @@
     if($_SERVER['REQUEST_METHOD'] == 'GET'){
         header("HTTP/1.1 200 ok");
 
-        if(isset($_GET['reviewId'])){
-            $res = $reviewClass->getAllReviewsDetailByUserId($_GET['reviewId']);
+        if(isset($_GET['userId'])){
+            $res = $reviewClass->getAllReviewsDetailByUserId($_GET['userId']);
             $rows= [];
             while($r = mysqli_fetch_assoc($res)) {
                 $rows[] = $r;
             }
             echo json_encode($rows);
         }
-        else if(isset($_GET['userId'])){
-            $res = $reviewClass->getAllReviewsDetailById($_GET['userId']);
+        else if(isset($_GET['reviewId'])){
+            $res = $reviewClass->getAllReviewsDetailById($_GET['reviewId']);
             $rows= [];
             while($r = mysqli_fetch_assoc($res)) {
                 $rows[] = $r;

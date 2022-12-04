@@ -12,6 +12,13 @@
                 $rows[] = $r;
             }
             echo json_encode($rows);
+        }else{
+            $res = $commentClass->getAllComments();
+            $rows= [];
+            while($r = mysqli_fetch_assoc($res)) {
+                $rows[] = $r;
+            }
+            echo json_encode($rows);
         }
 
         exit;

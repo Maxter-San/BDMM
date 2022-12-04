@@ -36,6 +36,13 @@
             return $query;
         }
 
+        function getAllComments()
+        {
+            $query = $this->connect()->query('SELECT * FROM comment;');
+            //$this->connect()->close();
+            return $query;
+        }
+
 
     }
 

@@ -32,7 +32,10 @@
 
         function getCommentByReview($reviewId)
         {
-            $query = $this->connect()->query('SELECT * FROM comment WHERE reviewId = '.$reviewId.';');
+            $query = $this->connect()->query('SELECT * FROM comment AS T1
+                                            INNER JOIN user AS T2 
+                                            ON T1.userId = T2.userId
+                                            WHERE reviewId = '.$reviewId.';');
             //$this->connect()->close();
             return $query;
         }

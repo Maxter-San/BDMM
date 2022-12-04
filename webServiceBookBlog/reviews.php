@@ -95,7 +95,7 @@
             $res = $reviewClass->updateReview($_GET['reviewId'],
                                               $_GET['title'],
                                               $_GET['description'],
-                                              $_GET['image'],
+                                              null,
                                               $_GET['book']
             );
 

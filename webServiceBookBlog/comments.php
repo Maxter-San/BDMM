@@ -38,12 +38,13 @@
             //echo $data['userId'];
             //exit;
         
-        if(isset($data['comment']) && isset($data['reviewId'])){
+        if(isset($data['comment']) && isset($data['reviewId']) && isset($data['userId'])){
             header("HTTP/1.1 200 ok");
 
 
             $res = $commentClass->insertComment($data['comment'],
-                                              $data['reviewId']
+                                              $data['reviewId'],
+                                              $data['userId']
             );
             echo $json;
             exit;

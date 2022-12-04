@@ -18,11 +18,12 @@
 
         function insertComment(
             $comment,
-            $reviewId
+            $reviewId,
+            $userId
         ){
             $query = $this->connect()->query('
-                                            INSERT INTO comment (comment, reviewId)
-                                            VALUES("'.$comment.'", '.$reviewId.');
+                                            INSERT INTO comment (comment, reviewId, userId)
+                                            VALUES("'.$comment.'", '.$reviewId.', '.$userId.');
                                             ');
             //$this->connect()->close();
             return $query;

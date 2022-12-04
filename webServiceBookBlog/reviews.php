@@ -90,7 +90,7 @@
     }
 
     else if($_SERVER['REQUEST_METHOD'] == 'PUT'){
-        if(isset($_POST['reviewId']) && isset($_POST['title']) && isset($_POST['description']) && isset($_POST['image']) && isset($_POST['book'])){
+        if(isset($_GET['reviewId']) && isset($_GET['title']) && isset($_GET['description']) && isset($_GET['image']) && isset($_GET['book'])){
             header("HTTP/1.1 200 ok");
             $res = $reviewClass->updateReview($_GET['reviewId'],
                                               $_GET['title'],

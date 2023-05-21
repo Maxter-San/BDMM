@@ -9,9 +9,10 @@
             //$this->servername = "localhost";
             //$this->username = "root";
             //$this->password = "Pass741852963";
-            $this->servername = "159.223.191.152";
-            $this->username = "remote";
-            $this->password = "super-secret";
+            //$this->servername = "159.223.191.152";
+            $this->servername = "test.maxter-san.com";
+            $this->username = "root";
+            $this->password = "password";
             $this->dbname = "MAXTERSHOP";
         }
 

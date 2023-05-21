@@ -78,8 +78,8 @@
         function shareScore(){
             FB.ui({
                 method: 'share',
-                href: 'http://159.223.191.152/',
-                hashtag: "#PWCI",
+                href: 'https://test.maxter-san.com/',
+                hashtag: "#BDMM",
                 quote: 'Mi compra'
             }, function(response){});
         }

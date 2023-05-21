@@ -139,7 +139,7 @@
                                 }
                             }else{
                                 $validations = 1;
-                                echo '<label style="color : red;">Aún no completas tu información de pago</label> <a href="/PIA/settings.php">Click aquí</a>';
+                                echo '<label style="color : red;">Aún no completas tu información de pago</label> <a href="/settings.php">Click aquí</a>';
                             }
                         ?>
 

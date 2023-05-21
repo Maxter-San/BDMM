@@ -11,7 +11,7 @@
             //$this->password = "Pass741852963";
             //$this->servername = "159.223.191.152";
             $this->servername = "localhost";
-            $this->username = "host";
+            $this->username = "shop";
             $this->password = "password";
             $this->dbname = "MAXTERSHOP";
         }
